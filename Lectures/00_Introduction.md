@@ -34,8 +34,7 @@
 
 ### Bibliography (TBD)
 
-Main reference:
-
 1. **Main reference**: "Introduction to Embedded Systems - A cyber-physical systems approach", E.A.Lee and S.A. Seshia, MIT Press, 2nd Edition, 2017.
-1. **Main reference**: "Embedded System Design", Peter Marwedel, Springer, 2nd Edition, 2011.
+   - Available online at [https://ptolemy.berkeley.edu/books/leeseshia/download.html](https://ptolemy.berkeley.edu/books/leeseshia/download.html)
+1. "Embedded System Design", Peter Marwedel, Springer, 2nd Edition, 2011.
 2. "Managing Model-Based Design", Roger Aarenstrup, The MathWorks, 2015.

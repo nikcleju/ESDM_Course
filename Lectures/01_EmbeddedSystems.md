@@ -69,13 +69,24 @@ whose behavior is defined by both cyber and physical parts of the system
 
 ![Embedded Systems vs PC](fig/Intro_EmbeddedVsPC_Mw.png)
 
+* Image from Marwedel 2011
 
 ### Structure of an embedded system
 
 * Typical structure of an embedded system (CPS)
 
-![](fig/Intro_ExampleStructure.png)
+![](fig/Intro_ExampleStructure_LS.png)
 
+* Image from Lee&Seshia 2017
+
+### Structure of an embedded system
+
+* Main components:
+   - the physical process (known as the "plant")
+   - sensors: acquire information from the process
+   - actuators: act on the process
+   - computation: may be split between different devices
+   - communications: between separate devices
 
 ### The design process
 
@@ -83,3 +94,4 @@ whose behavior is defined by both cyber and physical parts of the system
    - Modeling
    - Design   
    - Analysis
+   - ... and iterate again.
