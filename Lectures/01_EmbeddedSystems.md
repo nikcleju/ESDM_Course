@@ -2,11 +2,12 @@
 
 ### What are Embedded Systems?
 
-- Embedded System (Marwedel): Embedded systems are information processing systems embedded
-into enclosing products.
+- Embedded System (Marwedel 2011): Embedded systems are information processing systems embedded
+into enclosing products
 
-- Cyber-Physical Systems (Lee & Seshia): A CPS is an integration of computation with physical processes
+- Cyber-Physical Systems (Lee & Seshia 2017): A CPS is an integration of computation with physical processes
 whose behavior is defined by both cyber and physical parts of the system
+    * "cyber" means $\approx$ "control" (from Greek)
 
 - Key points:
     - there is a physical process to be controlled
@@ -28,6 +29,17 @@ whose behavior is defined by both cyber and physical parts of the system
 
   $\approx$ Cyber-Physical Systems
 
+### What are Embedded Systems?
+
+![](fig/Intro_Elephant1.png){width=70%}
+
+* Image from Lee&Seshia 2017
+
+### What are Embedded Systems?
+
+![](fig/Intro_Elephant2.png){width=70%}
+
+* Image from Lee&Seshia 2017
   
 ### Found everywhere
 
@@ -91,7 +103,37 @@ whose behavior is defined by both cyber and physical parts of the system
 ### The design process
 
 - Iterative:
-   - Modeling
-   - Design   
-   - Analysis
+   - **Modeling**:  "the process of gaining a deeper understanding of a system through imitation. It specifies what a system does."
+   - **Design**:    "the structured creation of artifacts. It specifies how a system does what it does."
+   - **Analysis**:  "the process of gaining a deeper understanding of a system through dissection. It specifies why a system does what it does."
    - ... and iterate again.
+   
+### The V-Cycle
+
+* Common System Development Cycle in automotive industry (from a SW point of view):
+
+![](fig/Intro_VCycle_Mw.png)
+
+* Image from Marwedel 2011
+
+### The V-Cycle
+
+Steps:
+
+* Requirements specifications
+* System Architecture & Design
+   * part of the Design and Modelling is done here
+* SW Architecture & Design
+   * part of the Design and Modelling is done here
+* Implementation
+* Tests & Validation
+   * all tests are done against the corresponding documents from the other branch
+
+### Other processes
+
+* For System & Software: Waterfall, Agile
+* For Hardware: Gajski’s Y-chart
+
+![Gajski Y Chart and design path](fig/Intro_GajskiYChart.png){width=75%}
+
+* Image from Marwedel 2011
