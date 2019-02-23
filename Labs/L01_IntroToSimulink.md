@@ -1,6 +1,6 @@
 ---
 title: Basic control blocks in Simulink
-subtitle: Lab 1, DSP
+subtitle: Lab 1, ESDM
 documentclass: scrartcl
 fontsize: 12pt
 ---
