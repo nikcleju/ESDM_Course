@@ -1,4 +1,4 @@
-## Introduction to Embedded Systems Design
+## I. Introduction to Embedded Systems Design
 
 ### What are Embedded Systems?
 
