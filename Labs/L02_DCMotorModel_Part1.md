@@ -1,5 +1,5 @@
 ---
-title: Modeling a DC Motor in Simulink
+title: Modeling a DC Motor in Simulink - Part 1
 subtitle: Lab 2, ESDM
 documentclass: scrartcl
 fontsize: 12pt
