@@ -12,3 +12,5 @@
 \newcommand{\trZ}{\stackrel{\mathrm{Z}}{\longleftrightarrow}}
 
 \newcommand*{\underuparrow}[1]{\ensuremath{\underset{\uparrow}{#1}}}
+
+\newcommand{\s}{\smallskip}
