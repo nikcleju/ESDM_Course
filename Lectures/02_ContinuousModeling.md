@@ -238,12 +238,14 @@ depend on speed, but is a constant \
     - output = motor speed $S(s)$ = voltage on equivalent motor capacity 
 
 - Transfer function
-$$H(s) = \frac{S(s)}{U(s)} = \frac{b_0}{s^2 + a_1 s + a_2} \approx \frac{\alpha}{s + \beta}$$
+$$H(s) = \frac{S(s)}{U(s)} = \frac{b_0}{s^2 + a_1 s + a_2} \approx \frac{K}{\tau \cdot s + 1}$$
 
 - Take home message: 
-    Simple DC motor no-load model = a second order RLC model = approx a RC model
+    - Simple DC motor no-load model = a second order RLC model = approx a RC model
+    - Behaves like a RC low-pass filter
 
-- This is a no-load model (motor doesn't move anything heavy)
+- Note: This is a no-load model (motor doesn't move anything heavy)
+
 
 ### Motor under load
 
@@ -273,3 +275,80 @@ $$H(s) = \frac{S(s)}{U(s)} = \frac{b_0}{s^2 + a_1 s + a_2} \approx \frac{\alpha}
 \s
 - You will use it in the lab
 
+
+### Motor controllers
+
+- DC motor behaves like a RC low-pass filter
+    - input = voltage, output = speed
+\s
+- Consequences:
+    - Possible slow reaction time (exponential response to step function)
+    - Little/None oscillations or overshoot
+    - Final speed dependent on motor parameters
+\s
+- How to improve behavior?
+
+### Motor controllers
+
+- Use a controller, in a negative feedback loop
+
+- Draw at blackboard: schematic
+
+- Role:
+    - improve motor reaction speed (tradeoff: speed vs. overshoots)
+    - robust against parameter or load variations
+    
+### PID Controller
+
+- PID controller  = the simplest solution
+
+- Input = error signal = target speed - actual measured speed
+
+- Output = Sum of three components:
+   - **P**roportional: $P$ * input
+   - **I**ntegral: $I$ * integral of input
+   - **D**erivative: $D$ * derivative of input
+
+### PID Controller
+
+- Intuitive role of the $P$ component:
+    - If actual speed < target => increase motor voltage 
+    - If actual speed > target => decrease motor voltage 
+
+\s
+
+- This is not enough: 
+    - Non-zero motor voltage requires non-zero speed error => the motor
+    never actually reaches the target speed
+    - There is always a small systematic error (**bias error**)
+
+### PID Controller
+
+- Intuitive role of the $I$ component:
+    - Eliminate the bias error of the $P$ component, by slowly integrating
+    the remaining error signal => integral slowly increases over time =>
+    motor voltage is pushed towards the correct value
+    - Error signal cannot remain constant forever, because the integral would
+    grow large => force changes to the motor input
+
+
+### PID Controller
+
+- Intuitive role of the $D$ component:
+    - make the system react faster (jumpy) to fast input changes
+    - improves system reaction time
+\s
+- Problem: 
+    - fast reaction time = more oscillation behavior:
+        - more overshoot
+        - possibly unstable
+
+### PID tuning 
+
+- PID tuning: find P, I, D values for good behavior
+    - Typical requirements:
+        - stable system, overall
+        - overshoot not larger than X%
+        - fastest response in these conditions
+\s
+- Find out more at the Vehicle Control Systems course
