@@ -28,13 +28,13 @@ New things in this lab:
 2. Add/Open a "Chart" block in the Simulink model, and design a Finite State Machine to fulfill 
 the following requirements:
 	
-  1. The motor shall be started when the input `StartMotor` transitions to TRUE
-  2. Upon starting, the motor speed shall increase linearly from 0 to **CP_MaxSpeed** during an interval of **CP_RampUpTime**
-  3. Once the motor has reached **CP_MaxSpeed**, it shall hold this speed until a stop request is received
-  4. A stop request is received when the input `StartMotor` transitions to FALSE
-  5. Upon receiving a stop request, the motor speed shall decrease linearly from **CP_MaxSpeed** to 0 during an interval of **CP_RampDownTime**
-  6. A hard-stop condition of the motor shall be detected, and in this case the motor shall be stopped immediately, without and ramping down of speed 
-  7. The model shall provide the boolean output `MotorStatus` indicating the current status of the motor, at all times. `MotorStatus` shall be set to TRUE when motor is started, and shall be set to FALSE after a delay **CP_SafeOffTime** after becomes 0.
+    1. The motor shall be started when the input `StartMotor` transitions to TRUE
+    2. Upon starting, the motor speed shall increase linearly from 0 to **CP_MaxSpeed** during an interval of **CP_RampUpTime**
+    3. Once the motor has reached **CP_MaxSpeed**, it shall hold this speed until a stop request is received
+    4. A stop request is received when the input `StartMotor` transitions to FALSE
+    5. Upon receiving a stop request, the motor speed shall decrease linearly from **CP_MaxSpeed** to 0 during an interval of **CP_RampDownTime**
+    6. A hard-stop condition of the motor shall be detected, and in this case the motor shall be stopped immediately, without and ramping down of speed 
+    7. The model shall provide the boolean output `MotorStatus` indicating the current status of the motor, at all times. `MotorStatus` shall be set to TRUE when motor is started, and shall be set to FALSE after a delay **CP_SafeOffTime** after becomes 0.
 
 3. Test your state machine and show that is works properly. In particular, check 2 different values for each parameter, and see that the outputs react properly.
 
