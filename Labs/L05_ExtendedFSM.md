@@ -1,6 +1,6 @@
 ---
 title: Extended Finite State Machines (EFSM)
-subtitle: Lab 4, ESDM
+subtitle: Lab 5, ESDM
 documentclass: scrartcl
 fontsize: 12pt
 ---
