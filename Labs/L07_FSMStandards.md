@@ -24,7 +24,7 @@ TBD. See the Lectures.
     3. If the input `LatchReached` becomes `TRUE`, but the motor was not started anytime within `CP_MaxLatchDelay`
     prior to this moment, it shall be ignored and the liftgate shall be considered open.
 
-2. Redesign the finite state machine using a separate state (OR decomposition) for the timer operation.
+2. Redesign the finite state machine using a separate state for the timer operation, in a parallel state (AND decomposition / parallel decomposition).
 
 2. Test your design: put appropriate inputs and observe the output signals.
 
