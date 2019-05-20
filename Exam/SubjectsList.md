@@ -7,8 +7,8 @@ fontsize: 12pt
 
 The exam will consist of:
 
-1. One FSM from the "Finite State Machines" section, to implement and explain
-2. 2-3 questions from the "General" section
+1. Implementation of one FSM from the "Finite State Machines" section, to implement and explain
+2. A few (~ 3) questions from the "General" section
 
 # Finite State Machines 
 
