@@ -69,10 +69,10 @@ whose behavior is defined by both cyber and physical parts of the system
 ### Common characteristics 
 
 - Embedded systems share common characteristics:
-   - must satisfy strict timing constraints
+   - must satisfy **strict timing constraints**
        - most embedded systems operate in real-time
   
-   - must be fault-tolerant  
+   - must be **fault-tolerant**
    
    
 ### Embedded systems vs PC
