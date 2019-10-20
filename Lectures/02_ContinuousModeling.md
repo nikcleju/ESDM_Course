@@ -1,4 +1,4 @@
-## II. Modeling continuous systems
+## II. Modeling of continuous systems
 
 ### Continuous systems
 
@@ -54,19 +54,57 @@ just like electrical ones
 
 - Example: oscillations after releasing of a loaded spring 
      - (solve at blackboard)
+     
+     
+### Equivalence spring = LC circuit
 
+* A loaded spring oscillates (without any friction) according to the equation:
+
+![Spring oscillations](fig/Spring.png){width=35%}
+
+* image from *https://www.youtube.com/watch?v=M2m0ALqgcnQ*
+
+
+### Equivalence spring = LC circuit
+
+* A LC circuit oscillates (without any resistance loss) according to the equation:
+
+![LC oscillations](fig/LC_Oscillator.png){width=35%}
+
+* image from *https://www.rfwireless-world.com/Terminology/Mechanical-Oscillator-vs-Electrical-Oscillator.html*
+
+
+### Equivalence spring = LC circuit
+
+* Notice the similarities
+
+* Same linear differential equation:
+
+$$\frac{d}{dt^2} f(t) + A \cdot f(t) = 0$$
+
+* Same solution 
+    * $f(t)$ = sinusoidal (why sinusoidal?)
+
+* All kinds of continuous systems can be described in the same way: using linear differential equations
 
 ### Electrical - mechanical analogies
 
 - Multiple ways to define analogies between electrical and mechanical characteristics
 
-- Here is the one we will use:
+- Here is the one we will use from now on:
 
 |    Electr. |   Mech. (linear)  |  Mech. (rotational) |
 |  ----------|  --------------- | ------------------ |
 |   Current [A] |   Force [N]   |  Torque ("cuplu") [N.m] |
 |   Voltage [V] |   Speed [m/s] | Angular speed [rad/s]|
 
+### Mechanics: linear vs rotational
+
+* Note: there are different quantities for **linear** vs **rotational** movements
+
+  * **Force** in linear movement $\equiv$ **Torque** (cuplu) in rotational movement
+  * Linear speed linear movement $\equiv$ Angular speed in rotational movement
+  
 
 ### Simple model of a DC motor
 
