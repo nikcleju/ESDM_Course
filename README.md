@@ -1,7 +1,7 @@
 # ESDM_Course
 
-Here you will find all the materials for the class of Embedded System Design and Modeling (ESDM) taught during 2018-2019
-spring semester at ETTI, TUIASI.
+Here you will find all the materials for the class of Embedded System Design and Modeling (ESDM) taught during 2019-2020
+academic year at ETTI, TUIASI.
 
 ## Course materials 
 
