@@ -1,13 +1,13 @@
 ---
-title: Espresso Machine
-subtitle: Project 2, ESDM
+title: Water Dispenser
+subtitle: Project 5, ESDM
 documentclass: scrartcl
 fontsize: 12pt
 ---
 
 # Short description
 
-1. Create and test Simulink model with a state machine implementing the behavior of an espresso coffee machine.
+1. Create and test Simulink model with a state machine implementing the behavior of a water dispenser ("La fantana").
 
 2. Write a small report on the project:
    a. briefly describe the overall design you chose (states, transitions etc).
@@ -16,15 +16,11 @@ fontsize: 12pt
 
 # Requirements
 
-1. The coffee machine can produce 3 beverages:
-   - normal coffee
-   - long coffee
-   - hot water (for tea)
+1. The water dispenser can output cold water or hot water
 
 2. The Simulink model has the following inputs and outputs:
     
     Inputs:
-    - Normal Coffee button (boolean)
     - Long Coffee button (boolean)
     - Hot water button (boolean)
     - Self-test button (boolean)
