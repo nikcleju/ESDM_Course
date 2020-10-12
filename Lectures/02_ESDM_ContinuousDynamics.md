@@ -275,8 +275,8 @@ depend on speed, but is a constant \
 
 ### The full electrical model
 
-- Draw picture at blackboard:
-    R in series with L in series with (R parallel with (C1 + C2))
+
+![DC Motor electrical equivalent model](fig/DCMotorElectricalModel.png)
 
 - This is **a second order model** (1L, 1C)
     - the two capacities are in parallel, so they can be added into a single one
@@ -291,8 +291,8 @@ depend on speed, but is a constant \
     - input = voltage on motor input $U(s)$
     - output = motor speed $S(s)$ = voltage on equivalent motor capacity 
 
-- Transfer function
-$$H(s) = \frac{S(s)}{U(s)} = \frac{b_0}{s^2 + a_1 s + a_2} \approx \frac{K}{\tau \cdot s + 1}$$
+- Transfer function ($2{^nd}$ degree, approximately $1^{st}$ degree)
+$$H(s) = \frac{S(s)}{U(s)} = \frac{b_0 s + b_1}{s^2 + a_1 s + a_2} \approx \frac{K}{\tau \cdot s + 1}$$
 
 - Take home message: 
     - Simple DC motor no-load model = a second order RLC model = approx a RC model
@@ -327,30 +327,43 @@ $$H(s) = \frac{S(s)}{U(s)} = \frac{b_0}{s^2 + a_1 s + a_2} \approx \frac{K}{\tau
 
 - Simulink has a DC motor model already integrated
 \s
-- You will use it in the lab
+- You will use it in the lab (maybe)
+
+### What to use the model for?
+
+What to use the motor model for?
+
+Simulate:
+
+- how fast motor starts when supply is first applied
+- what happens when supply fluctuates (e.g. PWM)
+- what happens when motor parameters change (e.g. temperature rises, friction slows)
+- what happens when load varies
+- ...
+
+### Motor speed controller
+
+Basic problem: how to make sure motor speed stays **exactly** as desired:
+
+- even if parameters vary
+- even if load varies
+- even if supply varies
+- on power on, speed is reached as fast as possible
+
+This is a job for a **motor controller**
+ 
+- Today's special: the PID motor controller
 
 
 ### Motor controllers
 
-- DC motor behaves like a RC low-pass filter
-    - input = voltage, output = speed
-\s
-- Consequences:
-    - Possible slow reaction time (exponential response to step function)
-    - Little/None oscillations or overshoot
-    - Final speed dependent on motor parameters
-\s
-- How to improve behavior?
+![PID speed controller (image from Wikipedia)](fig/PID.png){width=80%}
 
-### Motor controllers
+- Negative feedback loop
 
-- Use a controller, in a negative feedback loop
+- Can be used for any sort of process, not just motors
 
-- Draw at blackboard: schematic
-
-- Role:
-    - improve motor reaction speed (tradeoff: speed vs. overshoots)
-    - robust against parameter or load variations
+- Make output signal $y(t)$ follow the desired input $r(t)$
     
 ### PID Controller
 
@@ -363,7 +376,7 @@ $$H(s) = \frac{S(s)}{U(s)} = \frac{b_0}{s^2 + a_1 s + a_2} \approx \frac{K}{\tau
    - **I**ntegral: $I$ * integral of input
    - **D**erivative: $D$ * derivative of input
 
-### PID Controller
+### PID Controller - P component
 
 - Intuitive role of the $P$ component:
     - If actual speed < target => increase motor voltage 
@@ -374,9 +387,13 @@ $$H(s) = \frac{S(s)}{U(s)} = \frac{b_0}{s^2 + a_1 s + a_2} \approx \frac{K}{\tau
 - This is not enough: 
     - Non-zero motor voltage requires non-zero speed error => the motor
     never actually reaches the target speed
-    - There is always a small systematic error (**bias error**)
+    - There is always a small systematic error ("**bias error**", "steady-state error")
 
-### PID Controller
+### PID controller - only P, systematic error 
+
+![Systematic error for P-only controller](fig/PID_OnlyP.png){width=90%}
+
+### PID Controller - I component
 
 - Intuitive role of the $I$ component:
     - Eliminate the bias error of the $P$ component, by slowly integrating
@@ -385,8 +402,11 @@ $$H(s) = \frac{S(s)}{U(s)} = \frac{b_0}{s^2 + a_1 s + a_2} \approx \frac{K}{\tau
     - Error signal cannot remain constant forever, because the integral would
     grow large => force changes to the motor input
 
+### PID controller - P and I
 
-### PID Controller
+![P and I components](fig/PID_OnlyPI.png){width=90%}
+
+### PID Controller - D component
 
 - Intuitive role of the $D$ component:
     - make the system react faster (jumpy) to fast input changes
@@ -397,6 +417,10 @@ $$H(s) = \frac{S(s)}{U(s)} = \frac{b_0}{s^2 + a_1 s + a_2} \approx \frac{K}{\tau
         - more overshoot
         - possibly unstable
 
+### PID controller - P, I and D
+
+![P, I and D components](fig/PID_OnlyPID.png){width=90%}
+
 ### PID tuning 
 
 - PID tuning: find P, I, D values for good behavior
@@ -405,4 +429,4 @@ $$H(s) = \frac{S(s)}{U(s)} = \frac{b_0}{s^2 + a_1 s + a_2} \approx \frac{K}{\tau
         - overshoot not larger than X%
         - fastest response in these conditions
 \s
-- Find out more at the Vehicle Control Systems course
+- Find out more at the Vehicle Control Systems course (2nd semester, I think)
