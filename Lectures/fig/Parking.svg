@@ -1133,7 +1133,9 @@
        style="font-style:normal;font-weight:normal;font-size:7.76111126px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        x="26.454309"
        y="436.51471"
-       id="text5470"><tspan
+       id="text5470"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
          id="tspan5468"
          x="26.454309"
@@ -1154,13 +1156,17 @@
        d="m 53.186636,421.01305 c 8.872676,-62.10404 74.211364,0.41905 13.898015,15.76891"
        id="path5531"
        inkscape:connector-curvature="0"
-       sodipodi:nodetypes="cc" />
+       sodipodi:nodetypes="cc"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:7.76111126px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        x="75.904549"
        y="392.14798"
-       id="text5983"><tspan
+       id="text5983"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
          id="tspan5981"
          x="75.904549"
@@ -1176,13 +1182,17 @@
        d="m 32.691701,420.66238 c -8.872676,-62.10404 -74.211364,0.41905 -13.898015,15.76891"
        id="path5531-2"
        inkscape:connector-curvature="0"
-       sodipodi:nodetypes="cc" />
+       sodipodi:nodetypes="cc"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:7.76111126px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        x="-49.444454"
        y="391.44025"
-       id="text5983-9"><tspan
+       id="text5983-9"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300"><tspan
          sodipodi:role="line"
          id="tspan5981-3"
          x="-49.444454"
