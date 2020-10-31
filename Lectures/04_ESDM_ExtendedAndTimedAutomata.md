@@ -115,4 +115,75 @@
 
 - Timed Automaton to simulate a bouncing ball movements
 
-![(image from Seshia's slides)](fig/ExtFSM_TimedAutomata_BouncingBall.png){width=80%}
+![(image from Seshia's slides)](fig/ExtFSM_TimedAutomata_BouncingBall.png){width=80%}\
+
+### FSM simulation software
+
+- FSM simulation software
+
+- Used in this class: Stateflow (Simulink / Matlab)
+
+- Features:
+  
+  - State Actions
+  - Temporal Logic
+  - Other events
+  - ... other ...
+  
+### State actions
+
+- Actions can exist not only on transitions, but also **inside states**
+
+- Three main types of **State Actions**:
+
+  - **entry (en)**:  executed only when a **state is entered**
+  - **exit (ex)**:   executed only when a **state is exited**
+  - **during (du)**: executed when we are in state which is neither entered, not exited
+
+### State actions
+
+![State Actions example (image from Matlab docs)](fig/Stateflow_StateActions.png)
+
+### State actions
+
+- State actions can be avoided (use only transitions actions), 
+but sometimes one or the other are more convenient
+
+### Temporal logic
+
+- For time-based conditions, states certain predefined variables, 
+which can be used to **measure time spent in a state**
+
+  - ***tick***: measures time steps
+    - is incremented at **every time step**
+    - is reset to 0 every time a state is exited or entered
+    - actual duration **depends** on model step size
+ 
+    
+  - ***sec / msec***: measures seconds or miliseconds
+    - is incremented every second / milisecond    
+    - is reset to 0 every time a state is exited or entered
+    - actual duration is **independent** on model step size
+
+### Temporal logic
+
+- Temporal operators **after()**, **on()**, **every()**
+can generate events which can be used in conditions
+
+- Examples:
+  - ***after(10, tick)***: 
+    - event is fired after 10 time steps spent in a state
+    - evaluates to FALSE for the first 9 steps, is TRUE every time after that
+    
+  - ***on(x, tick)***:
+    - event is fired only **once**, exactly after $x$ time steps spent in a state
+    - evaluates to FALSE for the first $x-1$ time moments, is TRUE only once at the $x$-th moment, is FALSE after that
+
+  - ***every(x, tick)***:
+    - event is fired pariodically after $x$ time steps
+    - evaluates to FALSE for the first $x-1$ time moments, is TRUE once at the $x$-th moment, 
+    then FALSE for the next $x-1$ time moments, then TRUE again, and so on
+    
+### Temporal logic
+
+![Temporal Logic example (image from Matlab docs)](fig/Stateflow_TemporalLogic.png){width=70%}
