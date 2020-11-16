@@ -55,6 +55,9 @@ In this lab you will implement:
 
 2. Test your design: put appropriate inputs and observe the output signals.
 
+
+**Not done:**
+
 3. Design a FSM in Stateflow with one input `Voltage` and one output `OvervoltageError` for the following requirements:
 
     1. The error flag `OvervoltageError` shall be set when input `Voltage` exceeds `CP_MaxVoltage` for at least `CP_DebounceOnTime`
