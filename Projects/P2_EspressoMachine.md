@@ -13,6 +13,7 @@ fontsize: 12pt
    a. briefly describe the overall design you chose (states, transitions etc).
    b. put screenshots from the tests, to prove the tests work
    
+![Espresso Machine](img/EspressoMachine.jpg){.id width=40%}
 
 # Requirements
 
@@ -27,7 +28,6 @@ fontsize: 12pt
     - Normal Coffee button (boolean)
     - Long Coffee button (boolean)
     - Hot water button (boolean)
-    - Self-test button (boolean)
     - Cancel button    
     - Water level sensor (number, 0 to 1000 ml)
     - Coffee level sensor (number, 0 to 1000 g)
@@ -61,16 +61,13 @@ fontsize: 12pt
 
 4. The cancel button stops every ongoing operation of the machine
 
+4. The cancel input button shall be debounced both ways, with a time duration of 0.3 seconds.
+
 4. Fault control:
     - Before making anything, check if you have enough water. If water is not enough, signal via Status output
     - Coffee can't be done if coffee level is < 10g. In this case, signal via Status output
     - Hot water can be done even if there is no coffee
     
-5. There is also a self-test mode, activated via the Self-test button. The procedure is as follows:
-    - Start heating water. If the temperature doesn't reach 99 degrees in 20 seconds, there is a heater error
-    - Start grinding coffee. If the coffee level doesn't drop by 5 grams in 20 seconds, the grinder motor has a fault
-    - Start pouring water. If the coffee level doesn't drop by 20ml in 5 seconds, the pouring mechanism is blocked (i.e. limestone)
-
 5. Use parameters from Matlab for all values you deem necessary (e.g. duration of times etc.).
 Our customer may want to adjust the parameters at any time.
 

@@ -26,17 +26,23 @@ fontsize: 12pt
     
     Inputs:
     - CardInserted (boolean)
-    - TruePIN (number, 0000 to 9999)
+    - TruePINDigit1 (number, 0 to 9)
+    - TruePINDigit2 (number, 0 to 9)
+    - TruePINDigit3 (number, 0 to 9)
+    - TruePINDigit4 (number, 0 to 9)
     - AccountMoney (boolean, 0 to 100000)
-    - KeyboardPIN (0000 to 9999): 
+    - KeyboardDigit (0 to 10): 
+        - when 0 to 9, the client pressed this key on the keyboard
+        - when 10, no key is pressed
     - Enter button (boolean)
+    - Clear button (boolean)
     - Cancel button (boolean)
 
     Outputs:
     - ReleaseMoney (number, 0 to 100000)
         - when 0, nothing is released
         - when non-zero, the specified amount is released
-    - UpdateAccountMoney: set the final amount remaining in the account after the operation
+    - SetAccountMoney: final amount remaining in the account after the operation
     - ReleaseCard (boolean): activates the motor for releasing the card
     - Status output:
         - 0 = IDLE
@@ -46,10 +52,12 @@ fontsize: 12pt
 
 3. When the client inserts the card, the following inputs are activated at the same time:
     - CardInserted becomes TRUE
-    - TruePIN has the value of the true PIN (e.g. 5478)
-    - AccountMoney shows the amount of money in the account
+    - TruePINDigit1/2/3/4 have the value of the true PIN (e.g. 5478)
+    - AccountMoney is the amount of money in the account
+        
+4. The client inserts the PIN one key at a time + Enter (for example KeyboardDigit is: 10 (none) -> 5 -> 10 (none) -> 4 -> 10 (none) ->7 -> 10 (none) -> 8 -> 10 (none), then Enter input becomes TRUE.
 
-4. The client then introduces the PIN at the Keyboard. The PIN is processed only if the client presses Enter afterwards.
+5. During PIN entering, pressing Clear button acts like a Backspace (deletes last digit)
 
 6. Fault checking:
     - The ATM checks if the PIN equals the true PIN
@@ -59,7 +67,7 @@ fontsize: 12pt
 
 7. If an operation is OK, then:
     - To release the money, set the ReleaseMoney output to the amount value
-    - Set the output UpdateAccountMoney to the amount of money remaining in the account
+    - Set the output SetAccountMoney to the amount of money remaining in the account
     - To release the card, activate the ReleaseCard boolean output
     - Wait 10 seconds after releasing the card, before starting any new operation.
 
