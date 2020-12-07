@@ -13,6 +13,8 @@ fontsize: 12pt
    a. briefly describe the overall design you chose (states, transitions etc).
    b. put screenshots from the tests, to prove the tests work
    
+![Water Dispenser](img/WaterDispenser.jpg){.id width=40%}
+
 
 # Requirements
 
