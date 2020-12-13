@@ -13,7 +13,7 @@ fontsize: 12pt
    a. briefly describe the overall design you chose (states, transitions etc).
    b. put screenshots from the tests, to prove the tests work
 
-![Public Washing Machine](img/WashingMachineCoins.jpg){.id width=40%}
+![Public Washing Machine](img/WashingMachineCoins.jpg){.id height=40%}
 
 
 # Requirements

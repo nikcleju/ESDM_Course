@@ -13,6 +13,9 @@ fontsize: 12pt
    a. briefly describe the overall design you chose (states, transitions etc).
    b. put screenshots from the tests, to prove the tests work
    
+![ATM](img/ATM.jpg){.id height=40%}
+
+
 # Requirements
 
 1. The ATM operates as follows:
@@ -25,17 +28,18 @@ fontsize: 12pt
 2. The Simulink model has the following inputs and outputs:
     
     Inputs:
-    - CardInserted (boolean)
-    - TruePIN (number, 0000 to 9999)
-    - AccountMoney (boolean, 0 to 100000)
-    - KeyboardPIN (0000 to 9999): 
+    - CardInserted (boolean): becomes TRUE when a card is inserted
+    - TruePIN (number, 0000 to 9999): the true PIN of the card
+    - AccountMoney (boolean, 0 to 100000): the available money in the client's account
+    - KeyboardPIN (0000 to 9999): the PIN introduced by the client
+    - CashWanted (number, 0 to 100000): how much money does the client want to get
     - Enter button (boolean)
     - Cancel button (boolean)
 
     Outputs:
     - ReleaseMoney (number, 0 to 100000)
         - when 0, nothing is released
-        - when non-zero, the specified amount is released
+        - when non-zero, the specified amount of cash is released
     - UpdateAccountMoney: set the final amount remaining in the account after the operation
     - ReleaseCard (boolean): activates the motor for releasing the card
     - Status output:
@@ -49,13 +53,13 @@ fontsize: 12pt
     - TruePIN has the value of the true PIN (e.g. 5478)
     - AccountMoney shows the amount of money in the account
 
-4. The client then introduces the PIN at the Keyboard. The PIN is processed only if the client presses Enter afterwards.
+4. The client then introduces the PIN at the Keyboard. The PIN is read only if the client presses Enter afterwards, and is available on the KeyboardPIN input.
 
 6. Fault checking:
     - The ATM checks if the PIN equals the true PIN
-    - If not, the user can reintroduce it anouther 2 times (3 times in all)
+    - If not, the user can reintroduce it another 2 times (3 times in all)
     - If the PIN is entered incorrectly 3 times, the card is withheld (it will not be released), and status output is set to PIN INCORRECT 3 TIMES, CARD HELD
-    - If the requestes amount is less than the amount available in the account, operation is refused, Status output is set to NOT ENOUGH MONEY
+    - If the requests amount is more than the amount available in the account, operation is refused, Status output is set to NOT ENOUGH MONEY
 
 7. If an operation is OK, then:
     - To release the money, set the ReleaseMoney output to the amount value
