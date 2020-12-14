@@ -35,7 +35,7 @@ fontsize: 12pt
     - Cancel button    
     - OrangeJuice level sensor (number, 0 to 1000 ml)
     - StrawberryJuice level sensor (number, 0 to 1000 ml)
-    - Ice Temperature sensor (number, 0 to 100 rpm)
+    - Ice Temperature sensor (number, -20 to 20 degrees Celsius)
 
     Outputs:
     - PourOrangeJuice (boolean): start/stop pouring orange juice
