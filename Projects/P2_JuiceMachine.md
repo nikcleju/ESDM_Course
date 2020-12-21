@@ -66,7 +66,6 @@ If the time expires, then no ice is added.
 
 4. Fault control:
     - Before making anything, check if you have juice. If any juice is not enough for the selected beverage, signal via Status output
-    - If motor is activated but the speed sensor remains below 10 rpm for 2 seconds, the motor is broken. Signal this error via Status output
     - If any juice pouring is activated but the juice level does not drop 50 ml in less than 2 seconds, that pouring is blocked. Signal this error via Status output
     - An error status remains set until the cancel button is pressed. Until then, no other operation is permitted.
     - If the Ice Temperature is above 0 degrees, the freezer is broken. Signal this error via Status output
