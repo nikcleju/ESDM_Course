@@ -60,7 +60,7 @@ fontsize: 12pt
 
 3. No program is allowed to start if there is less then 100 liters of water available, or less then 3 liter of Foam. In this case set the output status to ERROR.
 
-5. If the ProgramSelection input becomes 0 during an ongoing program, then stop the ongoing program, pump all water out, and stop
+5. If the ProgramSelection input becomes 0 during an ongoing program, then stop the ongoing program and stop
 
 5. If the ProgramSelection input changes to a different program during an ongoing program, then stop the ongoing program and set the output status ERROR.
 
