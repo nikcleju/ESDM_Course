@@ -1,27 +1,33 @@
 # ESDM_Course
 
-Here you will find all the materials for the class of Embedded System Design and Modeling (ESDM) taught during 2019-2020
+Here you will find all the materials for the class of Embedded System Design and Modeling (ESDM) taught during 2020-2021
 academic year at ETTI, TUIASI.
 
 ## Course materials 
 
 ### Lectures 
 
-All lecture slides are available in the Lectures folder.
+All lecture slides are available in the [Lectures](Lectures/) folder.
+
+The **annotated** lectures (written on during the classes) are available in the [Lectures/online/](Lectures/online) folder.
+The files are named as `<chapter>_annotated.pdf`.
 
 ### Laboratory
 
-The laboratory files are available in the Labs folder.
+The laboratory files are available in the [Labs](Labs/) folder.
 
 ## Projects
 
-The project descriptions are available in the Projects folder, see [here](Projects/Projects.pdf)
+The project descriptions are available in the [Projects](Projects/) folder.
 
 ## Evaluation
 
 ### Exam
 
-The list of exam subjects is in the Exam folder: [Exam/SubjectsList.pdf](Exam/SubjectsList.pdf)
+The written exam consists of a practical exercise (draw the implementation of a FSM from a few requirements, approx 50% of points) and a few theoretical questions (the rest of points). 
+
+For the years up to 2021, there was a fixed list of possible subjects. This is not provided for 2021, since the exam is online. The exercise and the theoretical questions may change from the previous years (though you can use them as examples).
+
 
 ### Grades
 
