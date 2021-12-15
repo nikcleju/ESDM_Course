@@ -44,10 +44,10 @@ fontsize: 12pt
     - Machine Status (integer):
         - 0 = IDLE
         - 1 = WORKING
-        - 2 = NO ORANGE JUICE
-        - 3 = NO STRAWBERRY JUICE
-        - 4 = FREEZER FAULT
-        - 5 = POURING FAULT
+        - 2 = NO_ORANGE_JUICE
+        - 3 = NO_STRAWBERRY_JUICE
+        - 4 = FREEZER_FAULT
+        - 5 = POURING_FAULT
 
 3. The beverages have the following recipes:
    - Orange Juice: 
@@ -66,11 +66,12 @@ If the time expires, then no ice is added.
 
 4. Fault control:
     - Before making anything, check if you have juice. If any juice is not enough for the selected beverage, signal via Status output
-    - If any juice pouring is activated but the juice level does not drop 50 ml in less than 2 seconds, that pouring is blocked. Signal this error via Status output
+    - If any juice pouring is activated but the juice level takes more than 10 seconds to finish, that pouring is blocked. Signal this error via Status output
     - An error status remains set until the cancel button is pressed. Until then, no other operation is permitted.
-    - If the Ice Temperature is above 0 degrees, the freezer is broken. Signal this error via Status output
+    - If the Ice Temperature is above 0 degrees, the freezer is broken. Signal this error via Status output. In this case the machine is not allwed to pour any juice.
     
-5. Use parameters from Matlab for all values you deem necessary (e.g. duration of times etc.).
+5. Use parameters from Matlab for all values you consider necessary (e.g. duration of times etc.).
 Our customer may want to adjust the parameters at any time.
 
-6. Test as many behaviors of your state machine as possible (use one/multiple separate test models if necessary)
+6. Test your state machine (use one/multiple separate test models if necessary)
+

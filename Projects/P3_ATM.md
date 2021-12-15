@@ -20,7 +20,8 @@ fontsize: 12pt
 
 1. The ATM operates as follows:
    - client inserts card
-   - client inserts PIN number and Enter, ATM checks if it is correct
+   - client inserts PIN number and presses Enter
+   - ATM checks if PIN is correct
    - client specifies an amount of money to withdraw, then presses Enter
    - if the amount is available, the money is released
    - the card is released
@@ -34,7 +35,7 @@ fontsize: 12pt
     - KeyboardPIN (0000 to 9999): the PIN introduced by the client
     - CashWanted (number, 0 to 100000): how much money does the client want to get
     - Enter button (boolean)
-    - Cancel button (boolean)
+	- Cancel button (boolean)
 
     Outputs:
     - ReleaseMoney (number, 0 to 100000)
@@ -48,18 +49,17 @@ fontsize: 12pt
         - 2 = PIN INCORRECT 3 TIMES, CARD HELD
         - 3 = NOT ENOUGH MONEY
 
-3. When the client inserts the card, the following inputs are activated at the same time:
-    - CardInserted becomes TRUE
-    - TruePIN has the value of the true PIN (e.g. 5478)
-    - AccountMoney shows the amount of money in the account
+3. When the client inserts the card (CardInserted becomes True) the following inputs are activated at the same time (information is received from the bank):
+    - Input TruePIN has the value of the true PIN (e.g. 5478)
+    - Input AccountMoney shows the amount of money in the account
 
-4. The client then introduces the PIN at the Keyboard. The PIN is read only if the client presses Enter afterwards, and is available on the KeyboardPIN input.
+4. The client then introduces the PIN at the keyboard (input KeyboardPIN). The machine reads the PIN form the KeyboardPIN input read only when the client presses Enter (input Enter becomes True)
 
 6. Fault checking:
     - The ATM checks if the PIN equals the true PIN
     - If not, the user can reintroduce it another 2 times (3 times in all)
     - If the PIN is entered incorrectly 3 times, the card is withheld (it will not be released), and status output is set to PIN INCORRECT 3 TIMES, CARD HELD
-    - If the requests amount is more than the amount available in the account, operation is refused, Status output is set to NOT ENOUGH MONEY
+    - If the requested amount is more than the amount available in the account, operation is refused, Status output is set to NOT ENOUGH MONEY
 
 7. If an operation is OK, then:
     - To release the money, set the ReleaseMoney output to the amount value
@@ -69,7 +69,8 @@ fontsize: 12pt
 
 8. Pressing Cancel at any time stops any operation and releases the card (unless the card is withheld after 3 incorrect PINs, in which case it is never returned).
 
-5. Use parameters from Matlab for all values you deem necessary (e.g. duration of times etc.).
+5. Use parameters from Matlab for all values you consider necessary (e.g. duration of times etc.).
 Our customer may want to adjust the parameters at any time.
 
-6. Test as many behaviors of your state machine as possible (use one/multiple separate test models if necessary)
+6. Test your state machine (use one/multiple separate test models if necessary)
+

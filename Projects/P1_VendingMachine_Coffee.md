@@ -19,15 +19,19 @@ fontsize: 12pt
 
 1. The vending machine has 5 products categories available: Coffee, Espresso, Hot Water, Cappuccino, Moccaccino.
 
+1. The machine has all these products pre-made. All it does is to pour them in the right quantities.
+
+1. The machine starts with 1 liter of each beverage.
+
 2. List of inputs and outputs of the model:
 
    Inputs:
      - ProductSelection: integer (0 to 5)
         - when 0, no product is selected
-        - when non-zero, it is the code of product selected by the user
+        - when non-zero, it is the code of product selected by the user (1 to 5)
      - MoneyInput: integer
         - when 0, no money is inserted
-        - when non-zero, it is the current value of the coin/note given by the customer
+        - when non-zero, it is the current value of the money inserted by the customer
      - Cancel: boolean
         - when True, cancels an ongoing operation. All money input until this moment shall be returned to the customer.
      - ResetStock
@@ -40,6 +44,7 @@ fontsize: 12pt
         - when 0, nothing happens
         - when non-zero, the product with that code is poured in the cup
         - pouring lasts for 5 seconds, for all products except Espresso, for which it lasts only 1 second
+		- after the time is elapsed, the machine must stop pouring by setting PourProduct output back to 0
         - quantity is always 200 milliliters, except for Espresso, where it is only 50 milliliters
      - DispenseStirrer: boolean
         - the transition from False to True activates the dispensing of the stirrer
@@ -56,14 +61,14 @@ fontsize: 12pt
 3. The vending machine operates in 4 basic steps:
    - first you enter the product code of the product
    - then you enter the money 
-   - then the product is dispensed: first the cup, then the liquid, then the stirrer
+   - then the product is dispensed: first the cup, then the beverage, then the stirrer
    - then the rest of the money is returned
 
-2. The vending machine starts with 10 liters of each of the 5 categories.
+2. The vending machine starts with 1 liters of each beverage.
 
-2. The price of every type of product is fixed and known (you pick some value).
+2. The machine keeps track of how much beverage it still has available, and refuses to produce a beverage when it doesn't have the necessary quantity available.
 
-2. The vending machine holds in memory the quantity of products it has available at any time moment.
+2. The price of every type of product is fixed and known (you pick some value, e.g 5).
 
 5. The machine shall detect if the user requests an invalid product code, and signal this at the Status output 
 
@@ -73,14 +78,13 @@ fontsize: 12pt
 
 5. After dispensing a product, the machine will wait 5 seconds before accepting any new operation.
 
-5. The quantity of products available can be reset back to the value of 10 liters when the input `ResetStock` is activated.
+5. The quantity of products available can be reset back to the value of 1 liters when the input `ResetStock` is activated.
 
 6. The machine shall always provide a status code output.
 
-6. The `ResetStock` input button shall be debounced both ways, with a time duration of 0.2 seconds.
+6. The `ResetStock` input button shall be debounced both ways, with a time duration of 0.4 seconds.
 
-5. Use parameters from Matlab for all values you deem necessary (e.g. duration of delays, prices etc.).
-Our customer may want to adjust the parameters at any time.
+5. Use parameters from Matlab for all values you consider necessary (e.g. duration of delays, prices etc.). Our customer may want to adjust the parameters at any time.
 
-6. Test as many behaviors of your state machine as possible (use one/multiple separate test models if necessary)
+6. Test your state machine (use one/multiple separate test models if necessary)
 

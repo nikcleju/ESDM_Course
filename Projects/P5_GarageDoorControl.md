@@ -7,7 +7,7 @@ fontsize: 12pt
 
 # Short description
 
-1. Create and test Simulink model with a state machine implementing the logic behind an garage door control module (only the motor control, not the full input buttons logic).
+1. Create and test Simulink model with a state machine implementing the logic behind a garage door control module (only the motor control, not the full input buttons logic).
 
 2. Write a small report on the project:
    a. briefly describe the overall design you chose (states, transitions etc).
@@ -28,8 +28,9 @@ fontsize: 12pt
       - 1: OPEN : command to open the door
       - 2: CLOSE : command to close the door
     - EmergencyStop button (boolean): when TRUE, stops the movement instantly
-    - CurrentPosition (number, from 0 to 3): the current position of the door
+    - CurrentPosition (real number between 0 and 3): the current position of the door
         - 0 = Fully open
+		- inbetween: The door is partly open
         - 3 = Fully closed
     - MotorSpeed (number -100 to 100): the current motor speed. Positive values indicate speed in the closing direction, negative values means the opening direction.
     - MotorTemp (number 0 to 150): the current motor temperature
@@ -52,10 +53,10 @@ fontsize: 12pt
         - 3 = MOTOR_ERROR_OR_OBSTACLE
         - 4 = OVERTEMPERATURE
         
-4. When the OPEN command is received, the system opens the door:
+4. The system operates as follows. When the OPEN command is received, the system opens the door:
 
     - the motor is activated in the opening direction
-    - the motor PWM increases from 0 to 100 in 2 seconds
+    - the motor PWM increases gradually from 0 to 100 in 2 seconds
     - after the first 2 seconds, the motor PWM is kept to 100
     - with 0.5 meters before the final position, the motor PWM decreases from 100 to 10 in 2 seconds
     - the motor remains at 10 PWM until the final position is reached
@@ -64,7 +65,7 @@ fontsize: 12pt
     
 5. When the CLOSE command is received, the system closes the door with a similar procedure, but in the closing direction. The status shall be set to CLOSING.
     
-6. When the STOP command is received during a movement, the motor is stopped as follows:
+6. When the STOP command is received during any movement, the motor is stopped as follows:
     - the motor PWM decreases from its current value to 0, decreasing at a rate of 100 in 2 seconds
     - when the motor PWM reaches 0, the motor is stopped, 
 
@@ -74,10 +75,11 @@ fontsize: 12pt
 
 7. Fault control:
    - if the motor is active and the speed becomes less than 15 in the respective direction, for at least 200ms, something is wrong. 
-   The movement shall be terminated instantly, and the status output shall be set to MOTOR_ERROR_OR_OBSTACLE.
+   The movement shall be terminated, and the status output shall be set to MOTOR_ERROR_OR_OBSTACLE.
    - if the motor is active and the temperature is higher than 100, the movement shall be terminated instantly, and the status output shall be set to OVERTEMPERATURE.
    
-5. Use parameters from Matlab whenever for all values you deem necessary (e.g. duration of times etc.).
+5. Use parameters from Matlab whenever for all values you consider necessary (e.g. duration of times etc.).
 Our customer may want to adjust the parameters at any time.
 
-6. Test as many behaviors of your state machine as possible (use one/multiple separate test models if necessary)
+6. Test your state machine (use one/multiple separate test models if necessary)
+

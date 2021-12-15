@@ -48,7 +48,7 @@ fontsize: 12pt
         - 2 = CLOSING
         - 3 = MOTOR_ERROR_OR_OBSTACLE
         
-4. When the OPEN button is pressed, the system opens the window:
+4. The system operates as follows. When the OPEN button is pressed, the system opens the window:
 
     - the motor is activated in the opening direction
     - the motor PWM is set to 20 until the speed becomes non-zero in the opening direction
@@ -77,7 +77,8 @@ fontsize: 12pt
    - if the motor is active and the speed becomes less than 15 in the respective direction, something is wrong. 
    The movement shall be terminated instantly, and the status output shall be set to MOTOR_ERROR_OR_OBSTACLE.
    
-5. Use parameters from Matlab whenever for all values you deem necessary (e.g. duration of times etc.).
+5. Use parameters from Matlab whenever for all values you consider necessary (e.g. duration of times etc.).
 Our customer may want to adjust the parameters at any time.
 
-6. Test as many behaviors of your state machine as possible (use one/multiple separate test models if necessary)
+6. Test your state machine (use one/multiple separate test models if necessary)
+

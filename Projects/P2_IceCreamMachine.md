@@ -64,11 +64,12 @@ fontsize: 12pt
 
 6. Fault control:
     - Before making anything, check if there is at least 300ml of the necessary ice cream (or 150ml of both, for mixed ice cream). If this is not true, ice cream is not allowed, and NoChocolateIceCream and/or NoVanillaIceCream outputs shall be set to TRUE. If the icecream is available, they should be set to FALSE.
-    - Before making anything, check if ice cream temperature is between 0 and 4. If this is not true, ice cream is not allowed, and the Status output
+    - Before making anything, check if ice cream temperature is below 0. If this is not true, ice cream is not allowed, and the Status output
     shall be set to FREEZER_FAULT.
     - The three inputs ChocolateLever, VanillaLever and MixedLever should never be active at the same time. The system shall detect if two or three or them are simultaneously active, and in this case it shall set the Status output to INPUT_FAULT and disallow any operation.
     
-7. Use parameters from Matlab for all values you deem necessary (e.g. duration of times etc.).
+7. Use parameters from Matlab for all values you consider necessary (e.g. duration of times etc.).
 Our customer may want to adjust the parameters at any time.
 
-8. Test as many behaviors of your state machine as possible (use one/multiple separate test models if necessary)
+6. Test your state machine (use one/multiple separate test models if necessary)
+

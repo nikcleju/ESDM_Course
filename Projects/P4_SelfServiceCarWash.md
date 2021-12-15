@@ -29,9 +29,9 @@ fontsize: 12pt
     Inputs:
     - ProgramSelection (number, 0 to 4)
         - 0 = no program selected
-        - 1/2/3/4 = the four programs above
+        - 1/2/3/4 = one of the four programs above
     - EmergencyStop button (boolean): when TRUE, stop the pump and cancel everything
-    - Coins: number if input coins inserted at the beginning
+    - Coins: number of input coins inserted at the beginning
 
     Outputs:
     
@@ -65,11 +65,12 @@ The program is stopped by setting the pump to 0.
 
 5. If the ProgramSelection input changes to a different program during an ongoing program, then change to the new program. ProgramSelection input cannot become 0 during operation.
 
-6. The EmergencyStop button stops the pump and cancels any program.
+6. The EmergencyStop button stops the pump immediately and cancels any ongoing program.
 
 7. The EmergencyStop shall be debounced in both directions, with a duration of 0.2 seconds.
 
-5. Use parameters from Matlab whenever for all values you deem necessary (e.g. duration of times etc.).
+5. Use parameters from Matlab whenever for all values you consider necessary (e.g. duration of times etc.).
 Our customer may want to adjust the parameters at any time.
 
-6. Test as many behaviors of your state machine as possible (use one/multiple separate test models if necessary)
+6. Test your state machine (use one/multiple separate test models if necessary)
+

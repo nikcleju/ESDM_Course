@@ -27,7 +27,7 @@ fontsize: 12pt
         - when non-zero, it is the code of product selected by the user
      - MoneyInput: integer
         - when 0, no money is inserted
-        - when non-zero, it is the current value of the coin/note given by the customer
+        - when non-zero, it is the current value of the money inserted by the customer
      - Cancel: boolean
         - when True, cancels an ongoing operation. All money input until this moment shall be returned to the customer.
      - ResetStock
@@ -55,7 +55,7 @@ fontsize: 12pt
 
 2. The vending machine starts with 10 products of each of the 5 categories.
 
-2. The price of every type of product is fixed and known (you pick some value).
+2. The price of every type of product is fixed and known (you pick some value, e.g. 7).
 
 2. The vending machine holds in memory the number of products it has available at any time moment.
 
@@ -73,8 +73,7 @@ fontsize: 12pt
 
 6. The `Cancel` input button shall be debounced both ways, with a time duration of 0.2 seconds.
 
-5. Use parameters from Matlab for all values you deem necessary (e.g. duration of delays, prices etc.).
+5. Use parameters from Matlab for all values you consider necessary (e.g. duration of delays, prices etc.).
 Our customer may want to adjust the parameters at any time.
 
-6. Test as many behaviors of your state machine as possible (use one/multiple separate test models if necessary)
-
+6. Test your state machine (use one/multiple separate test models if necessary)

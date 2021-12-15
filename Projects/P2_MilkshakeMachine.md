@@ -41,10 +41,10 @@ fontsize: 12pt
     - Machine Status (integer):
         - 0 = IDLE
         - 1 = WORKING
-        - 2 = NO MILK
-        - 4 = HEATER FAULT
-        - 5 = MOTOR FAULT
-        - 6 = POURING FAULT
+        - 2 = NO_MILK
+        - 4 = HEATER_FAULT
+        - 5 = MOTOR_FAULT
+        - 6 = POURING_FAULT
 
 3. The beverages have the following recipes:
    - Cold Milkshake: 
@@ -54,13 +54,13 @@ fontsize: 12pt
        - Pour until milk level drops by 200 ml
    - Warm Milkshake: 
        - Activate shaker motor for 2 minutes
-       - At the same time, heat the milk until temperature reaches 60 degrees
-       - When both previous conditions have finished, start pouring the milk
+       - Then heat the milk until temperature reaches 60 degrees
+       - Start pouring the milk
        - Pour until milk level drops by 200 ml
    - Hot Milkshake: 
        - Activate shaker motor for 4 minutes
-       - At the same time, heat the milk until temperature reaches 90 degrees
-       - When both previous conditions have finished, start pouring the milk
+       - Then heat the milk until temperature reaches 90 degrees
+       - Start pouring the milk
        - Pour until milk level drops by 200 ml
 
 4. The cancel button stops every ongoing operation of the machine
@@ -68,12 +68,13 @@ fontsize: 12pt
 4. The cancel input button shall be debounced both ways, with a time duration of 0.25 seconds.
 
 4. Fault control:
-    - Before making anything, check if you have enough milk. If water is not enough for the beverage, signal via Status output
+    - Before making anything, check if you have enough milk (check the milk level sensor input). If available milk is not enough for the beverage, signal via Status output (NO_MILK)
     - If motor is activated but the speed sensor remains below 10 rpm for 2 seconds, the motor is broken. Signal this error via Status output
     - If pouring is activated but the milk level does not drop 200 ml in less than 5 seconds, the pouring is blocked. Signal this error via Status output
     - An error status remains set until the cancel button is pressed. Until then, no other operation is permitted.
     
-5. Use parameters from Matlab for all values you deem necessary (e.g. duration of times etc.).
+5. Use parameters from Matlab for all values you consider necessary (e.g. duration of times etc.).
 Our customer may want to adjust the parameters at any time.
 
-6. Test as many behaviors of your state machine as possible (use one/multiple separate test models if necessary)
+6. Test your state machine (use one/multiple separate test models if necessary)
+

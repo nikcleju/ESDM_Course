@@ -1,5 +1,5 @@
 ---
-title: Drying Machine
+title: Paid Drying Machine
 subtitle: Project 6, ESDM
 documentclass: scrartcl
 fontsize: 12pt
@@ -7,7 +7,7 @@ fontsize: 12pt
 
 # Short description
 
-1. Create and test Simulink model with a state machine implementing the behavior of a public washing machine, payed with coins..
+1. Create and test Simulink model with a state machine implementing the behavior of a public drying machine, payed for with coins.
 
 2. Write a small report on the project:
    a. briefly describe the overall design you chose (states, transitions etc).
@@ -24,7 +24,7 @@ fontsize: 12pt
    - storage:
        - dry for 1.5 hours
    - quick:
-       - dry for 1.5 hours
+       - dry for 1 hours
 
 1. Each program costs some money:
     - wearing: 8 lei
@@ -36,7 +36,7 @@ fontsize: 12pt
     Inputs:
     - ProgramSelection (number, 0 to 3)
         - 0 = no program selected
-        - 1/2/3 = the three programs above
+        - 1/2/3 = one of the three programs above
 	- MoneyInput (number, 0 to any)
     - Cancel button
     - WaterLevel (real number, 0 to 100=MAX)
@@ -68,26 +68,25 @@ fontsize: 12pt
 	
 3. Each drying consists of the following steps:
 
-   - rotating the drum
-   - fan running continuously
-   - the heater is activated continuously
-   - every 3 minutes, stop for 5 seconds and change rotation direction
+   - rotate the drum by activating the rotating motor (output Rotate = 1 or -1)
+   - fan running continuously (output ActivateFan = True)
+   - the heater is activated continuously (output HeatFan = True)
+   - every 4 minutes, stop for 5 seconds and change rotation direction
 
 4. Error detection
 
     - if Water Level reaches 90, stop and set status to WATER FULL
-        - do not start until Water Level is below 10
-        - afterwards, continue from when the program was paused
+        - the program is terminated, next time start all over again
         
     - if AirFlow drops below 30, stop and set status to FILTER FULL 
         - the program is terminated, next time start all over again
 
 5. If the ProgramSelection input becomes 0 during an ongoing program, then terminate the ongoing program.
 
-5. If the ProgramSelection input changes to a different program during an ongoing program, then terminate the ongoing program, and
-then start again with the new program.
+5. The ProgramSelection input is not allowed to change to a different program during an ongoing program (i.e. you don't need to consider the case when ProgramSelection changes from 1 directly to 2 or 3)
 
-5. Use parameters from Matlab whenever for all values you deem necessary (e.g. duration of times etc.).
+5. Use parameters from Matlab whenever for all values you consider necessary (e.g. duration of times etc.).
 Our customer may want to adjust the parameters at any time.
 
-6. Test as many behaviors of your state machine as possible (use one/multiple separate test models if necessary)
+6. Test your state machine (use one/multiple separate test models if necessary)
+

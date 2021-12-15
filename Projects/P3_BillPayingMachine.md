@@ -50,12 +50,12 @@ fontsize: 12pt
         - 2 = CARD_HELD
         - 3 = NOT_ENOUGH_MONEY
 
-3. When the machine reads the bill, the input InputBillNumber is the ID number of the bill.
+3. When the client enters the bill, input InputBillNumber becomes the ID number of the bill.
 
 3. When the client inserts the card, the following inputs are activated at the same time:
     - CardInserted becomes TRUE
-    - TruePIN has the value of the true PIN (e.g. 5478)
-    - AccountMoney shows the amount of money in the account
+    - TruePIN has the value of the true PIN (e.g. 5478) (coming from the bank)
+    - AccountMoney shows the amount of money in the account (coming from the bank)
 
 4. The client then introduces the PIN at the Keyboard, which is received by the machine via the input InputPIN
 
@@ -65,15 +65,18 @@ fontsize: 12pt
     - If the PIN is entered incorrectly 3 times, the card is withheld (it will not be released), and status output is set to CARD_HELD
     - If the amount requested to pay is more than the amount available in the account, operation is refused, Status output is set to NOT_ENOUGH_MONEY
 
-7. If all the checks  operation is OK, then:
-    - To do the payment, the outputs TargetBillNumber shall be set to the bill number, and TargetPay to the desired amount to pay
-    - The money available in the client's account shall be updated by setting the output UpdateAccountMoney to the remaining sum
+7. If everything is OK, then:
+    - To do the payment, the machine outputs two values:
+	    - the bill number is copied at the output TargetBillNumber, 
+		- the sum requested to be paid is copied at the output TargetPay
+		  (these two outputs go to the bank, to execute the tansaction)
+    - The money available in the client's account shall be updated by setting the output UpdateAccountMoney to the remaining sum in the account
     - To release the card, activate the ReleaseCard boolean output
     - Wait 8 seconds after releasing the card, before starting any new operation.
 
 8. Pressing Cancel at any time stops any operation and releases the card (unless the card is withheld after 3 incorrect PINs, in which case it is never returned).
 
-5. Use parameters from Matlab for all values you deem necessary (e.g. duration of times etc.).
+5. Use parameters from Matlab for all values you consider necessary (e.g. duration of times etc.).
 Our customer may want to adjust the parameters at any time.
 
 6. Test as many behaviors of your state machine as possible (use one/multiple separate test models if necessary)

@@ -56,7 +56,7 @@ fontsize: 12pt
         - 5 = OPEN_LOAD
         - 6 = OVER_VOLTAGE
         
-4. When the OPEN command is received, the motor is commanded in the open direction, as follows:
+4. The system operates as follows. When the OPEN command is received, the motor is commanded in the open direction, as follows:
     - set the PWM to 0 and the direction to open direction
     - activate the H-Bridge
     - wait 10 ms
@@ -71,7 +71,7 @@ fontsize: 12pt
 
 5. When the CLOSE command is received, the motor shall  the door with a similar procedure, but in the closing direction. The status shall be set to CLOSING.
     
-6. The user does not send a CLOSE command after an OPEN command. Any movement is always stopped with STOP command.
+6. The user is not allowed to send a CLOSE command directly after an OPEN command (do not consider this case). Any movement is always stopped with STOP command.
 
 7. The EmergencyStop input shall terminate a movement immediately: 
     - the motor PWM is set to 0 instantly
@@ -86,7 +86,8 @@ fontsize: 12pt
 
 **Note:** The fault control can be implemented as a separate Stateflow Chart inside a Simulink module.
    
-5. Use parameters from Matlab whenever for all values you deem necessary (e.g. duration of times etc.).
+5. Use parameters from Matlab whenever for all values you consider necessary (e.g. duration of times etc.).
 Our customer may want to adjust the parameters at any time.
 
-6. Test as many behaviors of your state machine as possible (use one/multiple separate test models if necessary)
+6. Test your state machine (use one/multiple separate test models if necessary)
+

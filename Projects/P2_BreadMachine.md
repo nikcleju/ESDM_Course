@@ -34,7 +34,7 @@ fontsize: 12pt
     - Motor speed sensor (number, 0 to 100 rpm)
 
     Outputs:
-    - Activate Motor (boolean): controls the motor of the rotating blades
+    - Activate Motor (boolean): controls the motor of the rotating blades (True = ON, False = OFF)
     - Activate Heater (boolean): controls the heater 
 	- Pour Milk (boolean): adds the milk to the mix inside the machine
     - Machine Status (integer):
@@ -63,6 +63,12 @@ fontsize: 12pt
        - Heats to 120 degrees for 2 hours
 	   - Wait 5 minutes to cool down
 
+4. The basic operation is as follows:
+  - the user puts the ingresients inside and selects a product via its button
+  - the machine turns on the blades' motor for the specified amount of time, then turns it off
+  - the machine turns on the heat for the specified amount of time
+  - the machine turns off the heat and waits an amount of time for cool down
+  
 4. The cancel button stops every ongoing operation of the machine
 
 4. The NormalBread input button shall be debounced both ways, with a time duration of 0.25 seconds.
@@ -73,7 +79,8 @@ fontsize: 12pt
     - If heater is activated but the temperature sensor does not reach 100 degrees in 4 minutes, or 150 degrees in 6 minutes, the heater unit is broken. Signal this error via Status output
     - An error status remains set until the cancel button is pressed. Until then, no other operation is permitted.
     
-5. Use parameters from Matlab for all values you deem necessary (e.g. duration of times etc.).
+5. Use parameters from Matlab for all values you consider necessary (e.g. duration of times etc.).
 Our customer may want to adjust the parameters at any time.
 
-6. Test as many behaviors of your state machine as possible (use one/multiple separate test models if necessary)
+6. Test your state machine (use one/multiple separate test models if necessary)
+

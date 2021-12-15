@@ -48,27 +48,30 @@ fontsize: 12pt
 
 3. The beverages have the following recipes:
    - Normal coffee: 
-       - Heat water until 98 degrees, at the same time start coffee grinder for 2 seconds
-       - When both have finished, start pouring water
+	   - Start coffee grinder for 2 seconds
+       - Heat water until 98 degrees is reached
+       - Start pouring water
        - Pour until water level drops by 50 ml
    - Long coffee: 
-       - Heat water until 98 degrees, at the same time start coffee grinder for 2 seconds
-       - When both have finished, start pouring water
+       - Start coffee grinder for 2 seconds
+       - Heat water until 98 degrees is reached
+       - Start pouring water
        - Pour until water level drops by 100 ml
    - Hot water for tea: 
-       - Heat water until 90 degrees
+       - Heat water until 90 degrees is reached
        - Start pouring water until water level drops by 150 ml
 
-4. The cancel button stops every ongoing operation of the machine
+4. The `Cancel` button stops every ongoing operation of the machine
 
-4. The cancel input button shall be debounced both ways, with a time duration of 0.3 seconds.
+4. The `Cancel` input button shall be debounced both ways, with a time duration of 0.3 seconds.
 
 4. Fault control:
     - Before making anything, check if you have enough water. If water is not enough, signal via Status output
     - Coffee can't be done if coffee level is < 10g. In this case, signal via Status output
     - Hot water can be done even if there is no coffee
     
-5. Use parameters from Matlab for all values you deem necessary (e.g. duration of times etc.).
+5. Use parameters from Matlab for all values you consider necessary (e.g. duration of times etc.).
 Our customer may want to adjust the parameters at any time.
 
-6. Test as many behaviors of your state machine as possible (use one/multiple separate test models if necessary)
+6. Test your state machine (use one/multiple separate test models if necessary)
+

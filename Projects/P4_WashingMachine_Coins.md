@@ -24,11 +24,7 @@ fontsize: 12pt
        - heating phase: during washing, also heat water until 90 degrees is reached
        - rinse phase: pump water out, add new water, pump it out
        - spin phase: rotate fast for 2 minutes
-   - linen 60 degrees
-       - washing phase: rotate intermittently for 1.5 hours
-        - heating phase: during washing, heat water until 60 degrees is reached       
-       - rinse phase: pump water out, add new water, pump it out
-       - spin phase: rotate fast for 2 minutes
+
    - quick wash
        - washing phase: rotate intermittently for 30 minutes
        - heating phase: during washing, heat water until 40 degrees is reached       
@@ -72,12 +68,11 @@ fontsize: 12pt
 	- If money is sufficient, the machine returns the rest, by setting ReturnMoney to the correct values
 	- Then the machine proceeds with the program
 
-3. The washing phase is done as follows:
-    - water is entered in the machine (FillWater = TRUE) until water level reaches 5 liters
+3. The washing and heating phases are done as follows:
+    - water is entered in the machine (FillWater = TRUE) until water level reaches 5 liters. Then the filling must be stopped.
+	- activate HeatWater until WaterTemperature reaches the desired temperature
     - then the drum is rotated with speed 20 for 5 seconds, then pause for 5 seconds, then keep repeating
 
-3. The heating phase is done as follows:
-    - activate HeatWater until WaterTemperature reaches the desired temperature
 
 3. The rinse phase is done as follows:
     - the pump is activated until water level drops to below 0.1
@@ -92,11 +87,11 @@ fontsize: 12pt
 
 5. If the ProgramSelection input becomes 0 during an ongoing program, then stop the ongoing program, pump all water out, and stop
 
-5. If the ProgramSelection input changes to a different program during an ongoing program, then stop the ongoing program, pump all water out, 
-then start again with the new program.
+5. The ProgramSelection input is not allowed to change to a different program during an ongoing program (i.e. you don't need to consider the case when ProgramSelection changes from 1 directly to 2)
 
-5. Use parameters from Matlab whenever for all values you deem necessary (e.g. duration of times etc.).
+5. Use parameters from Matlab whenever for all values you consider necessary (e.g. duration of times etc.).
 Our customer may want to adjust the parameters at any time.
 
-6. Test as many behaviors of your state machine as possible (use one/multiple separate test models if necessary)
+6. Test your state machine (use one/multiple separate test models if necessary)
+
    

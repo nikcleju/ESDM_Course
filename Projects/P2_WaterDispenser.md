@@ -23,8 +23,8 @@ fontsize: 12pt
 2. The Simulink model has the following inputs and outputs:
     
     Inputs:
-    - PourWater button (boolean)
-    - PourHotWater button (boolean)
+    - Water button (boolean)
+    - HotWater button (boolean)
     - SelfTtest button (boolean)
     - Water level sensor (number, 0 to 1000 ml)
     - Water temperature sensor (number, 0 to 100 degrees Celsius)
@@ -35,28 +35,29 @@ fontsize: 12pt
     - Machine Status (integer):
         - 0 = IDLE
         - 1 = WORKING
-        - 2 = NO WATER
-        - 3 = HEATER FAULT
-        - 4 = POURING FAULT
+        - 2 = NO_WATER
+        - 3 = HEATER_FAULT
+        - 4 = POURING_FAULT
 
 3. The process is as follows:
    - When pouring normal water: 
-       - Start pouring water when `PourWater=TRUE`
-       - Stop when `PourWater=FALSE`
+       - Start pouring water when `Water=TRUE` (i.e. user presses button)
+       - Stop when `Water=FALSE`
    - When pouring hot water: 
-       - Activate the water heater and wait for 200 milliseconds.
-       - Start pouring water when `PourWater=TRUE`
-       - Stop when `PourWater=FALSE`
+	   - When `HowWater=TRUE` (i.e. user presses button), activate the water heater and wait for 500 milliseconds. Don't pour any water yet.
+       - Only afterwards start pouring water
+       - Stop when `HotWater=FALSE`
 
 4. The cancel button stops every ongoing operation of the machine
 
 4. All buttons must be debounced both ways, with a time duration of 0.2 seconds.
 
-5. There is a self-test mode, activated via the SelfTest button. The procedure is as follows:
+5. There is a separate self-test mode, activated via the SelfTest button. The procedure is as follows:
     - Start heating water. If the temperature doesn't reach 99 degrees in 20 seconds, there is a heater error. The error must be signalled by setting Status = HEATER FAULT for at least 10 seconds.
     - Start pouring water. If the coffee level doesn't drop by 20ml in 5 seconds, the pouring mechanism is blocked (i.e. limestone). The error must be signalled by setting Status = POURING FAULT for at least 10 seconds.
 
-5. Use parameters from Matlab for all values you deem necessary (e.g. duration of times etc.).
+5. Use parameters from Matlab for all values you consider necessary (e.g. duration of times etc.).
 Our customer may want to adjust the parameters at any time.
 
-6. Test as many behaviors of your state machine as possible (use one/multiple separate test models if necessary)
+6. Test your state machine (use one/multiple separate test models if necessary)
+

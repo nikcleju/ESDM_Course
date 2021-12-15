@@ -18,17 +18,17 @@ fontsize: 12pt
 # Requirements
 
 
-1. The washing machine has 3 programs:
+1. The automatic car wash has 3 programs:
    - quick wash:
        - spray foam for 1 minutes
-       - wait another 1 minutes
+       - wait another 1 minute
        - optionally brush for 1 minute
-       - rinse for 3 minutes
+       - rinse for 2 minutes
    - normal wash
        - spray foam for 1 minutes
        - wait another 3 minutes
        - optionally brush for 2 minute
-       - rinse for 6 minutes
+       - rinse for 4 minutes
    - hard wash
        - spray foam for 2 minutes
        - wait another 10 minutes
@@ -66,10 +66,11 @@ fontsize: 12pt
 
 6. Error Control:
     
-    - If foam level does not decrease by at least 1 liter after the first 15 seconds of the foaming phase, there is an error. Stop the program and set the output status ERROR.
-    - If water level does not decrease by at least 5 liters after 1 minute of the washing phase, there is an error. Stop the program and set the output status ERROR.
+    - If foam level does not decrease by at least 2 liters after the foaming stage, there is an error. Stop the program and set the output status ERROR.
+    - If water level does not decrease by at least 20 liters after the washing phase, there is an error. Stop the program and set the output status ERROR.
 
-5. Use parameters from Matlab whenever for all values you deem necessary (e.g. duration of times etc.).
+5. Use parameters from Matlab whenever for all values you consider necessary (e.g. duration of times etc.).
 Our customer may want to adjust the parameters at any time.
 
-6. Test as many behaviors of your state machine as possible (use one/multiple separate test models if necessary)
+6. Test your state machine (use one/multiple separate test models if necessary)
+

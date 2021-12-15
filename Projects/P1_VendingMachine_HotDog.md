@@ -28,7 +28,7 @@ fontsize: 12pt
         - 0, no product is selected
         - 1: Hot Dog = Bun + Sausage
         - 2: Double Dog = Bun + Two Sausages
-        - 3: Veggie Dog = Bun + a veggie sausage    
+        - 3: Veggie Dog = Bun + a Veggie Sausage    
      - MustardSelection: boolean, 
         - TRUE = customer wants mustard
         - FALSE = no mustard
@@ -37,7 +37,7 @@ fontsize: 12pt
         - FALSE = no ketchup
      - MoneyInput: integer
         - when 0, no money is inserted
-        - when non-zero, it is the current value of the coin/note given by the customer
+        - when non-zero, it is the current value of the money inserted by the customer
      - Cancel: boolean
         - when True, cancels an ongoing operation. All money input until this moment shall be returned to the customer.
      - ResetStock
@@ -70,9 +70,9 @@ fontsize: 12pt
 
 2. The vending machine starts with 10 buns, 10 sausage, 10 veggie sausages, unlimited mustard and ketchup
 
-2. The price of every type of product is fixed and known (you pick some value).
+2. The price of every type of product is fixed and known (you pick some value, e.g. 6).
 
-2. The vending machine holds in memory the number of products it has available at any time moment.
+2. The vending machine keeps track of the number of products it has available at any time moment.
 
 5. The machine shall detect if the user requests an invalid product code, and signal this at the Status output 
 
@@ -86,10 +86,10 @@ fontsize: 12pt
 
 6. The machine shall always provide a status code output.
 
-6. The `MustardSelection` input button shall be debounced both ways, with a time duration of 0.2 seconds.
+6. The `MustardSelection` input button shall be debounced both ways, with a time duration of 0.25 seconds.
 
-5. Use parameters from Matlab for all values you deem necessary (e.g. duration of delays, prices etc.).
+5. Use parameters from Matlab for all values you consider necessary (e.g. duration of delays, prices etc.).
 Our customer may want to adjust the parameters at any time.
 
-6. Test as many behaviors of your state machine as possible (use one/multiple separate test models if necessary)
+6. Test your state machine (use one/multiple separate test models if necessary)
 

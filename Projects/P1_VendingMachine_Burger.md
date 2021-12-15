@@ -19,8 +19,6 @@ fontsize: 12pt
 
 1. The vending machine has 3 products categories available: Normal Burger, Cheeseburger, Double Burger.
 
-1. Each product can have normal sauce, spicy sauce or no sauce.
-
 2. List of inputs and outputs of the model:
 
    Inputs:
@@ -29,10 +27,6 @@ fontsize: 12pt
         - 1: Normal Burger: bun + salad + meat
         - 2: Cheeseburger: bun + salad + meat + cheese
         - 3: Double Burger: bun + salad + meat + cheese + meat + cheese
-     - Sauce: integer
-        - 0: no sauce
-        - 1: normal sauce
-        - 2: spicy sauce
      - MoneyInput: integer
         - when 0, no money is inserted
         - when non-zero, it is the current value of the coin/note given by the customer
@@ -61,19 +55,18 @@ fontsize: 12pt
 3. The vending machine operates in 4 basic steps:
    - first you enter the product code of the product
    - then you enter the money 
-   - then you indicate what type of sauce you want
    - then the product is created and dispensed, according to the recipe
    - then the rest of the money is returned
 
-2. The vending machine starts with 10 buns and salads, 10 meat slices, 10 cheese slices, unlimited sauce
+2. The vending machine starts with 10 buns and salads, 10 meat slices, 10 cheese slices
 
-2. The price of every type of product is fixed and known (you pick some value).
+2. The price of every type of product is fixed and known (you pick some value, e.g. 5).
 
-2. The vending machine holds in memory the number of products it has available at any time moment.
+2. The vending machine holds in memory the number of products it has available at any time moment: buns, salads, meat slices, cheese slices. Every time one is used, the number of available products decreases.
 
 5. The machine shall detect if the user requests an invalid product code, and signal this at the Status output 
 
-3. The machine shall detect if the user requests a product which is currently out of stock, and signal at the Status output.
+3. The machine shall detect if the user requests a product which is currently out of stock, and signal at the Status output (e.g. when the machine is out of cheese, it cannnot produce ca Cheeseburger or Double burger, but it can produce a normal burger).
 
 4. The machine shall calculate the rest of the money and provide back the change (Note: assume the machine has an infinite supply of coins/notes).
 
@@ -83,10 +76,10 @@ fontsize: 12pt
 
 6. The machine shall always provide a status code output.
 
-6. The `Sauce` input button shall be debounced both ways, with a time duration of 0.2 seconds.
+6. The `Cancel` input button shall be debounced both ways, with a time duration of 0.2 seconds.
 
-5. Use parameters from Matlab for all values you deem necessary (e.g. duration of delays, prices etc.).
+5. Use parameters from Matlab for all values you consider necessary (e.g. duration of delays, prices etc.). 
 Our customer may want to adjust the parameters at any time.
 
-6. Test as many behaviors of your state machine as possible (use one/multiple separate test models if necessary)
+6. Test your state machine (use one/multiple separate test models if necessary)
 

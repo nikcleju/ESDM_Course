@@ -55,13 +55,14 @@ fontsize: 12pt
 
 4. The elevator works as follows:
 
-  - The elevator is initially at the ground floor.
-  - Whenever the TargetFloor is different from the current height, the elevator shall move to the target floor, as follows:
-    - wait for 1 seconds
-    - activate the elevator motor in the correct direction
-    - wait for the current height to reach the correct value of the target floor
-    - stop the motor 
-    - during all this time the Status output shall be set to GOING_UP or GOING_DOWN
+    - The elevator is initially at the ground floor.
+	- The user wants to go to some floor. The input TargetFloor becomes the desired floor.
+    - Whenever the input TargetFloor becomes different from the current height, the machine shall command the motor to move towards the target floor, as follows:
+      - wait for 1 seconds
+      - activate the elevator motor in the correct direction (up or down)
+      - wait for the current height to reach the correct value of the target floor
+      - when correct height is reached, stop the motor 
+      - during all this time the Status output shall be set to GOING_UP or GOING_DOWN
 
 6. The EmergencyStop button stops the motor instantly. The output status shall be set to EMERGENCY
 
@@ -70,7 +71,8 @@ fontsize: 12pt
 7. Fault control:
    - if the motor is active and the height does not change with at least 1 meter in the first 4 seconds of movement, there is a motor error. Cancel the operation and set the Status output to MOTOR_ERROR.
 
-5. Use parameters from Matlab whenever for all values you deem necessary (e.g. duration of times etc.).
+5. Use parameters from Matlab whenever for all values you consider necessary (e.g. duration of times etc.).
 Our customer may want to adjust the parameters at any time.
 
-6. Test as many behaviors of your state machine as possible (use one/multiple separate test models if necessary)
+6. Test your state machine (use one/multiple separate test models if necessary)
+
