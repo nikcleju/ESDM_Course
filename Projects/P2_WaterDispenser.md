@@ -48,7 +48,7 @@ fontsize: 12pt
        - Only afterwards start pouring water
        - Stop when `HotWater=FALSE`
 
-4. The cancel button stops every ongoing operation of the machine
+4. ~~The cancel button stops every ongoing operation of the machine~~
 
 4. All buttons must be debounced both ways, with a time duration of 0.2 seconds.
 
