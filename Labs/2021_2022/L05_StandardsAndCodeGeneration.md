@@ -1,6 +1,6 @@
 ---
 title: Model standards and code generation tools
-subtitle: Lab 7, ESDM
+subtitle: Lab 5, ESDM
 documentclass: scrartcl
 fontsize: 12pt
 ---
@@ -16,7 +16,7 @@ for model-based development in Simulink.
 1. Design a FSM in Stateflow for a simplified alarm system. The system has two inputs `DoorOpen` and `CodeOK` and one output `AlarmOn`, for the following requirements:
 
     1. The alarm is turned off (`AlarmOn = FALSE`) always when `DoorOpen = FALSE`.
-    2. The alarm is turned on whn the door is open (`DoorOpen = TRUE`), while `CodeOK = FALSE`. 
+    2. The alarm is turned on when the door is open (`DoorOpen = TRUE`), while `CodeOK = FALSE`. 
     3. The alarm is turned off when either the door is closed (`DoorOpen = FALSE`) or the correct passcode is entered (`CodeOK = TRUE`).
 
 2. Test your design using another model. Inside this test model, use the `Model Reference` to reference the model under test.
@@ -35,5 +35,5 @@ for model-based development in Simulink.
 	   - User specified function name (you choose name)
 	   - User specified file name (you choose name)
 	 
-     - Right-click on chart -> C/C++ Code -> Build code
+     - Right-click on chart -> C/C++ Code -> Build This Subsystem
 
