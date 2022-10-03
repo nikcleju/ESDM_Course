@@ -1,5 +1,5 @@
 ---
-title: Garage door controller
+title: Window door controller
 subtitle: Project 5, ESDM
 documentclass: scrartcl
 fontsize: 12pt

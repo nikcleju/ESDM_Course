@@ -7,7 +7,7 @@ fontsize: 12pt
 
 # Short description
 
-1. Create and test Simulink model with a state machine implementing the logic behind a drive-though automatic Car Wash.
+1. Create and test Simulink model with a state machine implementing the logic behind a drive-through automatic Car Wash.
 
 2. Write a small report on the project:
    a. briefly describe the overall design you chose (states, transitions etc).
