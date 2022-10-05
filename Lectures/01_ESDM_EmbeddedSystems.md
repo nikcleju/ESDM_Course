@@ -1,4 +1,4 @@
-## I. Introduction to Embedded Systems Design
+## I. Introduction
 
 ### What are Embedded Systems?
 
@@ -147,3 +147,22 @@ Steps:
 ![Gajski Y Chart and design path](fig/Intro_GajskiYChart.png){width=75%}
 
 * Image from Marwedel 2011
+
+
+### What we cover
+
+What we cover in this course:
+
+- Modeling:
+
+  - Modeling continuous dynamics with differential equations
+  - Modeling discrete dynamics with finite state machines (FSM)
+  - FSM concurrency, hierarchy
+
+- Design:
+
+  - Basics scheduling
+
+- Analysis:
+
+  - ...

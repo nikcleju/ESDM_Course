@@ -1,5 +1,27 @@
 ## II. Modeling of continuous systems
 
+### Actor model of systems
+
+A system can be decomposed as inter-connected building blocks, called "actors"
+
+- Each actor has:
+  - 0, 1 or more input ports
+  - 0, 1 or more output ports
+  - an internal computation / function / what it does
+
+- Connections = Signals
+
+![Actor model of systems[^ActorModel]](fig/Cont_ActorModel.png){width=50%}
+
+[^ActorModel]: (Image from Lee&Seshia 2017)
+
+### Actor dynamics
+
+How to describe what a component does?
+
+- Continuous dynamics
+- Discrete dynamics
+
 ### Continuous dynamics
 
 - **Dynamic system** = system whose state evolves in time
@@ -121,6 +143,8 @@ $$\frac{d^2}{dt^2} f(t) + A \cdot f(t) = 0$$
   
 
 ### Simple model of a DC motor
+
+- Example of continuous system modeling: model of a DC motor
 
 - Motor: gateway between the two electrical and mechanical domains
     
@@ -292,22 +316,23 @@ depend on speed, but is a constant \
     - output = motor speed $S(s)$ = voltage on equivalent motor capacity 
 
 - Transfer function ($2{^nd}$ degree, approximately $1^{st}$ degree)
-$$H(s) = \frac{S(s)}{U(s)} = \frac{b_0 s + b_1}{s^2 + a_1 s + a_2} \approx \frac{K}{\tau \cdot s + 1}$$
+$$\begin{aligned}
+H(s) = \frac{S(s)}{U(s)} &= \frac{R_{Fr}}{R_{Fr} + (R_{Arm}+s L_{Arm})(1 + s C_{M+I} R_{Fr})} \\
+&= \frac{b_0}{s^2 + a_1 s + a_0}\\
+&\approx \frac{K}{\tau \cdot s + 1}
+\end{aligned}$$
+
+### Transfer function of a DC motor
 
 - Take home message: 
-    - Simple DC motor no-load model = a second order RLC model = approx a RC model
-    - Behaves like a RC low-pass filter
+  - Simple DC motor no-load model = a second order RLC model = approx a first-order RC model (ignoring L small)
+  - Behaves like a RC low-pass filter
 
 - Note: This is a no-load model (motor doesn't move anything heavy)
-
-
-### Motor under load
 
 - What happens if motor has a load?
     - e.g. the motor drags/lifts a constant weight
     - i.e. like a crane lifting a big weight from the ground
-
-\s
 
 - How to model the load?
 
@@ -353,6 +378,15 @@ Basic problem: how to make sure motor speed stays **exactly** as desired:
 This is a job for a **motor controller**
  
 - Today's special: the PID motor controller
+
+### Motor speed controller
+
+This is a typical embedded system design problem:
+
+- There is a physical process (the actual motor)
+- We model it's behavior (use a motor model)
+- We want to control it
+- We design a controller system which steers the process as we want
 
 
 ### Motor controllers

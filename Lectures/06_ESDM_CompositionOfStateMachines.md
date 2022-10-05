@@ -161,6 +161,21 @@ takes place after a non-zero time delay (or vice-versa)
 
 ![Synchronous composition - Equivalent model with unreachable states removed](fig/Composition_PedAndCarLightSync1.png){width=90%}
 
+## Models of communications
+
+How do two different processes (e.g. two different FSM's) communicate with one another?
+
+Two models:
+
+- Shared memory
+
+  - mutex for resource control 
+
+- Message passing
+
+  - blocking (synchronous)
+  - non-blocking (asynchronous)
+
 ### Shared variables
 
 Other possibilities for model composition:

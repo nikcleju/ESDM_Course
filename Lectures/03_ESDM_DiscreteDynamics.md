@@ -13,15 +13,6 @@
 - It's more a mathematical model (real-life is continuous), but still extremely useful
     
 
-### Components of discrete signal models
-
-- Systems = Actors
-
-- States, Transitions, Conditions, Actions
-
-- Properties
-
-
 ### Sample discrete system
 
 Example of discrete system model:
