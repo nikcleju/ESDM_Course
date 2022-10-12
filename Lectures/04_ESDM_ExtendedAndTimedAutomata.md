@@ -46,12 +46,15 @@
 - How is time measured in the model below?
 - How many states does the model below have?
 
-![Extended FSM with time measuring (image from Seshia' slides)](fig/ExtFSM_PedestrianCrossing.png){width=80%}
+![Extended FSM with time measuring [^ExtFSMtime]](fig/ExtFSM_PedestrianCrossing.png){width=80%}
 
+[^ExtFSMtime]: image from Seshia' slides
 
 ### Hybrid systems
 
-![Hybrid systems (image from Seshia' slides)](fig/ExtFSM_HybridSystems.png){width=80%}
+![Hybrid systems [^HybridSystems]](fig/ExtFSM_HybridSystems.png){width=80%}
+
+[^HybridSystems]: image from Seshia' slides
 
 ### Hybrid systems
 
@@ -75,47 +78,48 @@
   
 ### Timed automata  
 
-![Timed automaton example (image from Seshia's slides)](fig/ExtFSM_TimedAutomata.png){width=60%}
+![Timed automaton example [^TimedAutomaton]](fig/ExtFSM_TimedAutomata.png){width=60%}
+
+[^TimedAutomaton]: image from Seshia' slides
 
 ### Example
 
-- Mouse Double-click detector model
+![Mouse Double-click detector model [^ExtDblClick]](fig/ExtFSM_MouseDoubleClickDetector.png){width=40%}
 
-![(image from Seshia's slides)](fig/ExtFSM_MouseDoubleClickDetector.png){width=60%}
+[^ExtDblClick]: image from Seshia' slides
 
 - Here $\dot{x}(t) = 1$ means "x(t) increases linearly with time", so it measures time
 - How many states does this model have?
 
 ### Example: Another Thermostat
 
-- Another thermostat model as a Timed Automaton
+![- Another thermostat model as a Timed Automaton [^AnothTherm]](fig/ExtFSM_TimedAutomata_Thermostat_1.png)
 
-![(image from Seshia's slides)](fig/ExtFSM_TimedAutomata_Thermostat_1.png)
+[^AnothTherm]: image from Seshia' slides
 
 ### Example: Another Thermostat
 
-- Another thermostat model as a Timed Automaton
+![ Input and output signals [^AnothTherm2]](fig/ExtFSM_TimedAutomata_Thermostat_2.png)
 
-![(image from Seshia's slides)](fig/ExtFSM_TimedAutomata_Thermostat_2.png)
-
+[^AnothTherm2]: image from Seshia' slides
 
 ### Example: Another Traffic Light
 
-- Traffic Light controller Timed Automaton
+![Traffic Light controller Timed Automaton [^AnothTrafL]](fig/ExtFSM_TimedAutomata_TrafficLight.png){width=80%}
 
-![(image from Seshia's slides)](fig/ExtFSM_TimedAutomata_TrafficLight.png){width=80%}
+[^AnothTrafL]: image from Seshia' slides
 
 ### Example: Tick generator
 
-- Timed Automaton to generate a *tick* every T seconds
+![Timed Automaton to generate a *tick* event every T seconds [^TickGen]](fig/ExtFSM_TimedAutomata_TickGenerator.png){width=70%}
 
-![(image from Seshia's slides)](fig/ExtFSM_TimedAutomata_TickGenerator.png){width=70%}
+[^TickGen]: image from Seshia' slides
 
 ### Example: Bouncing Ball
 
-- Timed Automaton to simulate a bouncing ball movements
+![Timed Automaton to simulate a bouncing ball movements [^BouncingBall]](fig/ExtFSM_TimedAutomata_BouncingBall.png){width=80%}
 
-![(image from Seshia's slides)](fig/ExtFSM_TimedAutomata_BouncingBall.png){width=80%}\
+[^BouncingBall]: image from Seshia' slides
 
 ### FSM simulation software
 
@@ -142,7 +146,9 @@
 
 ### State actions
 
-![State Actions example (image from Matlab docs)](fig/Stateflow_StateActions.png)
+![State Actions example [^StateAct]](fig/Stateflow_StateActions.png)
+
+[^StateAct]: image from Matlab docs
 
 ### State actions
 
@@ -186,4 +192,6 @@ can generate events which can be used in conditions
     
 ### Temporal logic
 
-![Temporal Logic example (image from Matlab docs)](fig/Stateflow_TemporalLogic.png){width=70%}
+![Temporal Logic example [^TempLogic]](fig/Stateflow_TemporalLogic.png){width=70%}
+
+[^TempLogic]: image from Matlab docs
