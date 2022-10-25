@@ -1,5 +1,27 @@
 ## II. Modeling of discrete systems
 
+### Actor model of systems
+
+A system can be decomposed as inter-connected building blocks, called "actors"
+
+- Each actor has:
+  - 0, 1 or more input ports
+  - 0, 1 or more output ports
+  - an internal computation / function / what it does
+
+- Connections = Signals
+
+![Actor model of systems[^ActorModel]](fig/Cont_ActorModel.png){width=50%}
+
+[^ActorModel]: (Image from Lee & Seshia 2017)
+
+### Actor dynamics
+
+How to describe what a component does?
+
+- Continuous dynamics
+- Discrete dynamics
+
 ### Discrete dynamics
 
 - **Dynamic system** = system whose state evolves in time
@@ -53,7 +75,9 @@ Example of discrete system model:
 
 ### FSM notations
 
-![FSM Notations (image from Seshia slides](fig/FSM_Notations.png){width=60%}
+![FSM Notations [^FSMNot]](fig/FSM_Notations.png){width=60%}
+
+[^FSMNot]: image from Seshia's slides
 
 ### Conditions and actions
 
@@ -112,11 +136,11 @@ Model example: thermostat
 
 - Event-triggered model:
   - The reaction can take time **any time**.
-  - The environment triggers the transition, not the model
-  - Works **like an interrupt**
+  - The environment triggers the transition, via an **event**
+  - Works like an **interrupt** in microcontrollers
 
 - Time-triggered model:
-  - The reaction occurs on the *tick* of an **external clock**
+  - The reaction occurs periodically, on the global *tick* of an **external clock**
   - e.g. everything runs at $T_s$ = 10ms, 20ms etc.
 
 ### Time-triggered models
@@ -124,9 +148,9 @@ Model example: thermostat
 - Simplest case = time-triggered models
 
 - How it works:
-  - the clock ticks, the FSM "wakes up"
+  - the clock ticks, the FSM "wakes up" in a certain state
   - the inputs are read
-  - the transitions from the current state are verified
+  - the outgoing transitions from the current state are verified
   - if a transition is true, it is executed, the system enters a new state
   - the system "goes to sleep" until the next tick
   
@@ -143,12 +167,6 @@ Advantages/disadvantages of event-triggered models:
   - Bad: the inputs are not synchronized (in a condition $a > b$, perhaps a changes 1ms faster than $b$, and this leads to a wrong result
   - Good: no risk that values are lost
   - Bad: difficult to analyze, difficult to understand
-
-### Traffic light controller
-
-Model example: car traffic light controller
-
-[To draw]
 
 
 ### Properties of discrete models
@@ -167,5 +185,6 @@ For a fixed input sequence and initial state:
 - A deterministic system exhibits a single behavior
 - A non-deterministic system exhibits a set of behaviors, visualized as a **computation tree**
 
-![Computation tree (image from Seshia's slides](fig/ComputationTree.png)
+![Computation tree [^ComputTree]](fig/ComputationTree.png){width=75%}
 
+[^ComputTree]: image from Seshia's slides

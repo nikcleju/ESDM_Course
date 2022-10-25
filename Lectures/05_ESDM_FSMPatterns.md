@@ -8,9 +8,7 @@
 - Patterns
   
   - Operating on signal transitions
-  - Set-Reset
   - Debounce (one-sided, two-sided)
-  - Check-Synchronize
   
 
 ### Operating on signal transitions
@@ -39,11 +37,23 @@ rather than in its values
 
 -
 
+-
+
+-
+
+-
+
 
 
 ### Detect falling edge
 
 - Draw here: detect falling edge
+
+-
+
+-
+
+-
 
 -
 
@@ -68,30 +78,6 @@ rather than in its values
 
 
 
-### Set-Reset
-
-- Scenario:
-  
-  - two conditions, A and B
-  - when A is true, turn something ON
-  - when B is true, turn it OFF
-  
-- Use when ON-OFF behavior is controlled by two conditions (A and B)
-
-
-### Set-Reset
-
-- Draw here:
-
--
-
--
-
--
-
--
-
-
 ### Debouncing
 
 - For boolean signals/conditions
@@ -114,6 +100,12 @@ rather than in its values
 
 -
 
+-
+
+-
+
+-
+
 
 ### Debouncing falling edge
 
@@ -127,6 +119,11 @@ rather than in its values
 
 -
 
+-
+
+-
+
+-
 
 ### Debouncing both edges
 
@@ -137,39 +134,6 @@ rather than in its values
 -
 
 -
-
--
-
-
-### Check-Synchronize
-
-- Scenario:
-
-  - A happens
-
-  - B happens no later then T seconds after A
-  
-- Use when we want to check whether B and A happen approximately at the same time
-
-- Need to find a good name for this ....
-
-
-### Check-Synchronize
-
-- Draw here:
-
--
-
--
-
--
-
--
-
-
-### Check-Synchronize
-
-- Draw here:
 
 -
 
