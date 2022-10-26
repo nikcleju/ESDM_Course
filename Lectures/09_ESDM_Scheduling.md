@@ -40,6 +40,8 @@ Scheduling can be:
 
 - static / dynamic
 
+
+
 ### Rate Monotonic Scheduling
 
 ### Earliest Deadline First
