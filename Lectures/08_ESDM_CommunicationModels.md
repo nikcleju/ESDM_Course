@@ -18,7 +18,7 @@
 
 ### Models of communications
 
-Two models:
+Two communication paradigms:
 
 - Communicate via shared memory / variables
   
@@ -26,12 +26,12 @@ Two models:
   
   - one process writes it, the other process reads it
 
-- Message passing
+- Communicate via message passing
 
   - blocking (synchronous)
   - non-blocking (asynchronous)
 
-### Shared variables
+### Shared memory
 
 - **Shared** variables = variables which can we written / read by both models
 
@@ -45,7 +45,7 @@ Two models:
 - Solution: access to shared variable must be via **atomic
 operations** or guarded with a **mutex**
 
-### Shared variables
+### Shared memory
 
 - **Atomic** operation = an operation that is indivisible (once
   it starts, it can’t be interrupted until it ends)
@@ -81,11 +81,28 @@ variable
 
 - Example: Python
 
+
+### Shared memory
+
+- There can be multiple writers, multiple readers of the shared data
+
+- It is up to the designer to ensure the synchronization between all the participants
+
+
+### Message passing
+
+Message passing
+
+- Communication is achieved explicitly via **messages** which are sent and received
+
+- Two variants:
+
+  - blocking
+  - non-blocking
+
 ### Message passing: blocking
 
 Message passing: **blocking (synchronous)**
-
-- There is a sender process and a receiver process
 
 - When the sender sends, it **waits** for the receiver to acknowledge that is has received the data
 
