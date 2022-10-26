@@ -19,29 +19,42 @@ Problems:
 
 ![State refinement](fig/Hierarchical_Refinement.png){width=70%}
 
+Question: 
+
+- Suppose the FSM is in sub-state D of B
 - If g1 and g3 are both true, which reacts first? The inner FSM or the outer FSM?
 
 ### Reaction order
 
 Two solutions:
 
-  - 1. [Statecharts language] Inner FSM reacts first, outer FSM reacts later
+1. [Statecharts language] Inner FSM reacts first, outer FSM reacts later
 
     - The two reactions are considered simultaneous
     - The output actions are required to not conflict
-  
-  - 2. [Stateflow, Matlab] Outer FSM reacts first, inner FSM
-       reacts later (if at all)
+
+
+    In this example:
+
+      - starting from D, inside B
+      - check inner transition, $g_3$ is True $\rightarrow$ $a_3$ is executed
+      - check outer transition, $g_1$ is True $\rightarrow$ $a_1$ is executed
+      - ending state is A
+
+
+### Reaction order
+
+2. [Stateflow, Matlab] Outer FSM reacts first, inner FSM reacts later (if at all)
 
     - If state is left, the inner FSM will not react at all
 
-### Reaction order
+    In this example:
 
-Specify here the order of checks/operations in both cases
+      - starting from D, inside B
+      - check outer transition, $g_1$ is True $\rightarrow$ $a_1$ is executed
+      - ending state is A
+      - (action $a_3$ is not executed)
 
-### Reaction order
-
-Specify here the order of checks/operations in both cases
 
 ### History transitions
 
@@ -50,11 +63,11 @@ entered?
 
 Two solutions:
 
-  - 1. Enter the last sub-state you were in, when you last left
+1. Enter the last sub-state you were in, when you last left
    the super-state
     - Represented as a **history transition** (marked with a full black arrow on these schematics / a H sign in Matlab)
 
-  - 2. Enter the default sub-state every time
+2. Enter the default sub-state every time
     - Known as a **reset transition** (marked with a white arrow on these schematics / default behavior in Matlab)
     
 ### Example

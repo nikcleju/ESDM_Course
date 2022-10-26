@@ -161,3 +161,82 @@ takes place after a non-zero time delay (or vice-versa)
 
 ![Synchronous composition - Equivalent model with unreachable states removed](fig/Composition_PedAndCarLightSync1.png){width=90%}
 
+## Models of communications
+
+How do two different processes (e.g. two different FSM's) communicate with one another?
+
+Two models:
+
+- Shared memory
+
+  - mutex (lock) for resource control 
+
+- Message passing
+
+  - blocking (synchronous)
+  - non-blocking (asynchronous)
+
+### Shared variables
+
+Other possibilities for model composition:
+
+- **Shared** variables = variables which can we written / read by both models
+
+  - Analysis much harder
+  - Potential problems:  What happens if both models try to access (read or write) the variable at the same time?
+  
+    - Answer: something bad. Might end up with an incorrect value
+    - Solution: access to shared variable must be via **atomic
+operations** and guarded with a **mutex**
+
+### Shared variables
+
+- **Atomic** operation = an operation that is indivisible (once
+  it starts, it can’t be interrupted until it ends)
+
+- **Mutex** (or **lock**) = a mechanism for ensuring only one process
+accesses a given resource (e.g. variable) at one time
+  - A process first **acquires** the mutex, if it is available
+  - Only afterwards it accesses the variable
+  - While the mutex is acquired, no other process can access it
+  - The process **releases** the mutex when it’s done with the
+variable
+  - The code between acquiring and releasing the mutex is known as a **critical section**
+
+### Message passing: blocking
+
+- Message passing: blocking (synchronous)
+
+- There is a sender process and a receiver process
+
+- When the sender sends, it **waits** for the receiver to acknowledge that is has received the data
+
+- When the receiver reads, it **waits** for the data
+
+- Basically, the earlier one waits for the other one
+
+### Message passing: non-blocking
+
+- Message passing: non-blocking (asynchronous)
+
+- There is a sender process and a receiver process
+
+- When the sender sends, it **stores** the data somewhere, and goes on
+
+- When the receiver reads, it **collects** (if available) the data and goes on
+
+- Neither process waits
+
+- Works like **the post office**
+
+### Message passing
+
+- Blocking vs non-blocking:
+
+  - Non-blocking communication needs a storage mechanism (FIFO, LIFO, Queue, list etc.)
+    
+    - This storage space may overflow => need to have safety mechanisms in place
+
+  - Blocking communication does not need any special soneeds a storage space (FIFO, LIFO, Queue, list etc.)
+
+    - But delays one of the processes until the other one is ready
