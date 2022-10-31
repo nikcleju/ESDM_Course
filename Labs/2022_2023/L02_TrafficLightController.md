@@ -53,6 +53,22 @@ TBD
 	
 	- Make the last 8 seconds of pedestrian green blinking.
 
+# General requirements
+
+- Model Settings: Set the Solver type to "Fixed-step", "discrete (no continuous states"), and fixed step size to 0.1 (see Fig.1)
+
+  ![Model Settings](img/L02_Settings.png)
+
+- Run the model for 120 seconds, use "Simulation Pacing" to have simulation time 3-4x faster than normal time (see Fig.2)
+
+  ![Simulation time](img/L02_Run.png)
+
+- Put all inputs and outputs into a Scope block, for visualization (see Fig.3)
+- Attach a "Push Button" from the Dashboard group as the input button (see Fig.3)
+- Attach three "Lamp" blocks from the Dashboard group as the output (see Fig.3)
+
+  ![Desired overview](img/L02_Overview.png)
+
 # Final questions
 
 1. TBD
