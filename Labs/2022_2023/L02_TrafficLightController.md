@@ -11,8 +11,22 @@ Introducing students to the Simulink environment and the Stateflow component.
 
 # Theoretical aspects
 
-TBD
+How to measure time in a Stateflow model:
+
+1. Use a counter variable:
+
+   ![](img/L02_Counter.png)
         
+2. Use one of the special temporal operators: `after()`, `on()`, etc.
+
+	![](img/L02_After.png)
+
+The special variables used with temporal operators:
+
+  - use `sec` to count **seconds** (`[after(5,sec)]`)
+  - use `msec` to count **miliseconds** (`[after(250,msec)]`)
+  - use `tick` to count **ticks**, i.e. **time steps** (`[after(30,tick)]`). The time step is configured in the Model Settings.
+
 
 # Exercises
 
