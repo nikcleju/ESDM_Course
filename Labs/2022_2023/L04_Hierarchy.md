@@ -8,17 +8,42 @@ fontsize: 12pt
 # Objective
 
 Using the Stateflow tool in Simulink to model to implement
-simple design requirements which are very often encountered in practice.
+hierarchical models.
 
 # Theoretical aspects
 
-TBD. See the Lectures.
+## Substates and superstates
 
-In this lab you will implement:
+A FSM can have a multi-level hierarchy composed of **substates** and **superstates**.
 
-- Substates and superstates
-- History transitions
+Within the substates of a state, one of them must have a default transition to indicate which is the default substate,
+as in the following image[^1].
 
+[^1]: All images are from the Matlab documentation
+
+![Hierarchical FSM](img/L4_StateHierarchy_Matlab.png)
+
+The check of transitions is done in **top-down order**:
+
+1. First check all transitions of the super-state
+
+   If a transition is found valid, it is executed, and no further checks are done in the substate.
+
+2. Only if no super-state transition is valid, go down one level and check transitions leaving from substates.
+
+![What is the execution order here?](img/L4_ExecutionOrder.png)
+
+## History junctions
+
+For a normal super-state, every time execution enters the super-state, it goes to the **default substate**,
+marked with the default transition.
+
+When a **history junction sign** is a present in a super-state, then
+when entering the state execution goes to **the last active substate when it last exited the state**.
+
+- At first entry it goes to the default substate, since there is no last active substate.
+
+![States with history](img/L4_History.png)
 
 # Exercises
 
