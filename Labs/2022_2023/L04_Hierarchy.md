@@ -33,6 +33,12 @@ The check of transitions is done in **top-down order**:
 
 ![What is the execution order here?](img/L4_ExecutionOrder.png)
 
+A detailed steb-by-step workflow for execution of a chart in Stateflow is provided in Matlab documentation:
+
+[Execution of a Stateflow chart](https://www.mathworks.com/help/stateflow/ug/chart-during-actions.html)
+
+[Workflow of evaluating transitions](https://www.mathworks.com/help/stateflow/ug/evaluate-transitions.html)
+
 ## History junctions
 
 For a normal super-state, every time execution enters the super-state, it goes to the **default substate**,
@@ -82,3 +88,17 @@ when entering the state execution goes to **the last active substate when it las
 
 4. Generate C code from the model (Code -> C/C++ Code -> Build Model). Locate the code files, open them and identify the implementation of the state machine. How is it implemented (with which C instructions)?
 
+
+# General requirements
+
+- Model Settings: Set the Solver type to "Fixed-step", "discrete (no continuous states"), and fixed step size to 0.1 (see Fig.1)
+
+  ![Model Settings](img/Settings_Discrete.png)
+
+- Use "Simulation Pacing" to have simulation time slightly faster than normal time (see Fig.2)
+
+  ![Simulation time](img/Run_Pacing.png)
+
+- Put all inputs and outputs into a Scope block, for visualization and analysis
+- Attach a "Push Button" from the Dashboard group as the input button
+- You can attach "Lamp" blocks from the Dashboard group to easily see the outputs
