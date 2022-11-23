@@ -43,7 +43,7 @@ In this way the generated code is simpler.
 
 1. Design a FSM in Stateflow for a simplified alarm system. The system has two inputs `DoorOpen` and `CodeOK` and one output `AlarmOn`, for the following requirements:
 
-    1. When input `DoorOpen = FALSE`, the alarm is turned off (output `AlarmOn = FALSE`).
+    1. Initially the alarm is turned off (`AlarmOn = FALSE`).
     2. The alarm is turned on after 15 seconds from the moment the door is open (`DoorOpen = TRUE`), while `CodeOK = FALSE`. 
     3. The alarm is turned off when the correct passcode is entered (`CodeOK = TRUE`).
 
