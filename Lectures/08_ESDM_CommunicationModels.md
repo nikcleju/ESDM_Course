@@ -1,4 +1,4 @@
-## VIII. Communication Models
+## IX. SchedulingCommunication Models
 
 ### Models of communications
 
@@ -45,6 +45,14 @@ Two communication paradigms:
 - Solution: access to shared variable must be via **atomic
 operations** or guarded with a **mutex**
 
+### Shared Memory
+
+![Shared Memory illustrated](fig/Shared_Memory.png)
+
+[^SM]
+
+[^SM]: image from [https://www.tutorialspoint.com/inter_process_communication/inter_process_communication_shared_memory.htm](https://www.tutorialspoint.com/inter_process_communication/inter_process_communication_shared_memory.htm)
+
 ### Shared memory
 
 - **Atomic** operation = an operation that is indivisible (once
@@ -81,6 +89,44 @@ variable
 
 - Example: Python
 
+### Mutex (lock)
+
+![Using locks to control access to a resource](fig/Lock.png)
+
+[^Lock]
+
+[^Lock]: https://jenkov.com/tutorials/java-concurrency/non-blocking-algorithms.html
+
+### Mutex (lock)
+
+```{.python}
+lock = threading.Lock()
+def thread_function_1():
+
+    # Acquire lock
+    with lock:
+        print("Thread 1 acquired lock. Writing...")
+        write_shared_memory()
+    
+    # Lock is released
+    # In Python this happens automatically 
+    #   when exiting the `with` context manager
+```
+
+### Mutex (lock)
+
+```{.python}
+def thread_function_2():
+
+    # Acquire lock
+    with lock:
+        print("Thread 2 acquired lock. Reading...")
+        read_shared_memory()
+    
+    # Lock is released
+    # In Python this happens automatically 
+    #   when exiting the `with` context manager
+```
 
 ### Shared memory
 
@@ -99,6 +145,14 @@ Message passing
 
   - blocking
   - non-blocking
+
+### Message passing
+
+![Message Passing illustrated](fig/Message-Passing-in-Java.jpg)
+
+[^MP]
+
+[^MP]: image from [https://www.geeksforgeeks.org/message-passing-in-java/](https://www.geeksforgeeks.org/message-passing-in-java/)
 
 ### Message passing: blocking
 
