@@ -85,6 +85,9 @@ accesses a given resource (e.g. variable) at one time
 variable
   - The code between acquiring and releasing the mutex is known as a **critical section**
   
+- A process **blocks** when tries to acquire a lock which is held by another one 
+  - **blocks** = goes to sleep until the lock is released by the current holder
+
 - Mutexes are provided by the operating system, and are used in code via library functions provided by the OS
 
 - Example: Python
@@ -97,7 +100,7 @@ variable
 
 [^Lock]: https://jenkov.com/tutorials/java-concurrency/non-blocking-algorithms.html
 
-### Mutex (lock)
+### Mutex (lock) in Python
 
 ```{.python}
 lock = threading.Lock()
@@ -113,7 +116,7 @@ def thread_function_1():
     #   when exiting the `with` context manager
 ```
 
-### Mutex (lock)
+### Mutex (lock) in Python
 
 ```{.python}
 def thread_function_2():
@@ -128,11 +131,40 @@ def thread_function_2():
     #   when exiting the `with` context manager
 ```
 
-### Shared memory
+### Mutex (lock) in C
+
+```{.C}
+#include <pthread.h>
+
+pthread_mutex_t mutex;
+
+void do_work_with_mutex()
+{
+    // Acquire the mutex
+    pthread_mutex_lock(&mutex);
+
+    // Do some work here that requires the mutex
+
+    // Release the mutex
+    pthread_mutex_unlock(&mutex);
+}
+```
+
+### Further notes
+
+Shared memory communication
 
 - There can be multiple writers, multiple readers of the shared data
-
 - It is up to the designer to ensure the synchronization between all the participants
+
+Shared resources:
+
+- Memory is not the only resource which needs a synchronized access
+- Mutexes can be used for controlled access to any resource:
+  - memory
+  - peripherals
+  - files
+  - ...
 
 
 ### Message passing
@@ -199,3 +231,45 @@ Comparing blocking vs non-blocking:
     - Blocking communication delays one of the processes until the other one is ready
 
 - Examples:...
+
+### Message passing example - Python
+
+import multiprocessing as mp
+
+```{.python}
+# Define a function that will run in a separate process
+def worker(conn):
+  while True:
+    # Receive a message from the main process
+    message = conn.recv()
+    
+    # Check if the message is the sentinel value, which indicates
+    # that the main process has closed the connection and we should
+    # exit the loop
+    if message == mp.sentinel:
+      break
+    
+    # Print the received message
+    print('Received message:', message)
+
+```
+### Message passing example - Python
+
+```{.python}
+# Create a pipe for communication with the worker process
+parent_conn, child_conn = mp.Pipe()
+
+# Start the worker process
+p = mp.Process(target=worker, args=(child_conn,))
+p.start()
+
+# Send some messages to the worker process
+parent_conn.send('hello')
+parent_conn.send('world')
+
+# Close the connection to signal that we're done sending messages
+parent_conn.send(mp.sentinel)
+
+# Wait for the worker process to finish
+p.join()
+```
