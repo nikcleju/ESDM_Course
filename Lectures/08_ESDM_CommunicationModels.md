@@ -1,4 +1,4 @@
-## IX. SchedulingCommunication Models
+## VIII. Communication Models
 
 ### Models of communications
 

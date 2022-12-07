@@ -106,7 +106,7 @@ Considerations:
 
 ### Priority Inversion
 
-- Although simple, some complicated and undesired effects might happen (scheduling anomalies)
+- Although scheduling looks simple, some complicated and undesired effects might happen (scheduling anomalies)
 
 - **Priority Inversion**: scheduling anomaly where high-priority task is blocked while unrelated lower-priority tasks execute
 
@@ -175,7 +175,7 @@ Possible solutions:
 
 - What happens:
 
-  - Suppose all locks can be acquired by any task, so priority ceiling of all tasks is equal to $P_{max}$ = maximum priority among all tasks
+  - Suppose all locks can be acquired by any task, so priority ceiling of all locks is equal to $P_{max}$ = maximum priority among all tasks
   - Suppose one task holds a lock A, so priority ceiling of all locks **currently held** is $P_{max}$
   - Another task cannot hold another lock B unless its prio is **strictly higher** than $P_{max}$ => impossible => can't lock B => no deadlock
 
