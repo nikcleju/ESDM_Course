@@ -1,10 +1,4 @@
-# Projects
-
-Here you have the projects for ESDM.
-
-The project descriptions are in the `Topics` folder.
-
-# Projects
+## Projects
 
 For the last weeks of the semester, you will have to implement a mini-project in Simulink.
 
@@ -12,9 +6,9 @@ The project will be done individually.
 
 The projects must be presented in the last week or during the exam session, before the exam.
 
-# General Instructions
+## General Instructions
 
-- During the last weeks, ask me and discuss any unclear requirement
+- Ask me and discuss any unclear requirement
 
 - If anything seems overly complicated, ask me, I may simplify the requirement.
 
@@ -22,7 +16,7 @@ The projects must be presented in the last week or during the exam session, befo
 
 - In general, calibrate the total amount of work for the time available (approx. 4 sessions x 3 hours). 
 
-# Deliverables
+## Deliverables
   
 In the end you should hand over the following outputs
 
@@ -30,6 +24,6 @@ In the end you should hand over the following outputs
 
 - The project report
 
-# Evaluation
+## Evaluation
 
 - We'll have a 10 minutes chat on the model, with 2-3 questions from the implementation inside
