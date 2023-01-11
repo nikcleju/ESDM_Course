@@ -18,7 +18,7 @@ The projects must be presented in the last week or during the exam session, befo
 
 ## Deliverables
   
-In the end you should hand over the following outputs
+In the end you should hand over the following deliverables:
 
 - The Simulink file (*.slx) of your model, containing a state machine implementing the functionality described in the project topic.
 
