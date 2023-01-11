@@ -20,10 +20,26 @@ The projects must be presented in the last week or during the exam session, befo
   
 In the end you should hand over the following outputs
 
-- The Simulink file (*.slx) of your model
+- The Simulink file (*.slx) of your model, containing a state machine implementing the functionality described in the project topic.
 
-- The project report
+- A project report, containing:
+
+  a. An overall description of the FSM design (how it works, the flow of states, transitions etc; whatever you find worth mentioning).
+  b. Some tests of the functionality (2-3 tests, depending on complexity, covering normal usage and some error scenario)
+
+     For each test, indicate:
+
+     - The test description: what are the inputs, what are the expected outputs
+     - The test results: include screenshots with the inputs and output signals (e.g. on a Scope), to prove the tests work
+
 
 ## Evaluation
 
-- We'll have a 10 minutes chat on the model, with 2-3 questions from the implementation inside
+- Based on completeness and correctness of the model & report (i.e. compliance with requirements)
+- I will inspect (offline) the `*.slx` file and the report delivered and evaluate them
+- We will have a small project presentation for each project:
+
+  - the student presents the design of the model
+  - I shall ask a couple of questions from the implementation
+  - 5-10 mins per project, no slides, we discuss on the Simulink model, online
+
