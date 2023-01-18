@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg951"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
+   sodipodi:docname="FSM_Thermostat1.svg">
+  <defs
+     id="defs945">
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible;"
+       id="marker3264"
+       refX="0.0"
+       refY="0.0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lend">
+      <path
+         transform="scale(0.8) rotate(180) translate(12.5,0)"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1;fill:#000000;fill-opacity:1"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         id="path3262" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow1Lend"
+       style="overflow:visible;"
+       inkscape:isstock="true"
+       inkscape:collect="always">
+      <path
+         id="path1528"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1;fill:#000000;fill-opacity:1"
+         transform="scale(0.8) rotate(180) translate(12.5,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Lend-1"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         inkscape:connector-curvature="0"
+         id="path1528-2"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Lend-5"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         inkscape:connector-curvature="0"
+         id="path1528-3"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="marker3264-3"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lend">
+      <path
+         inkscape:connector-curvature="0"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path3262-6" />
+    </marker>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.7"
+     inkscape:cx="-507.05628"
+     inkscape:cy="736.41995"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1019"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata948">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g898"
+       transform="translate(14.741071,45.924115)"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96">
+      <rect
+         inkscape:export-ydpi="96"
+         inkscape:export-xdpi="96"
+         inkscape:export-filename="/home/ncleju/FSM_ParkingCounter.png.png"
+         rx="3.3880515"
+         y="80.729034"
+         x="-104.39001"
+         height="25.461561"
+         width="33.777035"
+         id="rect1496"
+         style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.32800001;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <text
+         inkscape:export-ydpi="96"
+         inkscape:export-xdpi="96"
+         inkscape:export-filename="/home/ncleju/FSM_ParkingCounter.png.png"
+         id="text1500"
+         y="91.947914"
+         x="-99.029762"
+         style="font-style:normal;font-weight:normal;font-size:5.64444447px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         xml:space="preserve"><tspan
+           id="tspan1502"
+           style="stroke-width:0.26458332"
+           y="91.947914"
+           x="-99.029762"
+           sodipodi:role="line">Off</tspan></text>
+    </g>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
+       d="m -55.871905,130.26129 c 31.890622,-25.22005 53.3462918,-24.83739 79.892596,-0.53454"
+       id="path1523"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/ncleju/FSM_ParkingCounter.png.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:5.64444447px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="-135.90834"
+       y="57.783527"
+       id="text6133"
+       inkscape:export-filename="/home/ncleju/FSM_ParkingCounter.png.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
+         sodipodi:role="line"
+         id="tspan6131"
+         x="-135.90834"
+         y="57.783527"
+         style="stroke-width:0.26458332">Inputs: </tspan><tspan
+         sodipodi:role="line"
+         x="-135.90834"
+         y="64.839081"
+         style="stroke-width:0.26458332"
+         id="tspan6137">Variables: </tspan><tspan
+         sodipodi:role="line"
+         x="-135.90834"
+         y="71.894638"
+         style="stroke-width:0.26458332"
+         id="tspan6141">Output: </tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:5.64444447px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="-104.13416"
+       y="57.783527"
+       id="text6133-7"
+       inkscape:export-filename="/home/ncleju/FSM_ParkingCounter.png.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
+         sodipodi:role="line"
+         id="tspan6131-5"
+         x="-104.13416"
+         y="57.783527"
+         style="stroke-width:0.26458332"><tspan
+   style="font-style:italic;stroke-width:0.26458332"
+   id="tspan6135-3">Temp </tspan>(real)</tspan><tspan
+         sodipodi:role="line"
+         x="-104.13416"
+         y="64.839081"
+         style="stroke-width:0.26458332"
+         id="tspan6137-5"><tspan
+   style="font-style:italic;stroke-width:0.26458332"
+   id="tspan6139-6">count</tspan> (integer)</tspan><tspan
+         sodipodi:role="line"
+         x="-104.13416"
+         y="71.894638"
+         style="stroke-width:0.26458332"
+         id="tspan6141-2"><tspan
+   style="font-style:italic;stroke-width:0.26458332"
+   id="tspan6162-9">activate </tspan>(boolean)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:5.64444447px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="-58.938553"
+       y="95.48069"
+       id="text6260"
+       inkscape:export-filename="/home/ncleju/FSM_ParkingCounter.png.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
+         sodipodi:role="line"
+         id="tspan6258"
+         x="-58.938553"
+         y="95.48069"
+         style="stroke-width:0.26458332">[(Temp &lt;= 19) &amp;&amp; (count &gt; 120)] / </tspan><tspan
+         sodipodi:role="line"
+         x="-58.938553"
+         y="102.53625"
+         style="stroke-width:0.26458332"
+         id="tspan6262">{count = 0;</tspan><tspan
+         sodipodi:role="line"
+         x="-58.938553"
+         y="109.5918"
+         style="stroke-width:0.26458332"
+         id="tspan8223"> activate = True;}</tspan></text>
+    <g
+       id="g903"
+       transform="translate(-91.848214,26.080357)"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96">
+      <rect
+         inkscape:export-ydpi="96"
+         inkscape:export-xdpi="96"
+         inkscape:export-filename="/home/ncleju/FSM_ParkingCounter.png.png"
+         rx="3.3880515"
+         y="100.57279"
+         x="116.53708"
+         height="25.461561"
+         width="33.777035"
+         id="rect1496-3"
+         style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.32800001;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <text
+         inkscape:export-ydpi="96"
+         inkscape:export-xdpi="96"
+         inkscape:export-filename="/home/ncleju/FSM_ParkingCounter.png.png"
+         id="text1500-6"
+         y="111.79167"
+         x="121.89732"
+         style="font-style:normal;font-weight:normal;font-size:5.64444447px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         xml:space="preserve"><tspan
+           id="tspan1502-7"
+           style="stroke-width:0.26458332"
+           y="111.79167"
+           x="121.89732"
+           sodipodi:role="line">On</tspan></text>
+    </g>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend-5)"
+       d="m 24.464805,147.66168 c -31.890624,25.22005 -53.346292,24.83739 -79.892597,0.53454"
+       id="path1523-5"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/ncleju/FSM_ParkingCounter.png.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:5.64444447px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="-57.63192"
+       y="173.44786"
+       id="text6260-6"
+       inkscape:export-filename="/home/ncleju/FSM_ParkingCounter.png.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
+         sodipodi:role="line"
+         id="tspan6258-2"
+         x="-57.63192"
+         y="173.44786"
+         style="stroke-width:0.26458332">[(Temp &gt;= 22) &amp;&amp; (count &gt; 120)] / </tspan><tspan
+         sodipodi:role="line"
+         x="-57.63192"
+         y="180.50342"
+         style="stroke-width:0.26458332"
+         id="tspan6262-9">{count = 0;</tspan><tspan
+         sodipodi:role="line"
+         x="-57.63192"
+         y="187.55898"
+         style="stroke-width:0.26458332"
+         id="tspan8225"> activate = False;}</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:5.64444447px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="46.113091"
+       y="69.836311"
+       id="text3250"><tspan
+         sodipodi:role="line"
+         id="tspan3248"
+         x="46.113091"
+         y="74.830322"
+         style="stroke-width:0.26458332" /></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26499999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker3264)"
+       d="m -90.121406,133.56634 c -28.265194,-17.19538 -27.234544,26.51129 -0.133635,10.42351"
+       id="path3254"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:5.64444447px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="-140.4095"
+       y="124.90549"
+       id="text6260-6-1"
+       inkscape:export-filename="/home/ncleju/FSM_ParkingCounter.png.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
+         sodipodi:role="line"
+         x="-140.4095"
+         y="124.90549"
+         style="stroke-width:0.26458332"
+         id="tspan6262-9-7">{count = count+1;}</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:5.64444447px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="61.259186"
+       y="127.89874"
+       id="text6260-6-1-0"
+       inkscape:export-filename="/home/ncleju/FSM_ParkingCounter.png.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
+         sodipodi:role="line"
+         x="61.259186"
+         y="127.89874"
+         style="stroke-width:0.26458332"
+         id="tspan6262-9-7-9">{count = count+1;}</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26499999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker3264-3)"
+       d="m 59.162967,134.86308 c 28.265201,-17.19538 27.234551,26.51129 0.13364,10.42351"
+       id="path3254-0"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:5.64444447px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="-163.03441"
+       y="201.85205"
+       id="text7546"><tspan
+         sodipodi:role="line"
+         id="tspan7544"
+         x="-163.03441"
+         y="206.84605"
+         style="stroke-width:0.26458332" /></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:5.64444447px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="-54.790249"
+       y="129.95656"
+       id="text7550"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
+         sodipodi:role="line"
+         id="tspan7548"
+         x="-54.790249"
+         y="129.95656"
+         style="stroke-width:0.26458332">1</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:5.64444447px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="20.312483"
+       y="151.3381"
+       id="text7554"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
+         sodipodi:role="line"
+         id="tspan7552"
+         x="20.312483"
+         y="151.3381"
+         style="stroke-width:0.26458332">1</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:5.64444447px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="60.135651"
+       y="135.5692"
+       id="text7558"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
+         sodipodi:role="line"
+         id="tspan7556"
+         x="60.135651"
+         y="135.5692"
+         style="stroke-width:0.26458332">2</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:5.64444447px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="-93.811607"
+       y="135.03467"
+       id="text7562"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
+         sodipodi:role="line"
+         id="tspan7560"
+         x="-93.811607"
+         y="135.03467"
+         style="stroke-width:0.26458332">2</tspan></text>
+  </g>
+</svg>
