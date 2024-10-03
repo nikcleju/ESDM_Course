@@ -22,6 +22,8 @@ How to describe what a component does?
 - Continuous dynamics
 - Discrete dynamics
 
+Ancient philosophy debate: Heraclitus (continuous) vs Parmenides (discrete)
+
 ### Continuous dynamics
 
 - **Dynamic system** = system whose state evolves in time
@@ -51,11 +53,11 @@ Electrical systems:
     - resistance: $u(i) = R \cdot i(t)$
 	- capacitance: $i(t) = C \cdot \frac{d}{dt} u(t)$
 	- etc.
-	
+
 - One big system of linear differential equations (SCS course, basically)
-    
+
 	- Kirchhoff equations <=> equations between currents and voltages <=> linear differential equation system
-	
+
 - Example: an RC system (solve at blackboard)
 
 ### Mechanical systems
@@ -63,9 +65,9 @@ Electrical systems:
 Mechanical systems:
 
 - Unknown functions = coordinates x(t), y(t), z(t)
-    
+
 	\smallskip
-	
+
 	- speeds = derivatives of the positions
 	- acceleration = derivative of speed = second derivative of positions
 	- (forces: $F = m \cdot a = m \cdot \frac{d^2}{dt^2}x(t)$)
@@ -87,11 +89,11 @@ Mechanical systems:
 
   \smallskip
 
-- Example: oscillations after releasing of a loaded spring 
-     
+- Example: oscillations after releasing of a loaded spring
+
      - (solve at blackboard)
-     
-     
+
+
 ### Equivalence spring = LC circuit
 
 * A loaded spring oscillates (without any friction) according to the equation:
@@ -118,7 +120,7 @@ Mechanical systems:
 
 $$\frac{d^2}{dt^2} f(t) + A \cdot f(t) = 0$$
 
-* Same solution 
+* Same solution
     * $f(t)$ = sinusoidal (why sinusoidal?)
 
 * All kinds of continuous systems can be described in the same way: using linear differential equations
@@ -140,20 +142,20 @@ $$\frac{d^2}{dt^2} f(t) + A \cdot f(t) = 0$$
 
   * **Force** in linear movement $\equiv$ **Torque** (cuplu) in rotational movement
   * Linear speed linear movement $\equiv$ Angular speed in rotational movement
-  
+
 
 ### Simple model of a DC motor
 
 - Example of continuous system modeling: model of a DC motor
 
 - Motor: gateway between the two electrical and mechanical domains
-    
+
 	- converts electric energy to mechanical energy, and vice-versa
-    
+
 - (Simple) model of a DC motor:
-  
+
 	![Simple model of a DC motor](fig/II_DCMotorModel.png){width=65%}
-  
+
 
 Image from Mathworks Simulink (`ssc_dcmotor` example model)
 
@@ -164,10 +166,10 @@ Electrical side of the DC motor model:
 
 - Resistance: models the resistance of the windings
     $$u(t) = R \cdot i(t)$$
-    
+
 - Inductance: models the inductive behavior of the windings
     $$u(t) = L \cdot \frac{d}{dt}i(t)$$
-    
+
 - Controlled voltage source:
     - Voltage ("back electro-magnetic force voltage") is proportional to motor angular speed $S(t)$ on the mechanical side (think of a dynamo)
 	$$u(t) = K_e \cdot S(t)$$
@@ -179,7 +181,7 @@ Mechanical circuit of the DC motor model (no load):
 - Controlled force/torque source
     - Generates force/torque proportional to the current $i(t)$ on the electrical side
 	$$T = K_t \cdot i(t)$$
-	
+
 - Inertia: models the inertial force of the moving part of the motor
     - Generates force/torque proportional to acceleration (derivative of speed)
     $$T_i = - m \cdot acceleration = - m \cdot \frac{d}{dt} S(t)$$
@@ -212,7 +214,7 @@ Mechanical circuit of the DC motor model (no load):
     - obtain a full model in the electrical domain only
 
 \smallskip
-    
+
 - Next slides: find electrical correspondent to all mechanical elements
 
 ### Model of the controlled voltage source
@@ -226,11 +228,11 @@ Mechanical circuit of the DC motor model (no load):
 	- force/torque = proportional to current: $T(s) = K_t \cdot I(s)$
 
 - Result: $$U(s) = K_e \cdot (S_0 + 1/s \cdot C_{const} \cdot K_t I(s))$$
-	
+
 ### Model of the controlled voltage source
 
 $$U(s) = \underbrace{K_e \cdot S_0}_{Constant} + \underbrace{K_e C_{const}}_{Constant} \cdot \frac{1}{s} \cdot I(s)$$
-	
+
 - Voltage proportional on integral of current, plus a constant initial value
 	- what kind of electrical element acts like this?
 
@@ -254,7 +256,7 @@ $$U(s) = \underbrace{K_e \cdot S_0}_{Constant} + \underbrace{K_e C_{const}}_{Con
     - force = current
 	- speed = voltage
 	- acceleration  = derivative of speed = derivative of voltage
-	
+
 - Inertia = a *current* which opposes (i.e. reduces) the motor *current*, and is proportional to derivative of *voltage*
     - what kind of electrical element acts like this?
 
@@ -271,11 +273,11 @@ $$U(s) = \underbrace{K_e \cdot S_0}_{Constant} + \underbrace{K_e C_{const}}_{Con
 - Use the same analogy:
     - force = current
 	- speed = voltage
-	
+
 - (Viscous) friction = a *current* which opposes (i.e. reduces) the motor *current*, and is proportional to *voltage*
     - what kind of electrical element acts like this?
-      
-### Model of the friction force        
+
+### Model of the friction force
 
 - (Viscous) friction model = a **resistance in parallel** with the controlled voltage source
     - current proportional to voltage $\Leftrightarrow$ a resistance
@@ -283,12 +285,12 @@ $$U(s) = \underbrace{K_e \cdot S_0}_{Constant} + \underbrace{K_e C_{const}}_{Con
 
 ### Model of the sliding friction force
 
-- There can also exist a sliding friction force = friction force which does not 
+- There can also exist a sliding friction force = friction force which does not
 depend on speed, but is a constant \
     - that's the friction force you likely encountered in high-school physics
       ("planul înclinat" etc.)
 
-\s 
+\s
 - Question: how is this force modeled in electrical domain?
 
 ### Model of the sliding friction force
@@ -311,9 +313,9 @@ depend on speed, but is a constant \
 
 ### Transfer function of a DC motor
 
-- We can derive a transfer function 
+- We can derive a transfer function
     - input = voltage on motor input $U(s)$
-    - output = motor speed $S(s)$ = voltage on equivalent motor capacity 
+    - output = motor speed $S(s)$ = voltage on equivalent motor capacity
 
 - Transfer function ($2{^nd}$ degree, approximately $1^{st}$ degree)
 $$\begin{aligned}
@@ -324,7 +326,7 @@ H(s) = \frac{S(s)}{U(s)} &= \frac{R_{Fr}}{R_{Fr} + (R_{Arm}+s L_{Arm})(1 + s C_{
 
 ### Transfer function of a DC motor
 
-- Take home message: 
+- Take home message:
   - Simple DC motor no-load model = a second order RLC model = approx a first-order RC model (ignoring L small)
   - Behaves like a RC low-pass filter
 
@@ -343,11 +345,11 @@ H(s) = \frac{S(s)}{U(s)} &= \frac{R_{Fr}}{R_{Fr} + (R_{Arm}+s L_{Arm})(1 + s C_{
 - Like a constant force/torque opposing the motor force/torque
    - i.e. like a sliding friction force
    - i.e. like a current source in parallel, stealing lots of current
-   
+
 - In practice, the load force/torque may not be constant
     - depends on mechanical properties
     - e.g. lifting the hatch/liftgate ("portbagaj") of a car: harder when lower, easier when higher
-	
+
 ### Simulink model
 
 - Simulink has a DC motor model already integrated
@@ -376,7 +378,7 @@ Basic problem: how to make sure motor speed stays **exactly** as desired:
 - on power on, speed is reached as fast as possible
 
 This is a job for a **motor controller**
- 
+
 - Today's special: the PID motor controller
 
 ### Motor speed controller
@@ -398,7 +400,7 @@ This is a typical embedded system design problem:
 - Can be used for any sort of process, not just motors
 
 - Make output signal $y(t)$ follow the desired input $r(t)$
-    
+
 ### PID Controller
 
 - PID controller  = the simplest solution
@@ -413,17 +415,17 @@ This is a typical embedded system design problem:
 ### PID Controller - P component
 
 - Intuitive role of the $P$ component:
-    - If actual speed < target => increase motor voltage 
-    - If actual speed > target => decrease motor voltage 
+    - If actual speed < target => increase motor voltage
+    - If actual speed > target => decrease motor voltage
 
 \s
 
-- This is not enough: 
+- This is not enough:
     - Non-zero motor voltage requires non-zero speed error => the motor
     never actually reaches the target speed
     - There is always a small systematic error ("**bias error**", "steady-state error")
 
-### PID controller - only P, systematic error 
+### PID controller - only P, systematic error
 
 ![Systematic error for P-only controller](fig/PID_OnlyP.png){width=90%}
 
@@ -446,7 +448,7 @@ This is a typical embedded system design problem:
     - make the system react faster (jumpy) to fast input changes
     - improves system reaction time
 \s
-- Problem: 
+- Problem:
     - fast reaction time = more oscillation behavior:
         - more overshoot
         - possibly unstable
@@ -455,7 +457,7 @@ This is a typical embedded system design problem:
 
 ![P, I and D components](fig/PID_OnlyPID.png){width=90%}
 
-### PID tuning 
+### PID tuning
 
 - PID tuning: find P, I, D values for good behavior
     - Typical requirements:

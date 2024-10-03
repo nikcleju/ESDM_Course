@@ -46,17 +46,17 @@ whose behavior is defined by both cyber and physical parts of the system
 ![](fig/Intro_Elephant2.png){width=70%}
 
 * Image from Lee&Seshia 2017
-  
+
 ### Found everywhere
 
 - Embedded systems are everywhere:
-  
+
    - Automotive (Transportation industry)
    - Telecommunications
    - Medicine
    - Consumer electronics
    - ...
-   
+
 ### Common characteristics
 
 - Embedded systems share common characteristics:
@@ -71,20 +71,20 @@ whose behavior is defined by both cyber and physical parts of the system
       - low weight
       - low cost
       - no unnecessary resources used
-  
-### Common characteristics 
+
+### Common characteristics
 
 - Embedded systems share common characteristics:
    - must satisfy **strict timing constraints**
        - most embedded systems operate in real-time
        - sometimes must guarantee response in a given time window
        - requirement example: "If pinch is detected, the motor must be stopped within 60ms" (automatic door closure)
-       
+
   - must be **fault-tolerant**
        - assume that components may fail
        - detect failures, enter safe mode
-  
-   
+
+
 ### Embedded systems vs PC
 
 * Aren't embedded systems just "small PC's"? No.
@@ -117,52 +117,18 @@ whose behavior is defined by both cyber and physical parts of the system
    - **Design**:    "the structured creation of artifacts. It specifies how a system does what it does."
    - **Analysis**:  "the process of gaining a deeper understanding of a system through dissection. It specifies why a system does what it does."
    - ... and iterate again.
-   
-### The V-Cycle
-
-* Common System Development Cycle in automotive industry (from a SW point of view):
-
-![](fig/Intro_VCycle_Mw.png)
-
-* Image from Marwedel 2011
-
-### The V-Cycle
-
-Steps:
-
-* Requirements specifications
-* System Architecture & Design
-   * part of the Design and Modelling is done here
-* SW Architecture & Design
-   * part of the Design and Modelling is done here
-* Implementation
-* Tests & Validation
-   * all tests are done against the corresponding documents from the other branch
-
-### Other processes
-
-* For System & Software: Waterfall, Agile
-* For Hardware: Gajski’s Y-chart
-
-![Gajski Y Chart and design path](fig/Intro_GajskiYChart.png){width=75%}
-
-* Image from Marwedel 2011
-
 
 ### What we cover
 
 What we cover in this course:
 
 - Modeling:
-
   - Modeling continuous dynamics with differential equations
-  - Modeling discrete dynamics with finite state machines (FSM)
-  - FSM concurrency, hierarchy
 
 - Design:
-
+  - Design systems with discrete dynamics using finite state machines (FSM)
+  - FSM concurrency, hierarchy etc.
   - Basics scheduling
 
 - Analysis:
-
   - ...

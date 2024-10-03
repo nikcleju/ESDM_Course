@@ -4,13 +4,12 @@
 
 - 3 credits (?)
 - Professors
-    - Lectures: Nicolae Cleju
-    - Applications: Nicolae Cleju
+  - Lectures: Nicolae Cleju
+  - Applications: Nicolae Cleju
 
 - Time schedule
-    - 14 weeks of lectures (1h each)
-    - 7 weeks of laboratories (2h each) - first 7 weeks
-    - 7 weeks of project work (2h each) - last 7 weeks
+  - 14h lectures, 14h labs, 14h project
+  - 5 lectures x 3h, 5 labs x 3h, 4 weeks x 3h project
 
 - My office hours: *To Be Announced* (best by appointment)
 
@@ -18,7 +17,7 @@
 ### Evaluation
 
 - Exam
-    - 60% of final grade
+    - 40% of final grade
     - Consists of both theory questions and exercises (e.g. 1 problem + a few theory questions)
 
 
@@ -26,10 +25,10 @@
     - 20% of final grade
 
 - Project
-    - 20% of final grade
+    - 40% of final grade
 
 
-- Final grade = 60% Exam + 20% Lab + 20% Project
+- Final grade = 40% Exam + 20% Lab + 40% Project
 
 
 ### Bibliography
