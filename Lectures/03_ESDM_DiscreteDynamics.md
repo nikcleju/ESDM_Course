@@ -19,8 +19,10 @@ A system can be decomposed as inter-connected building blocks, called "actors"
 
 How to describe what a component does?
 
-- Continuous dynamics
-- Discrete dynamics
+- Continuous dynamics (previous lecture)
+- Discrete dynamics (from now on)
+
+Ancient philosophy debate: Heraclitus (continuous) vs Parmenides (discrete)
 
 ### Discrete dynamics
 
@@ -33,7 +35,7 @@ How to describe what a component does?
     - like digital circuits (values change only on clock front)
 
 - It's more a mathematical model (real-life is continuous), but still extremely useful
-    
+
 
 ### Sample discrete system
 
@@ -56,7 +58,7 @@ Example of discrete system model:
 
 - Moving from one state to the next state means a **transition**.
 
-### Finite State Machine representation 
+### Finite State Machine representation
 
 - Finite State Machine = a system whose operation is described as a set of states and transitions
 
@@ -111,7 +113,7 @@ If all of the above is known, everything is known about the model.
    - use == to check equality
    - ! means negation
    - True, False = boolean values
-   
+
 - Examples:
    - [a == True]
    - [!a == True]
@@ -153,15 +155,15 @@ Model example: thermostat
   - the outgoing transitions from the current state are verified
   - if a transition is true, it is executed, the system enters a new state
   - the system "goes to sleep" until the next tick
-  
+
 ### Event vs time-triggered models
 
 Advantages/disadvantages of time-triggered models:
 
   - Bad: if a input changes very fast, within a $T_s$ interval, the model **may not see it**
-  - Good: all inputs are read simultaneously 
+  - Good: all inputs are read simultaneously
   - Good: simple to understand
-  
+
 Advantages/disadvantages of event-triggered models:
 
   - Bad: the inputs are not synchronized (in a condition $a > b$, perhaps a changes 1ms faster than $b$, and this leads to a wrong result
@@ -176,7 +178,7 @@ Properties of discrete models
 - **Determinism**: In every state, for all possible input values, at most one transition is enabled
     - if you know the initial state and all the inputs' evolution, you know the complete behavior of the system
 
-- **Non-determinism**: Models unknown behavior (unknown inputs), or random transitions 
+- **Non-determinism**: Models unknown behavior (unknown inputs), or random transitions
 
 ### Determinism computation tree
 
