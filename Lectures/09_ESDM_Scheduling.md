@@ -2,12 +2,16 @@
 
 ### Scheduling
 
-- Scheduling = the process of arranging the execution of a set of **tasks** which need
+- Scheduling = the process of arranging the execution of a set of **tasks** (runnables, threads, processes) which need
 to be run on the same processing device
 
   - i.e. decide which task is run when, for how long, etc.
 
 - Encountered in multi-tasking systems
+
+- Problems:
+  - How to decide which task to run when?
+  - Tasks can become deadlocked
 
 - *Note*: Slides are heavily based on Prabal Dutta & Edward A. Lee, Berkeley 2017
 
@@ -21,20 +25,23 @@ to be run on the same processing device
   - **finish time**: actual ending time
   - execution time: actual running time, excluding any interruptions
   - **deadline**: latest time by which a task must be completed
-  
-- Tasks may be interrupted by higher priority tasks, when priorities are defined
 
-- Tasks may be periodic (e.g. every 10ms) or aperiodic
+- Tasks may be interrupted (preempted) by higher priority tasks, when priorities are defined
+
+- Tasks may be periodic (e.g. run every 10ms) or aperiodic
 
 ### Task
 
 ![Task attributes](img/2022-11-30-20-58-20.png)
 
 
-### Scheduling 
+### Scheduling
 
-- How to decide which task to run when?
-  
+- The scheduling problem: Given a set of tasks with their own times, which all need to run
+  on the same processor, how to decide which task to run when?
+
+- Typically a job for the operating system (kernel)
+
 Considerations:
 
 - Preemptive vs. non-preemptive scheduling
@@ -45,27 +52,23 @@ Considerations:
 
 ### Preemptive vs. non-preemptive
 
-- Non-premmptive: once started, no task can be interrupted until it finishes
+- Non-preemptive: once started, no task can be interrupted until it finishes
 
-- Preemptive: a task can be interrupted 
-  
-  - the kernel decides when
+- Preemptive: a task can be interrupted (the OS decides exactly when)
 
-- Preemptive scheduling:
-  
+- Scheduling for preemptive systems is more complex:
+
   - Every task has a **priority**
-  - At any instant, the task with the **highest priority** is executed
-  - Any high priority task takes precedence over a low priority task
+  - At any instant, the task with the **highest priority** must be executed
+  - Any high priority task must take precedence over a lower priority task
 
 ### Rate Monotonic Scheduling (RMS)
 
-- Given N **periodic** tasks
+- Algorithm for scheduling periodic tasks
+- Given N **periodic** tasks, how to assign priorities to them?
+- **Rate Monotonic Scheduling (RMS)**: assign task priority by period: task with smaller period has higher priority
 
-- **Rate Monotonic Scheduling (RMS)**: assign task priority by period: smaller period has higher priority
-
-![](img/2022-11-30-20-53-01.png)
-
-[^RMS]
+![](img/2022-11-30-20-53-01.png)[^RMS]
 
 [^RMS]: image from Lee&Sheshia book
 
@@ -78,6 +81,8 @@ Considerations:
 
 ### Earliest Deadline First (EDF)
 
+- Algorithm for scheduling non-periodic tasks
+
 - Given N non-periodic independent tasks with arbitrary arrival times and deadlines
 
 - **Earliest Deadline First** (EDF) scheduling: execute the task with the earliest deadline among all available tasks
@@ -86,11 +91,20 @@ Considerations:
 
 ### Earliest Deadline First (EDF)
 
-![](img/2022-11-30-21-16-32.png)
-
-[^EDF]
+![](img/2022-11-30-21-16-32.png)[^EDF]
 
 [^EDF]: image from "Embedded System Design" 2nd edition, Peter Marwedel, Springer 2011
+
+### Earliest Deadline First (EDF)
+
+Explanations for EDF example:
+
+- At time 0 we have only task T1, start executing it
+- At time 4 task T2 arrives, with deadline 28 which is smaller than T1's deadline 33. Interrupt T1 and start executing T2
+- At time 5 task T3 arrives, with deadline 29 which is later than T2. Keep executing T2
+- At time 7 task T2 finishes. Out of T1 and T3, T3 has the earliest deadline, so start executing T3
+- At time 17 task T3 finishes. Only T1 is left, so resume executing T1 until it finishes
+
 
 ### Optimality of EDF
 
@@ -100,18 +114,23 @@ Considerations:
   $$L_{max} = \max{(f_i - d_i)}$$
   i.e. the maximum exceeding of a deadline
 
-  (the maximum lateness can be negative, i.e. when no task deadline is exceeded, and in this case it acts as a safety time margin)
+  - $f_i$ is the actual finish time of the task
+  - $d_i$ is the deadline of the task, i.e. when it was supposed to be finished
+  - lateness of a task is L = $f_i - d_i$
+  - if L > 0, the task is late, i.e. its deadline was exceeded
+  - if L < 0, the task is early, i.e. it finished ahead its deadline
 
-- EDF makes the maximum exceeding of deadline as small as possible, or, if no deadline is exceeded, EDF maximizes the safety margin between the finish time and the dealine
+- EDF minimizes the maximum lateness among all tasks. If no deadline is exceeded, $L_{max} < 0$ and EDF maximizes the safety margin between the finish time and the dealine
 
 ### Priority Inversion
 
 - Although scheduling looks simple, some complicated and undesired effects might happen (scheduling anomalies)
+  especially when tasks share resources and use critical sections
 
 - **Priority Inversion**: scheduling anomaly where high-priority task is blocked while unrelated lower-priority tasks execute
 
 - Can cause serious problems, such as system resets and data loss
-  
+
   - Example: Mars Pathfinder mission in 1997.
 
 ### Priority Inversion
@@ -133,7 +152,7 @@ Considerations:
 **Priority inheritance protocol**:
 
  - When a task blocks while trying to acquire a lock, the task holding the lock **inherits** the priority of the blocked task.
-   
+
  - This ensures that the task holding the lock cannot be preempted by a task with lower priority than the blocked task.
 
 ### Priority inheritance
@@ -168,7 +187,7 @@ Possible solutions:
 
 - Priorities can be used to prevent certain types of deadlocks
 
-- **Priority ceiling protocol**: 
+- **Priority ceiling protocol**:
 
   - Every lock is assigned a priority ceiling, equal to the priority of the highest-priority task that can lock it.
   - A task can acquire a lock only if its priority is **strictly higher** than the priority ceilings of all locks **currently held** by other tasks
@@ -199,7 +218,7 @@ Assign each lock a unique numerical value, and require that locks be acquired in
 
 Example:
 
-- A system with three locks, A, B, and C, and two threads, T1 and T2. 
+- A system with three locks, A, B, and C, and two threads, T1 and T2.
 - We have deadlock if T1 holds A and needs B, and T2 holds B and needs A
 
 Solution with lock ordering:
