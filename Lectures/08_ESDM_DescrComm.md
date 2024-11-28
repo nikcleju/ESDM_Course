@@ -36,7 +36,7 @@
 - AUTOSAR provides a way to describe software components, such that they
   can be integrated in a larger system
 
-- The most important elements of a SwC:
+- The most important elements of an Application SwC:
   - **Ports** = interfaces to the outside world
     - input / output ports (variables with specified data types)
     - client / server ports (function calls which one component provides, and some other component may call)
@@ -47,7 +47,7 @@
     - runnables can have various parameters (e.g. periodicity, priority)
   - Many other elements: Interrunnable variables, data types, etc.
 
-### AUTOSAR Software Components
+### AUTOSAR Application Software Components
 
 ![Software Component implemented in Matlab [^SwC]](img/autosar_swc.png){width=60%}
 
@@ -59,7 +59,7 @@
 
 [^SwC]: image from [Matlab documentation](https://www.mathworks.com/help/autosar/ug/autosar-software-components.html)
 
-### AUTOSAR Software Components
+### AUTOSAR Application Software Components
 
 - The SwC description is typically created via architecture tools, and is saved
   in a specific XML file (extension *.arxml)
