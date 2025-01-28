@@ -1,6 +1,6 @@
 # 2024-2025 Exam Info
 
-The written exam consists of an exercise (approx 50% of points) 
+The exam is written, 2h, closed-book, and consists of an exercise (approx 50% of points) 
 and a few (3-4)theoretical questions (the rest of 50% points). 
 
 The exercise will be to draw the implementation of a small FSM and explain it in short,
