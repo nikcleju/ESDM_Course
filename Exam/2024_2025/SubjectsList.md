@@ -8,7 +8,7 @@ fontsize: 12pt
 The exam will consist of:
 
 1. One exercise with the implementation and explaining of one FSM
-2. A few (~ 3) theory questions from the following list
+2. A few (3-4) theory questions from the following list
 
 # General (theory) questions
 
@@ -151,4 +151,6 @@ depicted below. Sketch the motor output speed if:
 26. Explain the Priority Inversion problem, based on the following image:
 
     ![](img/PriorityInversion.png)
+    
+27. Explain what the Priority Inheritance Protocol is, and how does it solve the Priority Inversion problem.
 
