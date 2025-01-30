@@ -10,7 +10,7 @@ academic year at ETTI, TUIASI.
 All lecture slides are available in the [Lectures](Lectures/) folder.
 
 The **annotated** lectures (written on during the classes) are available in the [Lectures/Online/](Lectures/Online) folder.
-The files are named as `<chapter>_annotated.pdf`. There should be 7 files (from 01 to 07)
+The files are named as `<chapter>_annotated.pdf`.
 
 ### Laboratory
 
