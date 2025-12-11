@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ar:AUTOSAR
+  xmlns="http://autosar.org/schema/r4.0"
+  xmlns:ar="http://autosar.org/schema/r4.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_4-0-3_STRICT.xsd">
+  <ar:AR-PACKAGES>
+    <ar:AR-PACKAGE>
+      <ar:SHORT-NAME>AlarmSystem</ar:SHORT-NAME>
+      <ar:AR-PACKAGES>
+        <ar:AR-PACKAGE>
+          <ar:SHORT-NAME>DataTypes</ar:SHORT-NAME>
+          <ar:ELEMENTS>
+            <ar:SW-BASE-TYPE>
+              <ar:SHORT-NAME>boolean_base</ar:SHORT-NAME>
+              <ar:CATEGORY>BOOLEAN</ar:CATEGORY>
+              <ar:BASE-TYPE-SIZE>8</ar:BASE-TYPE-SIZE>
+              <ar:BASE-TYPE-ENCODING>BOOLEAN</ar:BASE-TYPE-ENCODING>
+            </ar:SW-BASE-TYPE>
+            <ar:IMPLEMENTATION-DATA-TYPE>
+              <ar:SHORT-NAME>Boolean_Imp</ar:SHORT-NAME>
+              <ar:CATEGORY>VALUE</ar:CATEGORY>
+              <ar:SW-DATA-DEF-PROPS>
+                <ar:SW-DATA-DEF-PROPS-VARIANTS>
+                  <ar:SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <ar:BASE-TYPE-REF DEST="SW-BASE-TYPE">/AlarmSystem/DataTypes/boolean_base</ar:BASE-TYPE-REF>
+                  </ar:SW-DATA-DEF-PROPS-CONDITIONAL>
+                </ar:SW-DATA-DEF-PROPS-VARIANTS>
+              </ar:SW-DATA-DEF-PROPS>
+            </ar:IMPLEMENTATION-DATA-TYPE>
+            <ar:APPLICATION-PRIMITIVE-DATA-TYPE>
+              <ar:SHORT-NAME>Boolean_App</ar:SHORT-NAME>
+              <ar:CATEGORY>VALUE</ar:CATEGORY>
+              <ar:SW-DATA-DEF-PROPS>
+                <ar:SW-DATA-DEF-PROPS-VARIANTS>
+                  <ar:SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <ar:IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/AlarmSystem/DataTypes/Boolean_Imp</ar:IMPLEMENTATION-DATA-TYPE-REF>
+                  </ar:SW-DATA-DEF-PROPS-CONDITIONAL>
+                </ar:SW-DATA-DEF-PROPS-VARIANTS>
+              </ar:SW-DATA-DEF-PROPS>
+            </ar:APPLICATION-PRIMITIVE-DATA-TYPE>
+            <ar:DATA-TYPE-MAPPING-SET>
+              <ar:SHORT-NAME>Boolean_DTMS</ar:SHORT-NAME>
+              <ar:DATA-TYPE-MAPS>
+                <ar:DATA-TYPE-MAP>
+                  <ar:APPLICATION-DATA-TYPE-REF DEST="APPLICATION-PRIMITIVE-DATA-TYPE">/AlarmSystem/DataTypes/Boolean_App</ar:APPLICATION-DATA-TYPE-REF>
+                  <ar:IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/AlarmSystem/DataTypes/Boolean_Imp</ar:IMPLEMENTATION-DATA-TYPE-REF>
+                </ar:DATA-TYPE-MAP>
+              </ar:DATA-TYPE-MAPS>
+            </ar:DATA-TYPE-MAPPING-SET>
+          </ar:ELEMENTS>
+        </ar:AR-PACKAGE>
+        <ar:AR-PACKAGE>
+          <ar:SHORT-NAME>Interfaces</ar:SHORT-NAME>
+          <ar:ELEMENTS>
+            <ar:SENDER-RECEIVER-INTERFACE>
+              <ar:SHORT-NAME>AlarmInputs_IF</ar:SHORT-NAME>
+              <ar:IS-SERVICE>false</ar:IS-SERVICE>
+              <ar:DATA-ELEMENTS>
+                <ar:VARIABLE-DATA-PROTOTYPE>
+                  <ar:SHORT-NAME>DoorOpen</ar:SHORT-NAME>
+                  <ar:TYPE-TREF DEST="APPLICATION-PRIMITIVE-DATA-TYPE">/AlarmSystem/DataTypes/Boolean_App</ar:TYPE-TREF>
+                </ar:VARIABLE-DATA-PROTOTYPE>
+                <ar:VARIABLE-DATA-PROTOTYPE>
+                  <ar:SHORT-NAME>CodeOK</ar:SHORT-NAME>
+                  <ar:TYPE-TREF DEST="APPLICATION-PRIMITIVE-DATA-TYPE">/AlarmSystem/DataTypes/Boolean_App</ar:TYPE-TREF>
+                </ar:VARIABLE-DATA-PROTOTYPE>
+              </ar:DATA-ELEMENTS>
+            </ar:SENDER-RECEIVER-INTERFACE>
+            <ar:SENDER-RECEIVER-INTERFACE>
+              <ar:SHORT-NAME>AlarmOutputs_IF</ar:SHORT-NAME>
+              <ar:IS-SERVICE>false</ar:IS-SERVICE>
+              <ar:DATA-ELEMENTS>
+                <ar:VARIABLE-DATA-PROTOTYPE>
+                  <ar:SHORT-NAME>AlarmOn</ar:SHORT-NAME>
+                  <ar:TYPE-TREF DEST="APPLICATION-PRIMITIVE-DATA-TYPE">/AlarmSystem/DataTypes/Boolean_App</ar:TYPE-TREF>
+                </ar:VARIABLE-DATA-PROTOTYPE>
+              </ar:DATA-ELEMENTS>
+            </ar:SENDER-RECEIVER-INTERFACE>
+          </ar:ELEMENTS>
+        </ar:AR-PACKAGE>
+        <ar:AR-PACKAGE>
+          <ar:SHORT-NAME>Components</ar:SHORT-NAME>
+          <ar:ELEMENTS>
+            <ar:APPLICATION-SW-COMPONENT-TYPE>
+              <ar:SHORT-NAME>AlarmSystem</ar:SHORT-NAME>
+              <ar:CATEGORY>APPLICATION_SW_COMPONENT_TYPE</ar:CATEGORY>
+              <ar:PORTS>
+                <ar:R-PORT-PROTOTYPE>
+                  <ar:SHORT-NAME>AlarmInputs_R</ar:SHORT-NAME>
+                  <ar:REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/AlarmSystem/Interfaces/AlarmInputs_IF</ar:REQUIRED-INTERFACE-TREF>
+                </ar:R-PORT-PROTOTYPE>
+                <ar:P-PORT-PROTOTYPE>
+                  <ar:SHORT-NAME>AlarmOutputs_P</ar:SHORT-NAME>
+                  <ar:PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/AlarmSystem/Interfaces/AlarmOutputs_IF</ar:PROVIDED-INTERFACE-TREF>
+                </ar:P-PORT-PROTOTYPE>
+              </ar:PORTS>
+            </ar:APPLICATION-SW-COMPONENT-TYPE>
+          </ar:ELEMENTS>
+        </ar:AR-PACKAGE>
+      </ar:AR-PACKAGES>
+    </ar:AR-PACKAGE>
+  </ar:AR-PACKAGES>
+</ar:AUTOSAR>
