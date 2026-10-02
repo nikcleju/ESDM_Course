@@ -2,14 +2,14 @@
 
 ### Actor model of systems
 
-A system can be decomposed as inter-connected building blocks, called "actors"
+A system can be decomposed into interconnected building blocks, called "actors"
 
 - Each actor has:
   - 0, 1 or more input ports
   - 0, 1 or more output ports
   - an internal computation / function / what it does
 
-- Connections = Signals
+- Connections carry signals between blocks
 
 ![Actor model of systems[^ActorModel]](fig/Cont_ActorModel.png){width=50%}
 
@@ -22,21 +22,24 @@ How to describe what a component does?
 - Continuous dynamics
 - Discrete dynamics
 
-Ancient philosophy debate: Heraclitus (continuous) vs Parmenides (discrete)
+Similar to an ancient philosophy debate:
+  - Heraclitus: everything is in flux (continuous change), stationarity is an illusion
+  - Parmenides: everything is static (discrete change), movement is an illusion
 
 ### Continuous dynamics
 
 - **Dynamic system** = system whose state evolves in time
 
-    \smallskip
+- **Continuous dynamics** = the state is described by continuous functions.
+We consider systems which are governed by **differential equations**
 
-- **Continuous dynamics** = the state is described by continuous functions, its evolution is governed by **differential equations**
+- The differential equations involve the unknown function $x(t)$ and its derivatives.
 
 - Example: mechanical, electrical physical processes
 
-    - governed by mechanical / electrical differential equations
-    - example: $m_1 x''(t) + K(x'(t) - x_0) = 0$
-    - unknown $x(t)$+ its derivative + second derivative + ...
+  - governed by mechanical / electrical differential equations
+  - example:
+    $$m_1 x''(t) + K(x(t) - x_0) = 0$$
 
 - Every electrical/mechanical component defines a certain
     relation between the unknowns
@@ -50,11 +53,11 @@ Electrical systems:
     \smallskip
 
 - Electrical (ideal) elements:
-    - resistance: $u(i) = R \cdot i(t)$
+    - resistance: $u(t) = R \cdot i(t)$
 	- capacitance: $i(t) = C \cdot \frac{d}{dt} u(t)$
 	- etc.
 
-- One big system of linear differential equations (SCS course, basically)
+- One big system of differential equations (SCS course, basically)
 
 	- Kirchhoff equations <=> equations between currents and voltages <=> linear differential equation system
 
@@ -66,19 +69,18 @@ Mechanical systems:
 
 - Unknown functions = coordinates x(t), y(t), z(t)
 
-	\smallskip
-
-	- speeds = derivatives of the positions
-	- acceleration = derivative of speed = second derivative of positions
-	- (forces: $F = m \cdot a = m \cdot \frac{d^2}{dt^2}x(t)$)
+  - velocities = derivatives of the positions
+  - acceleration = derivative of velocity = second derivative of position
+  - (forces: $F = m \cdot a = m \cdot \frac{d^2}{dt^2}x(t)$)
 
 - Mechanical (ideal) elements:
-    - (Consider just a single dimension $x(t)$, is easier)
-    - inertial force: $F = m \cdot a = m \cdot \frac{d^2}{dt^2}x(t)$
-    - friction force:
-       - sliding friction: $\vec{F_f} = - \mu \vec{N} = - \mu \cdot m \cdot \frac{d^2}{dt^2}x(t)$
-       - viscous friction: $\vec{F_v} = - C_v \cdot \vec{v} = - C_v \cdot \frac{d}{dt}x(t)$
+  - (Consider just a single dimension $x(t)$, which is simpler)
+  - inertial force: $F = m \cdot a = m \cdot \frac{d^2}{dt^2}x(t)$
+  - friction force:
+    - sliding friction: $F_f = - \mu N = - \mu \cdot m \cdot g$
+    - viscous friction: $\vec{F_v} = - C_v \cdot \vec{v} = - C_v \cdot \frac{d}{dt}x(t)$
     - etc...
+
 
 ### Mechanical systems
 
@@ -89,7 +91,7 @@ Mechanical systems:
 
   \smallskip
 
-- Example: oscillations after releasing of a loaded spring
+- Example: oscillations after releasing a mass-spring system
 
      - (solve at blackboard)
 
@@ -105,7 +107,7 @@ Mechanical systems:
 
 ### Equivalence spring = LC circuit
 
-* A LC circuit oscillates (without any resistance loss) according to the equation:
+* An LC circuit oscillates (without resistive losses) according to the equation:
 
 ![LC oscillations](fig/LC_Oscillator.png){width=35%}
 
@@ -123,7 +125,7 @@ $$\frac{d^2}{dt^2} f(t) + A \cdot f(t) = 0$$
 * Same solution
     * $f(t)$ = sinusoidal (why sinusoidal?)
 
-* All kinds of continuous systems can be described in the same way: using linear differential equations
+* Many other types of continuous systems can be described using linear differential equations
 
 ### Electrical - mechanical analogies
 
@@ -141,7 +143,7 @@ $$\frac{d^2}{dt^2} f(t) + A \cdot f(t) = 0$$
 * Note: there are different quantities for **linear** vs **rotational** movements
 
   * **Force** in linear movement $\equiv$ **Torque** (cuplu) in rotational movement
-  * Linear speed linear movement $\equiv$ Angular speed in rotational movement
+  * Linear speed in linear movement $\equiv$ Angular speed in rotational movement
 
 
 ### Simple model of a DC motor
@@ -157,7 +159,7 @@ $$\frac{d^2}{dt^2} f(t) + A \cdot f(t) = 0$$
 	![Simple model of a DC motor](fig/II_DCMotorModel.png){width=65%}
 
 
-Image from Mathworks Simulink (`ssc_dcmotor` example model)
+Image from MathWorks Simulink (`ssc_dcmotor` example model)
 
 
 ### DC motor model: electrical side
@@ -184,7 +186,10 @@ Mechanical circuit of the DC motor model (no load):
 
 - Inertia: models the inertial force of the moving part of the motor
     - Generates force/torque proportional to acceleration (derivative of speed)
-    $$T_i = - m \cdot acceleration = - m \cdot \frac{d}{dt} S(t)$$
+      - linear:
+        $$T_i = - m \cdot acceleration = - m \cdot \frac{d}{dt} S(t)$$
+      - rotational:
+        $$T_i = - J \cdot angular\ acceleration = - J \cdot \frac{d}{dt} S(t)$$
 
 ### DC motor model: mechanical side
 
@@ -194,7 +199,7 @@ Mechanical circuit of the DC motor model (no load):
   - Generates force/torque proportional to speed
     $$T_f = - C_v \cdot S(t)$$
 
-- Inertia and Friction forces/torques oppose the force/torque) of the motor, therefore they have minus sign
+- Inertia and Friction forces/torques oppose the movement of the motor, therefore they have minus sign
 
 ### Laplace transform
 
@@ -223,17 +228,17 @@ Mechanical circuit of the DC motor model (no load):
 
 - Like this:
     - voltage is proportional to speed: $U(s) = K_e \cdot S(s)$
-    - speed = integral of acceleration: $S(s) = S_0 + 1/s \cdot A$
-    - acceleration is proportional to force (force(torque) / mass) = $C_{const} \cdot T(s)$
+    - speed = integral of acceleration: $S(s) = \frac{1}{s} S_0 + \frac{1}{s} \cdot A(s)$
+    - acceleration is proportional to force (force(torque) / mass): $A(s) = C_{const} \cdot T(s)$
 	- force/torque = proportional to current: $T(s) = K_t \cdot I(s)$
 
-- Result: $$U(s) = K_e \cdot (S_0 + 1/s \cdot C_{const} \cdot K_t I(s))$$
+- Result: $$U(s) = K_e \cdot (\frac{1}{s} S_0 + \frac{1}{s} \cdot C_{const} \cdot K_t I(s))$$
 
 ### Model of the controlled voltage source
 
 $$U(s) = \underbrace{K_e \cdot S_0}_{Constant} + \underbrace{K_e C_{const}}_{Constant} \cdot \frac{1}{s} \cdot I(s)$$
 
-- Voltage proportional on integral of current, plus a constant initial value
+- Voltage proportional to the integral of current, plus a constant initial value
 	- what kind of electrical element acts like this?
 
 \s
@@ -241,7 +246,7 @@ $$U(s) = \underbrace{K_e \cdot S_0}_{Constant} + \underbrace{K_e C_{const}}_{Con
 - The controlled voltage source can be modeled as a **capacitance**
     - Voltage is proportional to integral of current
     - (Current is proportional to derivative of voltage)
-    - The first constant term = the initial voltage on the capacity
+    - The first constant term = the initial voltage on the capacitor
 
 \s
 
@@ -317,7 +322,7 @@ depend on speed, but is a constant \
     - input = voltage on motor input $U(s)$
     - output = motor speed $S(s)$ = voltage on equivalent motor capacity
 
-- Transfer function ($2{^nd}$ degree, approximately $1^{st}$ degree)
+- Transfer function ($2{^nd}$ order, approximately $1^{st}$ order)
 $$\begin{aligned}
 H(s) = \frac{S(s)}{U(s)} &= \frac{R_{Fr}}{R_{Fr} + (R_{Arm}+s L_{Arm})(1 + s C_{M+I} R_{Fr})} \\
 &= \frac{b_0}{s^2 + a_1 s + a_0}\\
@@ -328,9 +333,9 @@ H(s) = \frac{S(s)}{U(s)} &= \frac{R_{Fr}}{R_{Fr} + (R_{Arm}+s L_{Arm})(1 + s C_{
 
 - Take home message:
   - Simple DC motor no-load model = a second order RLC model = approx a first-order RC model (ignoring L small)
-  - Behaves like a RC low-pass filter
+  - Behaves like an RC low-pass filter
 
-- Note: This is a no-load model (motor doesn't move anything heavy)
+- Note: This is a no-load model (motor doesn't move an external load)
 
 - What happens if motor has a load?
     - e.g. the motor drags/lifts a constant weight
@@ -386,7 +391,7 @@ This is a job for a **motor controller**
 This is a typical embedded system design problem:
 
 - There is a physical process (the actual motor)
-- We model it's behavior (use a motor model)
+- We model its behavior (use a motor model)
 - We want to control it
 - We design a controller system which steers the process as we want
 
@@ -403,14 +408,14 @@ This is a typical embedded system design problem:
 
 ### PID Controller
 
-- PID controller  = the simplest solution
+- PID controller  = A common and simple solution
 
 - Input = error signal = target speed - actual measured speed
 
 - Output = Sum of three components:
-   - **P**roportional: $P$ * input
-   - **I**ntegral: $I$ * integral of input
-   - **D**erivative: $D$ * derivative of input
+   - **P**roportional: $K_p$ * input
+   - **I**ntegral: $K_i$ * integral of input
+   - **D**erivative: $K_d$ * derivative of input
 
 ### PID Controller - P component
 
@@ -422,8 +427,8 @@ This is a typical embedded system design problem:
 
 - This is not enough:
     - Non-zero motor voltage requires non-zero speed error => the motor
-    never actually reaches the target speed
-    - There is always a small systematic error ("**bias error**", "steady-state error")
+    doesn't actually reach the target speed
+    - There is always a small systematic error ("**steady-state error**", "bias error")
 
 ### PID controller - only P, systematic error
 
@@ -444,14 +449,13 @@ This is a typical embedded system design problem:
 
 ### PID Controller - D component
 
-- Intuitive role of the $D$ component:
-    - make the system react faster (jumpy) to fast input changes
-    - improves system reaction time
-\s
-- Problem:
-    - fast reaction time = more oscillation behavior:
-        - more overshoot
-        - possibly unstable
+- The $D$ component is harder to explain intuitively
+- It makes the system react faster to changes in the error signal
+  - for example, if the error signal suddenly increases, the derivative is positive => the $D$ component will increase the motor voltage even more than the $P$ component alone would do
+
+- Problems:
+  - sensitive to noise (derivative of a noisy signal is very noisy)
+  - possibly unstable
 
 ### PID controller - P, I and D
 
