@@ -6,7 +6,7 @@
 
 - Cyber-Physical Systems (Lee & Seshia 2017): A CPS is an integration of computation with physical processes
 whose behavior is defined by both cyber and physical parts of the system
-    * "cyber" means $\approx$ "control" (from Greek)
+    * "cyber" comes from Greek "rudder / control / steering"
 
 ![](fig/Definition_Embedded.png){width=100%}
 
@@ -14,26 +14,23 @@ whose behavior is defined by both cyber and physical parts of the system
 ### What are Embedded Systems?
 
 - Key points:
-    - there is a physical process to be controlled
-        - e.g. the movement of an automatic door, a car window, an elevator, a washing machine
-    - there is some computational device who controls it
-    - the processing is **close** to the physical process:
-        - spatially:   done right there (embedded)
-        - behavioral:  dedicated / specific to a particular process
-        - e.g. not with a general purpose computer, not on the cloud
+    - computation is embedded in a larger product or system
+    - it performs dedicated functions, often under resource constraints
+    - it usually senses or control a physical process
+        - e.g. an automatic door, a car window, an elevator, a washing machine
+
 
 ### What are Embedded Systems?
 
-- Synonyms (more or less):
+- Related or overlapping terminology:
   - Embedded Systems
+  - Cyber-Physical Systems (CPS)
   - Internet of Things (IoT)
   - Industrial Internet
   - Systems of Systems
   - Industry 4.0
   - Internet of Everything (IoE)
-  - Smart <Everything>
-
-  $\approx$ Cyber-Physical Systems
+  - Smart things and environments
 
 ### What are Embedded Systems?
 
@@ -59,43 +56,46 @@ whose behavior is defined by both cyber and physical parts of the system
 
 ### Common characteristics
 
-- Embedded systems share common characteristics:
-  - must be **dependable**
-      - reliability: probability that a system will not fail
-      - maintainability: probability that a failed system can be repaired
-      - safety: does not cause any harm even in worst-case conditions
-      - security: allows authentication and confidentiality of data
+- Embedded systems usually share some common characteristics:
 
-  - must be **efficient**
-      - low power consumption
-      - low weight
-      - low cost
-      - no unnecessary resources used
+  - be **dependable**
+
+    - reliability: probability that a system will not fail
+    - maintainability: ability to repair a failed system
+    - safety: does not cause any physical harm, even in worst-case conditions
+    - security: protection against unauthorized access, change, or disruption
+
+  - be **efficient**
+
+    - low power consumption
+    - low weight
+    - low cost
+    - economical use of computing and memory resources
 
 ### Common characteristics
 
-- Embedded systems share common characteristics:
-   - must satisfy **strict timing constraints**
-       - most embedded systems operate in real-time
-       - sometimes must guarantee response in a given time window
-       - requirement example: "If pinch is detected, the motor must be stopped within 60ms" (automatic door closure)
+  - satisfy **strict timing constraints**, depending on the application
 
-  - must be **fault-tolerant**
+    - sometimes may operate in real-time
+    - sometimes must guarantee response in a given time window
+    - requirement example: "If pinch is detected, the motor must be stopped within 60ms" (automatic door closure)
+
+  - be **fault-tolerant**
        - assume that components may fail
-       - detect failures, enter safe mode
-
+       - after a fault occurs, enter a state that limits harm
 
 ### Embedded systems vs PC
 
-* Aren't embedded systems just "small PC's"? No.
+- Aren't embedded systems just "small PCs"? No.
 
 ![Embedded Systems vs PC](fig/Intro_EmbeddedVsPC_Mw.png)
 
-* Image from Marwedel 2011
+- Image from Marwedel 2011; a historical, generalized comparison
 
 ### Structure of an embedded system
 
-* Typical structure of an embedded system (CPS)
+- Typical structure of an embedded system (CPS)
+
 
 ![](fig/Intro_ExampleStructure_LS.png)
 
@@ -103,32 +103,30 @@ whose behavior is defined by both cyber and physical parts of the system
 
 ### Structure of an embedded system
 
-* Main components:
-   - the physical process (known as the "plant")
-   - sensors: acquire information from the process
-   - actuators: act on the process
-   - computation: may be split between different devices
-   - communications: between separate devices
+- Main components:
+   - the physical process, known as the "plant"
+   - sensors that acquire information from the process
+   - actuators that act on the process
+   - computing components, possibly distributed across devices
+   - communication links between devices
 
 ### The design process
 
-- Iterative, multiple steps:
+- An iterative process with repeated steps:
    - **Modeling**:  "the process of gaining a deeper understanding of a system through imitation. It specifies what a system does."
    - **Design**:    "the structured creation of artifacts. It specifies how a system does what it does."
    - **Analysis**:  "the process of gaining a deeper understanding of a system through dissection. It specifies why a system does what it does."
-   - ... and iterate again.
+   - Repeat the steps as needed.
 
 ### What we cover
 
 What we cover in this course:
 
 - Modeling:
-  - Modeling continuous dynamics with differential equations
+  - Model continuous dynamics with differential equations
 
 - Design:
-  - Design systems with discrete dynamics using finite state machines (FSM)
-  - FSM concurrency, hierarchy etc.
-  - Basics scheduling
+  - Design systems with discrete dynamics using finite-state machines (FSMs)
+  - Model concurrency and hierarchy with finite-state models
+  - Basics of scheduling
 
-- Analysis:
-  - ...
