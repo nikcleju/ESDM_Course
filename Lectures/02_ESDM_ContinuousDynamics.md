@@ -222,71 +222,50 @@ Mechanical circuit of the DC motor model (no load):
 
 - Next slides: find electrical correspondent to all mechanical elements
 
-### Model of the controlled voltage source
+### Model of the back EMF
 
-- How to model the controlled voltage source?
+- For zero load torque, the DC motor equations are:
 
-- Like this:
-    - voltage is proportional to speed: $U(s) = K_e \cdot S(s)$
-    - speed = integral of acceleration: $S(s) = \frac{1}{s} S_0 + \frac{1}{s} \cdot A(s)$
-    - acceleration is proportional to force (force(torque) / mass): $A(s) = C_{const} \cdot T(s)$
-	- force/torque = proportional to current: $T(s) = K_t \cdot I(s)$
+$$u(t)=R i(t)+L\frac{di(t)}{dt}+K_e\omega(t)$$
 
-- Result: $$U(s) = K_e \cdot (\frac{1}{s} S_0 + \frac{1}{s} \cdot C_{const} \cdot K_t I(s))$$
+$$J\frac{d\omega(t)}{dt}+b\omega(t)=K_t i(t)$$
 
-### Model of the controlled voltage source
+- Define the back-EMF node voltage as:
 
-$$U(s) = \underbrace{K_e \cdot S_0}_{Constant} + \underbrace{K_e C_{const}}_{Constant} \cdot \frac{1}{s} \cdot I(s)$$
+$$v_b(t)=K_e\omega(t)$$
 
-- Voltage proportional to the integral of current, plus a constant initial value
-	- what kind of electrical element acts like this?
-
-\s
-
-- The controlled voltage source can be modeled as a **capacitance**
-    - Voltage is proportional to integral of current
-    - (Current is proportional to derivative of voltage)
-    - The first constant term = the initial voltage on the capacitor
-
-\s
-
-- The equivalent capacitance value depends on the motor parameters
-
+- $v_b$ is an electrical node voltage. The motor speed is
+  $\omega=v_b/K_e$; they are not the same physical quantity.
 
 ### Model of the inertial force
 
-- Inertia = a force which opposes (i.e. reduces) the motor force, and is proportional to acceleration
+- Substitute $v_b=K_e\omega$ into the mechanical equation:
 
-- Use the analogy listed before:
-    - force = current
-	- speed = voltage
-	- acceleration  = derivative of speed = derivative of voltage
+$$i(t)=\frac{J}{K_eK_t}\frac{dv_b(t)}{dt}
+       +\frac{b}{K_eK_t}v_b(t)$$
 
-- Inertia = a *current* which opposes (i.e. reduces) the motor *current*, and is proportional to derivative of *voltage*
-    - what kind of electrical element acts like this?
+- The first term is the current through an equivalent capacitor:
 
-### Model of the inertial force
+$$C_{eq}=\frac{J}{K_eK_t}$$
 
-- Inertia model = a **capacity in parallel** with the controlled voltage source
-    - current proportional to derivative voltage $\Leftrightarrow$ a capacity
-	- reduces the motor current $\Leftrightarrow$ is in parallel with the controlled voltage source (steals some of its current)
+- Its initial voltage represents the initial motor speed:
 
-### Model of the friction force
+$$v_b(0)=K_e\omega_0$$
 
-- (Viscous) friction = a force which opposes (i.e. reduces) the motor force, and is proportional to speed
-
-- Use the same analogy:
-    - force = current
-	- speed = voltage
-
-- (Viscous) friction = a *current* which opposes (i.e. reduces) the motor *current*, and is proportional to *voltage*
-    - what kind of electrical element acts like this?
+- Inertia is represented once, by this single capacitor at the $v_b$ node.
 
 ### Model of the friction force
 
-- (Viscous) friction model = a **resistance in parallel** with the controlled voltage source
-    - current proportional to voltage $\Leftrightarrow$ a resistance
-    - reduces the motor current $\Leftrightarrow$ is in parallel with the controlled voltage source (steals some of its current)
+- The second term is the current through an equivalent resistor:
+
+$$R_{eq}=\frac{K_eK_t}{b}$$
+
+- Viscous friction is therefore represented by $R_{eq}$ from the $v_b$ node
+  to the reference node.
+
+- The capacitor and resistor currents add to the armature current:
+
+$$i(t)=C_{eq}\frac{dv_b(t)}{dt}+\frac{v_b(t)}{R_{eq}}$$
 
 ### Model of the sliding friction force
 
@@ -309,31 +288,35 @@ depend on speed, but is a constant \
 
 ![DC Motor electrical equivalent model](fig/DCMotorElectricalModel.png)
 
-- This is **a second order model** (1L, 1C)
-    - the two capacities are in parallel, so they can be added into a single one
-
-- The L is the inductance of the armatures $\Rightarrow$ small, often negligible
-
-- Can be approximated by a **first order model**
+- $R$ and $L$ feed the back-EMF node $v_b=K_e\omega$.
+- One shunt $C_{eq}$ models inertia; $R_{eq}$ models viscous friction.
+- With one inductor and one capacitor, this model is **second order**.
 
 ### Transfer function of a DC motor
 
-- We can derive a transfer function
-    - input = voltage on motor input $U(s)$
-    - output = motor speed $S(s)$ = voltage on equivalent motor capacity
+- Under zero initial conditions and zero load torque:
+    - input = motor voltage $U(s)$
+    - back-EMF node voltage = $V_b(s)$
+    - output = motor speed $\Omega(s)=V_b(s)/K_e$
 
-- Transfer function ($2{^nd}$ order, approximately $1^{st}$ order)
+$$U(s)=(Ls+R)I(s)+V_b(s),\qquad
+I(s)=\left(sC_{eq}+\frac{1}{R_{eq}}\right)V_b(s)$$
+
+- Transfer function (second order, approximately first order)
 $$\begin{aligned}
-H(s) = \frac{S(s)}{U(s)} &= \frac{R_{Fr}}{R_{Fr} + (R_{Arm}+s L_{Arm})(1 + s C_{M+I} R_{Fr})} \\
-&= \frac{b_0}{s^2 + a_1 s + a_0}\\
-&\approx \frac{K}{\tau \cdot s + 1}
+\frac{\Omega(s)}{U(s)}
+&=\frac{1}{K_e}\frac{V_b(s)}{U(s)}\\
+&=\frac{1}{K_e}
+  \frac{1}{1+(Ls+R)\left(sC_{eq}+\frac{1}{R_{eq}}\right)}\\
+&=\frac{K_t}{(Ls+R)(Js+b)+K_eK_t}
 \end{aligned}$$
 
 ### Transfer function of a DC motor
 
 - Take home message:
   - Simple DC motor no-load model = a second order RLC model = approx a first-order RC model (ignoring L small)
-  - Behaves like an RC low-pass filter
+  - The node voltage $v_b$ is proportional to speed, with $\omega=v_b/K_e$
+  - Behaves like an RC low-pass filter when the armature inductance is neglected
 
 - Note: This is a no-load model (motor doesn't move an external load)
 
