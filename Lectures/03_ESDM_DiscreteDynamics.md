@@ -2,7 +2,7 @@
 
 ### Actor model of systems
 
-A system can be decomposed as inter-connected building blocks, called "actors"
+A system can be decomposed into inter-connected building blocks, called "actors"
 
 - Each actor has:
   - 0, 1 or more input ports
@@ -32,7 +32,7 @@ Ancient philosophy debate: Heraclitus (continuous) vs Parmenides (discrete)
 
 - **Discrete dynamics** = the system operates in a sequence of discrete steps
     - there are no continuous changes (no continuous signals)
-    - like digital circuits (values change only on clock edge, e.g., rising/falling edge)
+    - like ideal synchronous digital circuits (values change only on clock edge, e.g., rising/falling edge)
 
 - It's more a mathematical model (real-life is continuous), but still extremely useful
 
@@ -41,7 +41,7 @@ Ancient philosophy debate: Heraclitus (continuous) vs Parmenides (discrete)
 
 Example of a discrete system model:
 
-- Sense the cars that enter and leave a parking area (e.g., at barriers), and display the current number of cars in the parking lot on a display.
+- Sense the cars that enter and leave a parking area (e.g., at barriers), and output the current number of cars in the parking lot to a display.
 
 ![Parking system](fig/Parking_1.png)
 
@@ -65,7 +65,7 @@ Example of a discrete system model:
 ![Parking system FSM](fig/Parking_2_FSM.png)
 
 
-### Components of a FSM representation
+### Components of an FSM representation
 
 - States = the "bubbles"
 
@@ -93,7 +93,7 @@ Example of a discrete system model:
 
 ### FSM mathematical model
 
-A FSM is a tuple (States, Inputs, Outputs, update, initialState) consisting of the following:
+An FSM is a tuple (States, Inputs, Outputs, update, initialState) consisting of the following:
 
 - States = a finite set $\{0, 1, \ldots, M\}$
 - Inputs = a set of variables with their data types
@@ -103,7 +103,6 @@ A FSM is a tuple (States, Inputs, Outputs, update, initialState) consisting of t
    - outputs: next state + current output values
 - initialState $\in$ States = the initial state
 
-If all of the above is known, everything is known about the model.
 
 ### Mealy vs Moore machines
 
@@ -143,7 +142,7 @@ Model example: thermostat
 
 ### When does a reaction occur?
 
-- When are transitions checked? (when do the reactions happen)?
+- When are transitions checked? (i.e., when do the reactions happen)?
 
 - Two variants:
 
@@ -175,7 +174,7 @@ Model example: thermostat
 Advantages/disadvantages of time-triggered models:
 
   - Bad: if an input changes very fast, within a $T_s$ interval, the model **may not see it**
-  - Good: all inputs are read simultaneously
+  - Good: all inputs are read simultaneously (almost)
   - Good: simple to understand
 
 Advantages/disadvantages of event-triggered models:
@@ -187,10 +186,10 @@ Advantages/disadvantages of event-triggered models:
 
 ### Properties of discrete models
 
-- **Determinism**: In every state, for all possible input values, at most one transition is enabled
+- **Determinism**: In every state, for all possible input values, at most one transition is taken
     - if you know the initial state and all the inputs' evolution, you know the complete behavior of the system
 
-- **Non-determinism**: Models unknown behavior (unknown inputs), or random transitions
+- **Non-determinism**: Models unknown behavior, or random transitions
 
 ### Completeness and priorities
 

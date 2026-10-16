@@ -12,7 +12,7 @@ Introducing students to the Simulink environment and the Stateflow component.
 # Theoretical aspects
 
 TBD
-        
+
 
 # Exercises
 
@@ -43,10 +43,17 @@ TBD
 
 2. Extend the model in the following way:
 
-	- The inputs `up` and `down` shall be considered upon transitioning from FALSE to TRUE (e.g. if `up` stays TRUE for 10 seconds, 
+	- The inputs `up` and `down` shall be considered upon transitioning from FALSE to TRUE (e.g. if `up` stays TRUE for 10 seconds,
 	count it only once).
 
 	- Introduce another input `count_init` which shall be used as the initialization value for `count`.
+
+
+# General requirements
+
+- Model Settings: Set the Solver type to "Fixed-step", "discrete (no continuous states"), and fixed step size to 0.1 (see Fig.1)
+
+  ![Model Settings](img/Settings_Discrete.png)
 
 
 # Final questions
