@@ -7,9 +7,9 @@ Hierarchical state machines:
 - A state in a top-level FSM can be implemented
 ("refined") as an internal/embedded state machine
 
-  - The top level state = “super-state”
+  - The top-level state = “super-state”
   - An internal state inside it = “sub-state”
-  
+
 Problems:
 
 - Which sub-state is entered?
@@ -19,7 +19,7 @@ Problems:
 
 ![State refinement](fig/Hierarchical_Refinement.png){width=70%}
 
-Question: 
+Question:
 
 - Suppose the FSM is in sub-state D of B
 - If g1 and g3 are both true, which reacts first? The inner FSM or the outer FSM?
@@ -44,7 +44,7 @@ Two solutions:
 
 ### Reaction order
 
-2. [Stateflow, Matlab] Outer FSM reacts first, inner FSM reacts later (if at all)
+2. [Stateflow, MATLAB] Outer FSM reacts first, inner FSM reacts later (if at all)
 
     - If state is left, the inner FSM will not react at all
 
@@ -65,34 +65,34 @@ Two solutions:
 
 1. Enter the last sub-state you were in, when you last left
    the super-state
-    - Represented as a **history transition** (marked with a full black arrow on these schematics / a H sign in Matlab)
+    - Represented as a **history transition** (marked with a full black arrow on these schematics / an H symbol in Matlab)
 
 2. Enter the default sub-state every time
     - Known as a **reset transition** (marked with a white arrow on these schematics / default behavior in Matlab)
-    
+
 ### Example
 
 
 ### Equivalent flattened FSM
 
-- Any hierarchical FSM can be "flattened", e.g. converted into an equivalent model with no super-states
+- Any hierarchical FSM can be "flattened", i.e., converted into an equivalent model with no super-states
 
-  - e.g. Super-state A with two substates B and C is split into to substates AB and AC, transitions from A now leaving from both AB and AC
-  
+  - e.g. Super-state A with two substates B and C is split into two substates AB and AC, transitions from A now leaving from both AB and AC
+
 - Hierarchy in models brings representation efficiency
-  
-### Example
-
-![Flattenning example](fig/Hierarchical_Flattened.png){width=90%}
 
 ### Example
 
-Redraw here  
+![Flattening example](fig/Hierarchical_Flattened.png){width=90%}
 
 ### Example
 
-![Flattenning example](fig/Hierarchical_Flattened2.png){width=90%}
+Redraw here
 
 ### Example
 
-Redraw here  
+![Flattening example](fig/Hierarchical_Flattened2.png){width=90%}
+
+### Example
+
+Redraw here

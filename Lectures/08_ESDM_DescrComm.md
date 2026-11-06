@@ -27,7 +27,7 @@
 
 ![Different software components working together [^AUTOSAR]](img/autosar_composition.png)
 
-[^AUTOSAR]: image from [Matlab documentation](https://ww2.mathworks.cn/help/autosar/ug/autosar_composition.png)
+[^AUTOSAR]: image from [MATLAB documentation](https://ww2.mathworks.cn/help/autosar/ug/autosar_composition.png)
 
 ### AUTOSAR Software Components
 
@@ -41,7 +41,7 @@
     - input / output ports (variables with specified data types)
     - client / server ports (function calls which one component provides, and some other component may call)
   - **Runnables** = functions that can be called by the system
-    - **Periodic runnables**: called periodically by the system, e.g. every 10ms. This is where FSM's are typically implemented.
+    - **Periodic runnables**: called periodically by the system, e.g. every 10 ms. This is where FSMs are typically implemented.
     - **Server runnables**: called by other components via client/server ports
     - each runnable has access to some of the ports of the SwC
     - runnables can have various parameters (e.g. periodicity, priority)
@@ -49,7 +49,7 @@
 
 ### AUTOSAR Application Software Components
 
-![Software Component implemented in Matlab [^SwC]](img/autosar_swc.png){width=60%}
+![Software Component implemented in MATLAB [^SwC]](img/autosar_swc.png){width=60%}
 
 - In this sample component we have:
   - three runnables (one for initialization, one server, one periodic)
@@ -57,7 +57,7 @@
   - one client/server port
   - one InterRunnable Variable (IRV)
 
-[^SwC]: image from [Matlab documentation](https://www.mathworks.com/help/autosar/ug/autosar-software-components.html)
+[^SwC]: image from [MATLAB documentation](https://www.mathworks.com/help/autosar/ug/autosar-software-components.html)
 
 ### AUTOSAR Application Software Components
 
@@ -69,13 +69,13 @@
 
 - The tool makes sure that the implementation matches the description (e.g. input and output have the correct names and types etc.)
 
-- Matlab/Simulink/Stateflow have support for AUTOSAR, can import and export the SwC descriptions,
+- MATLAB/Simulink/Stateflow have support for AUTOSAR, can import and export the SwC descriptions,
   the SwC can be implemented fully in Simulink/Stateflow, and then the C code can be generated from the models
 
 ## Models of communication
 
 
-### Models of communications
+### Models of communication
 
 - Consider multiple models working in parallel composition
 
@@ -85,13 +85,13 @@
 
 - Typical scenarios:
 
-  - two models (FSM's) on the same machine, executed on same CPU thread
+  - two models (FSMs) on the same machine, executed on same CPU thread
   - two models on the same machine, executed on parallel threads/CPUs (parallelization)
   - two models on different machines
 
 - It is a general topic in multi-threaded programming (working with threads, processes etc)
 
-## Models of Communications
+## Models of Communication
 
 ### Approaches
 
@@ -113,7 +113,7 @@
 
 ### Shared memory
 
-- **Shared** variables = variables which can we written / read by both tasks
+- **Shared** variables = variables which can be written / read by both tasks
 
 - One task writes the variable, the other reads it, communication is done
 
@@ -140,13 +140,12 @@
 
 - Typical atomic operations:
 
-  - setting / getting a value for a built in datatype like `int`, `bool`, e.g
+  - setting / getting a value for a built-in datatype like `int`, `bool`, e.g.:
     - `a = 5`;
     - `is_Enabled = False`;
 
 - Non-atomic operations: everything else
 
-  - calling a function
   - e.g. inserting/removing an element in a vector
   - setting multiple variables (can be interrupted inbetween)
   - ...
@@ -157,14 +156,14 @@
 accesses a given resource (e.g. variable) at one time
 
   - A process first **acquires** the mutex, and only afterwards accesses the variable
-  - While the mutex is acquired, no other process can access it.
+  - While the mutex is acquired, no other process should access the resource
   - The first process **releases** the mutex when it’s done with the variable
-  - Another process then automatically acquires the mutex and access the variable, etc
+  - Another process can then acquire the mutex and access the variable, etc
 
-- A process **blocks** when tries to acquire a lock which is held by another one
+- A process **blocks** when it tries to acquire a lock which is held by another one
   - **blocks** = goes to sleep until the lock is released by the current holder
 
-- The part of code code between acquiring and releasing the mutex is known as a **critical section**
+- The part of code between acquiring and releasing the mutex is known as a **critical section**
 
 - Mutexes are provided by the operating system, and are used in code via library functions provided by the OS
 
@@ -213,7 +212,7 @@ def thread_function_2():
 ```{.C}
 #include <pthread.h>
 
-pthread_mutex_t mutex;
+pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
 
 void do_work_with_mutex()
 {
@@ -271,7 +270,7 @@ Second approach: Communication via Message Passing
 
 Message passing: **blocking (synchronous)**
 
-- When the sender sends, it **waits** for the receiver to acknowledge that is has received the data
+- When the sender sends, it **waits** for the receiver to acknowledge that it has received the data
 
 - If the receiver is first to read, it **waits** for the data to be available
 
@@ -302,14 +301,13 @@ Comparing blocking vs non-blocking:
 
     - This storage space may overflow => need to have safety mechanisms in place to avoid **buffer overflow**
 
-  - Blocking communication does not need any special soneeds a storage space (FIFO, LIFO, Queue, list etc.)
+  - Blocking communication does not need any special storage space (FIFO, LIFO, Queue, list etc.)
 
 - Delays:
 
     - Non-blocking communication doesn't delay the sender nor the receiver
     - Blocking communication delays one of the processes until the other one is ready
 
-- Examples:...
 
 ### Message passing example - Python
 

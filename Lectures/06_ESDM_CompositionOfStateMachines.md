@@ -14,13 +14,13 @@
 
 ### Spatial composition
 
-**Spatial** composition = how are two components connected, how does the information flow between the components 
+**Spatial** composition = how are two components connected, how does the information flow between the components
 
   - **Side-by-side** composition = no common inputs/outputs, no shared data
-  
+
   - **Cascade** composition = Outputs of one FSM are inputs to another one
 
-  - **Feedback** composition = (Some) outputs of a FSM are inputs to the same FSM, or to some other component which is in front
+  - **Feedback** composition = (Some) outputs of an FSM are inputs to the same FSM, or to some other component situated upstream
 
 ### Side-by-side composition
 
@@ -44,21 +44,19 @@
 
   - **Sequential vs Parallel** composition:
 
-    - **Sequential** = the two FSM do not work at the same time
-    - **Parallel** = the two FSM work at the same time
-    
-  
-  - **Asynchonous vs Synchronous** composition = only for parallel composition
-    
-    - **Synchronous** = transitions are taken at the same time in
-both FSMs
+    - **Sequential** = the two FSMs do not work at the same time
+    - **Parallel** = the two FSMs work at the same time
 
-    - **Asynchronous** = transitions are taken at independent times in
-the FSMs
-  
-  
-### Sequential composition  
-  
+
+  - **Asynchronous vs Synchronous** composition = only for parallel composition
+
+    - **Synchronous** = the FSMs react at the same time, i.e. are driven by the same clock
+
+    - **Asynchronous** = the FSMs react at independent times
+
+
+### Sequential composition
+
 ![Example of Sequential composition](fig/Composition_SequentialExample.png){width=80%}
 
 - [https://www.youtube.com/watch?v=iD3QgGpzzIM](https://www.youtube.com/watch?v=iD3QgGpzzIM)
@@ -70,9 +68,9 @@ the FSMs
 
 ![Side-by-side composition](fig/Composition_SideBySide.png){width=50%}
 
-- The two FSMs form an **equivalent model**
+- The two FSMs can be represented as a single **equivalent model** FSM
 
-- When do the transitions in these FSM take place?
+- When do the transitions in these FSMs take place?
 
   - Synchronous: simultaneously
   - Asynchronous: independently
@@ -80,7 +78,7 @@ the FSMs
 
 ### Synchronous composition
 
-- Consider the two FSM on the left (A and B)
+- Consider the two FSMs on the left (A and B)
 
 - The equivalent model is on the right
 
@@ -116,7 +114,7 @@ Draw here
   - Transitions in the two FSMs can take place at irregular
 and independent (not synchronized) times
 
-  - All states are reachable
+  - All states are reachable, in general
     - because one model can be much faster than the other
 
 ### Asynchronous composition
@@ -128,14 +126,14 @@ Flavors of asynchronous composition
 
   - simultaneous transition in models A and B is not allowed (we may
 have either a transition in model A, or a transition in B)
-  - i.e. transition from A takes place first, then transition from B
-takes place after a non-zero time delay (or vice-versa)
+  - i.e. transition in one model happens first, then transition in the other model B
+takes place (after some time delay)
 
 - **Simultaneous** semantics:
 
   - simultaneous transition in models A and B is allowed
   - for example, we may have either
-  
+
     - transition only in model A
     - transition only in model B
     - Simultaneous transition in models A and B
@@ -159,5 +157,5 @@ takes place after a non-zero time delay (or vice-versa)
 
 ### Example
 
-![Synchronous composition - Equivalent model with unreachable states removed](fig/Composition_PedAndCarLightSync1.png){width=90%}
+![Synchronous composition - Equivalent model with unreachable states removed](fig/Composition_PedAndCarLightSync2.png){width=90%}
 

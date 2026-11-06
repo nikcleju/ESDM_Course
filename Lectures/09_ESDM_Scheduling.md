@@ -28,7 +28,7 @@ to be run on the same processing device
 
 - Tasks may be interrupted (preempted) by higher priority tasks, when priorities are defined
 
-- Tasks may be periodic (e.g. run every 10ms) or aperiodic
+- Tasks may be periodic (e.g. run every 10 ms) or aperiodic
 
 ### Task
 
@@ -74,7 +74,7 @@ Considerations:
 
 ### Optimality of RMS
 
-- A **feasible schedule** =  all task finish times are before their deadlines
+- A **feasible schedule** =  all task finish times are at or before their deadlines
   - no deadline is exceeded
 
 - **Theorem**: If the set of N tasks can be arranged to form a feasible schedule, then the RMS scheduling is feasible.
@@ -101,7 +101,7 @@ Explanations for EDF example:
 
 - At time 0 we have only task T1, start executing it
 - At time 4 task T2 arrives, with deadline 28 which is smaller than T1's deadline 33. Interrupt T1 and start executing T2
-- At time 5 task T3 arrives, with deadline 29 which is later than T2. Keep executing T2
+- At time 5 task T3 arrives, with deadline 29 which is later than T2's deadline. Keep executing T2
 - At time 7 task T2 finishes. Out of T1 and T3, T3 has the earliest deadline, so start executing T3
 - At time 17 task T3 finishes. Only T1 is left, so resume executing T1 until it finishes
 
@@ -112,15 +112,15 @@ Explanations for EDF example:
 
 - The **maximum lateness** of a set of N tasks is:
   $$L_{max} = \max{(f_i - d_i)}$$
-  i.e. the maximum exceeding of a deadline
+  i.e. the maximum difference between completion time and deadline.
 
   - $f_i$ is the actual finish time of the task
   - $d_i$ is the deadline of the task, i.e. when it was supposed to be finished
   - lateness of a task is L = $f_i - d_i$
   - if L > 0, the task is late, i.e. its deadline was exceeded
-  - if L < 0, the task is early, i.e. it finished ahead its deadline
+  - if L < 0, the task is early, i.e. it finished ahead of its deadline
 
-- EDF minimizes the maximum lateness among all tasks. If no deadline is exceeded, $L_{max} < 0$ and EDF maximizes the safety margin between the finish time and the dealine
+- EDF minimizes the maximum lateness among all tasks. If no deadline is exceeded, $L_{max} \le 0$ and EDF maximizes the safety margin between the finish time and the deadline
 
 ### Priority Inversion
 
@@ -151,7 +151,7 @@ Explanations for EDF example:
 
 **Priority inheritance protocol**:
 
- - When a task blocks while trying to acquire a lock, the task holding the lock **inherits** the priority of the blocked task.
+ - When a task blocks while trying to acquire a lock, the task holding the lock **inherits** the priority of the blocked task, if it is higher than its own priority.
 
  - This ensures that the task holding the lock cannot be preempted by a task with lower priority than the blocked task.
 
@@ -176,7 +176,7 @@ Explanations for EDF example:
 - A task holds a lock A and blocks waiting for a lock B
 - Another task holds the lock B and blocks waiting for a lock A
 
-- Result: both tasks are blocked for ever
+- Result: both tasks are blocked forever
 
 Possible solutions:
 
@@ -196,7 +196,7 @@ Possible solutions:
 
   - Suppose all locks can be acquired by any task, so priority ceiling of all locks is equal to $P_{max}$ = maximum priority among all tasks
   - Suppose one task holds a lock A, so priority ceiling of all locks **currently held** is $P_{max}$
-  - Another task cannot hold another lock B unless its prio is **strictly higher** than $P_{max}$ => impossible => can't lock B => no deadlock
+  - Another task cannot hold another lock B unless its priority is **strictly higher** than $P_{max}$ => impossible => can't lock B => no deadlock
 
 ### Priority Ceiling Protocol
 
