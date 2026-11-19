@@ -20,17 +20,17 @@ An FSM can have a multi-level hierarchy composed of **substates** inside
 In this lab, use **exclusive (OR) decomposition**: when a
 superstate is active, only one of its immediate substates is active.
 
-Within a substates of a state, one of the must be the default.
+Among the substates of a state, one must be the default.
 A default transition inside the superstate selects the initial substate,
 as in the following image[^1].
 
-[^1]: All images are from the Matlab documentation
+[^1]: All images are from the MATLAB documentation.
 
 ![Hierarchical FSM](img/L4_StateHierarchy_Matlab.png)
 
 The check of transitions is done in **top-down order**:
 
-1. First check all transitions of the super-state
+1. First check all transitions of the super-state.
 
    If a transition is found valid, it is executed, all the substates are exited without any further checks, and the target state is entered.
 
@@ -38,7 +38,7 @@ The check of transitions is done in **top-down order**:
 
 ![What is the execution order here?](img/L4_ExecutionOrder.png)
 
-A detailed steb-by-step workflow for execution of a chart in Stateflow is provided in Matlab documentation:
+A detailed step-by-step workflow for executing a chart in Stateflow is provided in the MATLAB documentation:
 
 [Link: Execution of a Stateflow chart](https://www.mathworks.com/help/stateflow/ug/chart-during-actions.html)
 
@@ -49,8 +49,8 @@ A detailed steb-by-step workflow for execution of a chart in Stateflow is provid
 On ordinary entry to an exclusive superstate, the default transition selects
 its initial substate.
 
-When a **history junction sign** is a present in a super-state, then
-when entering the state execution goes to **the last active substate when it last exited the state**, instead of the default substate. This is useful for restoring the previous substate.
+When a **history junction** is present in a superstate,
+re-entering the superstate activates **the substate that was active when the superstate was last exited**, instead of the default substate. This is useful for restoring the previous substate.
 
 On the first entry,
 when there is no recorded history, the default transition is used.
@@ -62,7 +62,7 @@ However, this is not recommended, as it breaks the encapsulation of the supersta
 ![States with history](img/L4_History.png)
 
 Using history restores active states, and that's all.
-The subtates are considered to be re-entered, so their `entry` actions run again, and any temporal conditions such as `after(0.2,sec)` restart from zero.
+The substates are considered to be re-entered, so their `entry` actions run again, and any temporal conditions such as `after(0.2,sec)` restart from zero.
 
 See [MathWorks, Resume Prior Substate Activity Using History Junctions](https://www.mathworks.com/help/stateflow/ref/historyjunction.html)
 and [after](https://www.mathworks.com/help/stateflow/ref/after.html).
@@ -91,7 +91,7 @@ Design an FSM in Stateflow for a Christmas Lights Control module.
 
 - Input `Command`: integer, with valid values 1, 2, and 3.
 - Outputs `OUT1`, `OUT2`, `OUT3`, `OUT4`, `OUT5`: real-valued LED intensity
-  values (e.g., PWM duty cycles) from 0 to 100. Zero means LED is off; 100 means maximum intensity.
+  values (e.g., PWM duty cycles) from 0 to 100. Zero means the LED is off; 100 means maximum intensity.
 
 Implement three animation modes, using substates for their phases:
 
@@ -113,7 +113,7 @@ Implement the following command behavior:
 - `Command = 0`: run Flash, Slow, and Train in that order, for 10 seconds each;
   repeat indefinitely. Start with Flash.
 - `Command = 1`, `2`, or `3`: run only the corresponding mode indefinitely.
-- On a change of `Command` value, start the newly selected
+- On a change in the `Command` value, start the newly selected
   behavior from its initial phase. Entering automatic operation starts a new
   10-second Flash interval. Holding a command must not repeatedly restart it.
 - Assume the command always has a valid value.
@@ -127,9 +127,9 @@ Save and test this version before adding the pause behavior.
 - Add a new Boolean input `OVERHEATING`. When it becomes TRUE, immediately leave normal operation and set all five outputs to zero. When it becomes FALSE, resume the previous mode and phase, but after at least 15 seconds of pause.
 
 **Design hint:** Group the normal-operation states inside a `Running` superstate and add a `Paused` state.
-Overheating transitions from the high-level `Running` to `Paused` states and back. Use history junctions to restore the previous mode and phase when coming back.
+Use transitions between the high-level `Running` and `Paused` states to handle overheating. Use history junctions to restore the previous mode and phase when coming back.
 
-## 5. Optional extension: preserve exact animation progress
+## 4. Optional extension: preserve exact animation progress
 
 Extend the design so that pause/resume also preserves the **remaining time**
 of Flash and Train phases and of the automatic 10-second mode interval.
@@ -150,12 +150,12 @@ Verify this extension with pauses partway through animation phases.
 
   ![Model Settings](img/Settings_Discrete.png)
 
-- Use **Simulation Pacing** for interactive tests, in order to have simulation time slightly faster than normal time
+- Use **Simulation Pacing** for interactive tests, in order to have simulation time slightly faster than normal time.
 
   ![Simulation pacing](img/Run_Pacing.png)
 
 
-- Put all inputs and outputs into a Scope block, for visualization and analysis
+- Put all inputs and outputs into a Scope block, for visualization and analysis.
 - Attach a nice input widget such as a **Knob** or **Slider** from the Dashboard group for the `Command` input. Set its range to 0–3 and its step size to 1.
-- You can attach "Lamp" blocks from the Dashboard group to easily see the outputs (unfortunately, they do not show intensity, only on/off)
+- You can attach "Lamp" blocks from the Dashboard group to easily see the outputs (unfortunately, they do not show intensity, only on/off).
 
